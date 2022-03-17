@@ -126,7 +126,7 @@
 		<div class="lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
 			<!-- Product image -->
 			<div class="lg:row-end-1 lg:col-span-4">
-				<div class="aspect-w-4 aspect-h-3 rounded-lg bg-gray-100 overflow-hidden">
+				<div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden">
 					<img src="{pathAWS}{image[0].filename}" alt="action product" class="object-center object-cover">
 				</div>
 			</div>
