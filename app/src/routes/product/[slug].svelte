@@ -50,7 +50,8 @@
 <script>
     import { useVisible } from "$lib/use/functions/visible";
     import { descriptionInfo, paymentInfo, deliveryInfo, lengthCart, InCart } from "../../stores.js";
-    import { concat } from "lodash";
+    import pkg from 'lodash';
+    const { concat } = pkg;
     import axios from "axios";
     import { useReturn } from "$lib/use/functions/return";
     import { onMount } from "svelte";

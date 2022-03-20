@@ -1,4 +1,5 @@
-import { find, forEach } from "lodash";
+import pkg from 'lodash';
+const { forEach, find } = pkg;
 import axios from "axios";
 export const get = async ({ params }) => {
   const { slugRubric } = params;

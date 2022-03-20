@@ -38,7 +38,8 @@
 
 <script>
   import axios from "axios";
-  import { concat, some } from "lodash";
+  import pkg from 'lodash';
+  const { concat } = pkg;
   import { lengthCart, InCart, informationMenu } from "../../stores";
   import { useReturn } from "$lib/use/functions/return";
   import { browser } from "$app/env";

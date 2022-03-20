@@ -42,7 +42,8 @@
 
 <script>
 	import { useActions } from "$lib/use/content/actions";
-	import { concat } from "lodash";
+	import pkg from 'lodash';
+	const { concat } = pkg;
 	import { InCart, lengthCart } from "../stores";
 	import axios from "axios";
 	import { onMount } from "svelte";
