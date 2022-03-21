@@ -8,11 +8,7 @@
 	if (browser && localStorage.getItem('dataS') === null){
 		browser && localStorage.setItem('dataS', uuid())
 	}
-
-
 </script>
-
-
 
 <Header />
 

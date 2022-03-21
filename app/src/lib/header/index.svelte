@@ -15,11 +15,9 @@
 
     const changeVisibleInformationMenu = () => {
         informationMenu.update(invert);
-        console.log('111')
     };
     const closeVisibleInformationMenu = () => {
         informationMenu.update(invertToFalse);
-        console.log('222')
     };
     let visibleInformationMenu;
     informationMenu.subscribe(value => visibleInformationMenu = value);
