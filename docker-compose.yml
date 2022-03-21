@@ -9,8 +9,6 @@ services:
     restart: always
     command:
       "npm run start"
-    networks:
-      - app
 
 
   nginx:
@@ -22,11 +20,8 @@ services:
     volumes:
       - ./:/var/www
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
-      - etc-letsencrypt:/etc/letsencrypt
     depends_on:
       - svelte
-    networks:
-      - app
 
   certbot:
     image: certbot/certbot
@@ -37,12 +32,3 @@ services:
       - etc-letsencrypt:/etc/letsencrypt
       - www-html:/var/www/html
     command: certonly --webroot --webroot-path=/var/www/html --email indexpro24@gmail.com --agree-tos --no-eff-email -d larux.ru
-
-volumes:
-  www-html:
-  dbfile:
-  etc-letsencrypt:
-
-networks:
-  app:
-    driver: bridge
