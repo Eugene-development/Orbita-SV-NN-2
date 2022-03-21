@@ -3,18 +3,15 @@
     const l = console.log
     export const load = async ({fetch, params, url}) => {
 
-        // const idHead = url.searchParams.get('id');
+        const idHead = url.searchParams.get('id');
         const slugHead = params.slug;
 
         let res;
-        // if (idHead) {
-        //     res = await fetch(`/api/catalog/rubricsID/${idHead}`)
-        // } else {
-        //     res = await fetch(`/api/catalog/rubricsSLUG/${slugHead}`)
-        // }
-
-        res = await fetch(`/api/catalog/rubricsSLUG/${slugHead}`)
-
+        if (idHead) {
+            res = await fetch(`/api/catalog/rubricsID/${idHead}`)
+        } else {
+            res = await fetch(`/api/catalog/rubricsSLUG/${slugHead}`)
+        }
 
         const resJSON = await res.json();
         const data = resJSON.rubrics.data[0]
@@ -94,7 +91,7 @@
                             <ul class="space-y-2">
                             </ul>
                             <div class="mb-2 rounded-md shadow-xl shadow-indigo-500/50">
-                                <a href='/category/{slug}/?id={id}'
+                                <a sveltekit:prefetch sveltekit:noscroll href='/category/{slug}/?id={id}'
                                         class="ease-in duration-300 block w-full bg-gradient-to-r from-indigo-500 via-indigo-800 to-indigo-500 hover:from-indigo-800 hover:via-indigo-500 hover:to-indigo-800 border border-indigo-900 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-indigo-900">
                                     В каталог
                                 </a>

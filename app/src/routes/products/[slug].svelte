@@ -1,18 +1,14 @@
 <script context="module">
   export const load = async ({ fetch, params, url }) => {
-    // const idCategory = url.searchParams.get("id");
+    const idCategory = url.searchParams.get("id");
     const slugCategory = params.slug;
 
-    // let res;
-    // if (idCategory) {
-    //   res = await fetch(`/api/catalog/productsID/${idCategory}`)
-    // } else {
-    //   res = await fetch(`/api/catalog/productsSLUG/${slugCategory}`)
-    // }
-
     let res;
-
+    if (idCategory) {
+      res = await fetch(`/api/catalog/productsID/${idCategory}`)
+    } else {
       res = await fetch(`/api/catalog/productsSLUG/${slugCategory}`)
+    }
 
     const resJSON = await res.json();
     const data = resJSON.products.data[0];

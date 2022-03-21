@@ -1,17 +1,14 @@
 <script context="module">
     export const load = async ({fetch, params, url}) => {
-        // const idRubric = url.searchParams.get('id');
+        const idRubric = url.searchParams.get('id');
         const slugRubric = params.slug;
 
-        // let res;
-        // if (idRubric) {
-        //     res = await fetch(`/api/catalog/categoriesID/${idRubric}`)
-        // } else {
-        //     res = await fetch(`/api/catalog/categoriesSLUG/${slugRubric}`)
-        // }
-
         let res;
-        res = await fetch(`/api/catalog/categoriesSLUG/${slugRubric}`)
+        if (idRubric) {
+            res = await fetch(`/api/catalog/categoriesID/${idRubric}`)
+        } else {
+            res = await fetch(`/api/catalog/categoriesSLUG/${slugRubric}`)
+        }
 
         const resJSON = await res.json();
         const data = resJSON.categories.data[0]
