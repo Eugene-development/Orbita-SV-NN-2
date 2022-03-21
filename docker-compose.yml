@@ -35,6 +35,3 @@ services:
       - ./certbot/www:/var/www/certbot
     command: certonly --webroot -w /var/www/certbot --force-renewal --email indexpro24@gmail.com -d larux.ru --agree-tos
 
-
-volumes:
-  etc-letsencrypt:
