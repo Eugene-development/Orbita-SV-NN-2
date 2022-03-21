@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: ./docker/node/Dockerfile
     container_name: "${COMPOSE_PROJECT_NAME}_PROJECT"
-    restart: always
+    restart: unless-stopped
     command:
       "npm run start"
 
@@ -14,6 +14,7 @@ services:
   nginx:
     image: nginx:1.13
     container_name: "${COMPOSE_PROJECT_NAME}_NGINX"
+    restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
@@ -23,15 +24,17 @@ services:
     depends_on:
       - svelte
 
+
   certbot:
     image: certbot/certbot
     depends_on:
       - nginx
     container_name: certbot
     volumes:
-      - etc-letsencrypt:/etc/letsencrypt
-      - ./:/var/www
-    command: certonly --webroot --webroot-path=/var/www/html --email indexpro24@gmail.com --agree-tos --no-eff-email -d larux.ru
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email indexpro24@gmail.com -d larux.ru --agree-tos
+
 
 volumes:
   etc-letsencrypt:
