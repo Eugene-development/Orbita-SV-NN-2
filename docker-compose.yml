@@ -30,5 +30,8 @@ services:
     container_name: certbot
     volumes:
       - etc-letsencrypt:/etc/letsencrypt
-      - www-html:/var/www/html
+      - ./:/var/www
     command: certonly --webroot --webroot-path=/var/www/html --email indexpro24@gmail.com --agree-tos --no-eff-email -d larux.ru
+
+volumes:
+  etc-letsencrypt:
