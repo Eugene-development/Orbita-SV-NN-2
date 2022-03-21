@@ -1,14 +1,18 @@
 <script context="module">
   export const load = async ({ fetch, params, url }) => {
-    const idCategory = url.searchParams.get("id");
+    // const idCategory = url.searchParams.get("id");
     const slugCategory = params.slug;
 
+    // let res;
+    // if (idCategory) {
+    //   res = await fetch(`/api/catalog/productsID/${idCategory}`)
+    // } else {
+    //   res = await fetch(`/api/catalog/productsSLUG/${slugCategory}`)
+    // }
+
     let res;
-    if (idCategory) {
-      res = await fetch(`/api/catalog/productsID/${idCategory}`)
-    } else {
+
       res = await fetch(`/api/catalog/productsSLUG/${slugCategory}`)
-    }
 
     const resJSON = await res.json();
     const data = resJSON.products.data[0];
@@ -40,7 +44,7 @@
   import axios from "axios";
   import pkg from 'lodash';
   const { concat } = pkg;
-  import { lengthCart, InCart, informationMenu } from "../../stores";
+  import { lengthCart, InCart } from "../../stores";
   import { useReturn } from "$lib/use/functions/return";
   import { browser } from "$app/env";
   import { onMount } from "svelte";

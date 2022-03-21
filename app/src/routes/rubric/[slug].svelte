@@ -3,15 +3,18 @@
     const l = console.log
     export const load = async ({fetch, params, url}) => {
 
-        const idHead = url.searchParams.get('id');
+        // const idHead = url.searchParams.get('id');
         const slugHead = params.slug;
 
         let res;
-        if (idHead) {
-            res = await fetch(`/api/catalog/rubricsID/${idHead}`)
-        } else {
-            res = await fetch(`/api/catalog/rubricsSLUG/${slugHead}`)
-        }
+        // if (idHead) {
+        //     res = await fetch(`/api/catalog/rubricsID/${idHead}`)
+        // } else {
+        //     res = await fetch(`/api/catalog/rubricsSLUG/${slugHead}`)
+        // }
+
+        res = await fetch(`/api/catalog/rubricsSLUG/${slugHead}`)
+
 
         const resJSON = await res.json();
         const data = resJSON.rubrics.data[0]

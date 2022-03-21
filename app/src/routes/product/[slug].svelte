@@ -1,14 +1,17 @@
 <script context="module">
     export const load = async ({fetch, params, url}) => {
-        const idProduct = url.searchParams.get('id');
+        // const idProduct = url.searchParams.get('id');
         const slugProduct = params.slug;
 
+        // let res;
+        // if (idProduct) {
+        //     res = await fetch(`/api/catalog/productID/${idProduct}`)
+        // } else {
+        //     res = await fetch(`/api/catalog/productSLUG/${slugProduct}`)
+        // }
+
         let res;
-        if (idProduct) {
-            res = await fetch(`/api/catalog/productID/${idProduct}`)
-        } else {
-            res = await fetch(`/api/catalog/productSLUG/${slugProduct}`)
-        }
+        res = await fetch(`/api/catalog/productSLUG/${slugProduct}`)
 
         const resJSON = await res.json();
         const data = resJSON.product.data[0]
