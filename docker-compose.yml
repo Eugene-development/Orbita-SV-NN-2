@@ -9,15 +9,40 @@ services:
     restart: always
     command:
       "npm run start"
+    networks:
+      - app
 
 
   nginx:
     image: nginx:1.13
     container_name: "${COMPOSE_PROJECT_NAME}_NGINX"
     ports:
-      - "4112:80"
+      - "80:80"
+      - "443:443"
     volumes:
       - ./:/var/www
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+      - etc-letsencrypt:/etc/letsencrypt
     depends_on:
       - svelte
+    networks:
+      - app
+
+  certbot:
+    image: certbot/certbot
+    depends_on:
+      - nginx
+    container_name: certbot
+    volumes:
+      - etc-letsencrypt:/etc/letsencrypt
+      - www-html:/var/www/html
+    command: certonly --webroot --webroot-path=/var/www/html --email indexpro24@gmail.com --agree-tos --no-eff-email -d larux.ru
+
+volumes:
+  www-html:
+  dbfile:
+  etc-letsencrypt:
+
+networks:
+  app:
+    driver: bridge
