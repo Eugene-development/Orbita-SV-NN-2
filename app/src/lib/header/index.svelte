@@ -224,7 +224,7 @@
     </div>
 
 
-    <div class="bg-gradient-to-r from-indigo-400 via-slate-50 to-indigo-400 pt-6 sm:pt-8 ">
+    <div class="bg-gradient-to-r from-indigo-500 via-slate-50 to-indigo-500 pt-6 sm:pt-8 ">
 <!--    <div class="bg-hero-pattern pt-6 sm:pt-8 ">-->
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -240,7 +240,7 @@
 
         <div class="mt-16 pb-4 bg-white sm:pb-8">
             <div class="relative">
-                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-400 via-slate-100 to-indigo-400 border-b border-slate-200"></div>
+                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-500 via-slate-100 to-indigo-500 border-b border-slate-200"></div>
                 <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="w-full mx-auto">
                         <div class="rounded-lg bg-white shadow-xl shadow-indigo-700/50 lg:grid lg:grid-cols-7 ">

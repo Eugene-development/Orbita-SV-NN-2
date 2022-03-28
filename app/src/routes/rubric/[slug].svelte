@@ -76,7 +76,7 @@
                          class="flex flex-col rounded-lg shadow-lg shadow-indigo-200/50 overflow-hidden border-2">
                         <div class="px-6 py-8 text-center sm:p-10 sm:pb-6">
                             <div>
-                                <h3 class="inline-flex px-8 py-1 rounded-full text-sm  font-semibold tracking-wide uppercase bg-indigo-50 text-indigo-900" id="tier-standard">
+                                <h3 class="inline-flex px-8 py-1 rounded-full text-sm  font-semibold tracking-wide uppercase bg-red-50 text-red-900" id="tier-standard">
                                     { nameHead }
                                 </h3>
                             </div>
