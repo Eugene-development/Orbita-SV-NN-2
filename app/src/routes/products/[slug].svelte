@@ -110,9 +110,12 @@
         <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow-lg shadow-indigo-200/50 divide-y divide-slate-200 border-2 border-indigo-50 ring-offset-1 ring-1 ring-indigo-50">
           <a sveltekit:prefetch sveltekit:noscroll href="/product/{slug}/?id={id}">
             <div class="flex-1 flex flex-col p-8">
+
+              {#if (image[0])}
               <img src="{pathAWS}{image[0].filename}"
                    alt="product"
                    class="w-32 h-32 object-contain flex-shrink-0 mx-auto">
+                {/if}
               <h3 class="mt-6 text-slate-900 text-sm font-medium h-10">{ name }</h3>
               <dl class="mt-1 flex-grow flex flex-col justify-between">
                 <dt class="sr-only">Title</dt>

@@ -1,17 +1,17 @@
 <script>
-    import { clickOutside } from "$lib/use/functions/click_outside/index.js";
+    import {clickOutside} from "$lib/use/functions/click_outside/index.js";
 
     import MobileMenu from "./mobile/index.svelte";
-    import { useHead } from "$lib/use/content/header";
-    import { useVisible } from "$lib/use/functions/visible";
-    import { informationMenu, lengthCart, mobileMenu } from "../../stores.js";
-    import { onMount } from "svelte";
-    import { browser } from "$app/env";
+    import {useHead} from "$lib/use/content/header";
+    import {useVisible} from "$lib/use/functions/visible";
+    import {informationMenu, lengthCart, mobileMenu} from "../../stores.js";
+    import {onMount} from "svelte";
+    import {browser} from "$app/env";
 
-    const { head, information } = useHead;
-    const { left: leftInfo, right: rightInfo } = information[0];
+    const {head, information} = useHead;
+    const {left: leftInfo, right: rightInfo} = information[0];
 
-    const { invert, invertToFalse } = useVisible;
+    const {invert, invertToFalse} = useVisible;
 
     const changeVisibleInformationMenu = () => {
         informationMenu.update(invert);
@@ -224,25 +224,29 @@
     </div>
 
 
-    <div class="bg-slate-100 pt-6 sm:pt-8">
+    <div class="bg-gradient-to-r from-indigo-400 via-slate-50 to-indigo-400 pt-6 sm:pt-8 ">
+<!--    <div class="bg-hero-pattern pt-6 sm:pt-8 ">-->
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-3xl font-extrabold text-indigo-900 sm:text-4xl">
-                   Доставка строительных и отделочных материалов от склада до объекта
+                    Доставка строительных и отделочных материалов от склада до объекта
                 </h2>
                 <p class="mt-3 text-xl text-indigo-900 sm:mt-4">
                     При заказе через каталог стройматериалов на сайте для вас скидка 5%
                 </p>
             </div>
         </div>
-        <div class="mt-6 pb-4 bg-white sm:pb-8">
+
+        <div class="mt-16 pb-4 bg-white sm:pb-8">
             <div class="relative">
-                <div class="absolute inset-0 h-1/2 bg-slate-100 border-b border-slate-200"></div>
+                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-400 via-slate-100 to-indigo-400 border-b border-slate-200"></div>
                 <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="w-full mx-auto">
                         <div class="rounded-lg bg-white shadow-xl shadow-indigo-700/50 lg:grid lg:grid-cols-7 ">
                             {#each head as {id, slug, name}}
-                                <a sveltekit:prefetch sveltekit:noscroll href='/rubric/{slug}/?id={id}' class="flex flex-col bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-700 to-indigo-600 border border-indigo-300 p-3 text-center sm:border-r sm:border-l hover:bg-red-800">
+                                <a sveltekit:prefetch sveltekit:noscroll href='/rubric/{slug}/?id={id}'
+                                   class="flex flex-col bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-700 to-indigo-600 border border-indigo-300 p-4 text-center sm:border-r sm:border-l hover:bg-red-800">
                                     <span class="order-2 text-sm leading-6 font-medium text-slate-50 tracking-wider">
                                         { name }
                                     </span>
@@ -254,7 +258,7 @@
             </div>
 
         </div>
-        </div>
+    </div>
 
 </header>
 

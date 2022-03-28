@@ -225,8 +225,9 @@
                         </div>
                     </div>
 
+                    {#if (image[0])}
                     <img alt="ecommerce" class="lg:w-1/2 p-8 max-w-xl object-contain object-center rounded shadow-lg shadow-indigo-200/50 border-2 border-indigo-50 ring-offset-1 ring-1 ring-indigo-50" src="{pathAWS}{image[0].filename}">
-
+                    {/if}
                 </div>
             </div>
         </section>
