@@ -63,7 +63,7 @@
                 <div>
                     <a href="/" class="flex">
                         <span class="sr-only">Logo</span>
-                        <img class="h-10 w-auto sm:h-10" src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/logo/logo.png" alt="Logo">
+                        <img class="h-8 w-auto sm:h-8" src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/logo/logo.png" alt="Logo">
                     </a>
                 </div>
 
@@ -92,11 +92,11 @@
                 </div>
                 <div class="hidden lg:flex-1 lg:flex sm:items-center sm:justify-between">
                     <nav class="flex space-x-10 font-semibold">
-                        <a href="/" class="text-lg text-indigo-900 hover:text-red-800">Главная</a>
-                        <a href="/company" class="text-lg text-indigo-900 hover:text-red-800">Компания</a>
+                        <a href="/" class="text-base text-slate-900 hover:text-red-800">Главная</a>
+                        <a href="/company" class="text-base text-slate-900 hover:text-red-800">Компания</a>
                         <div use:clickOutside on:outclick={closeVisibleInformationMenu}>
                             <!-- Item active: "text-slate-900", Item inactive: "text-slate-500" -->
-                            <button on:click={changeVisibleInformationMenu} type="button" class="text-indigo-900 hover:text-red-800 group bg-white rounded-md inline-flex items-center text-lg focus:outline-none focus:text-red-700" aria-expanded="false">
+                            <button on:click={changeVisibleInformationMenu} type="button" class="text-slate-900 hover:text-red-800 group bg-white rounded-md inline-flex items-center text-base focus:outline-none focus:text-red-700" aria-expanded="false">
                                 <span class="font-semibold">Информация</span>
                                 <!--
                                   Heroicon name: solid/chevron-down
@@ -196,9 +196,9 @@
                                 </div>
                             {/if}
                         </div>
-                        <a href="/blog" class="text-lg text-indigo-900 hover:text-red-800"> Блог </a>
-                        <a href="/information/contact" class="text-lg text-indigo-900 hover:text-red-800"> Контакты </a>
-                        <a href="https://vk.com/orbita_stroy" target="_blank" class="text-lg text-indigo-900 hover:text-red-800"> VK </a>
+                        <a href="/blog" class="text-base text-slate-900 hover:text-red-800"> Блог </a>
+                        <a href="/information/contact" class="text-base text-slate-900 hover:text-red-800"> Контакты </a>
+                        <a href="https://vk.com/orbita_stroy" target="_blank" class="text-base text-slate-900 hover:text-red-800"> VK </a>
                     </nav>
                     <div class="flex items-center md:ml-12">
                         <a class="ml-8 inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-800 shadow-lg shadow-indigo-700/50" href="/shop/cart"
