@@ -30,7 +30,7 @@
         const seoTitle =  data.seo ? data.seo.title : 'Строительные и отделочные материалы'
         const seoDescription = data.seo ? data.seo.description : "Строительные и отделочные материалы в Нижнем Новгороде"
         const title = nameProduct + ' в Нижнем Новгороде || ' + seoTitle
-        const description = nameProduct + ' в наличии в Нижнем Новгороде. ' + seoDescription
+        const description = nameProduct + ' в наличии с доставкой по Нижнему Новгороду. ' + seoDescription
 
         return {
             props: {

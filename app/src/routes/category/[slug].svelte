@@ -17,7 +17,7 @@
         const category = data.category
         const text = data.text
         const title = 'Стройматериалы' + ' || ' + nameRubric + ' в Нижнем Новгороде'
-        const description = nameRubric + ' в Нижнем Новгороде и области. '
+        const description = nameRubric + ' в Нижнем Новгороде и области. ' + 'Приобретайте ' + nameRubric + ' по низким ценам.'
         return {
             props: {
                 title,
