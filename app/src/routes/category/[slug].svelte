@@ -4,11 +4,12 @@
         const slugRubric = params.slug;
 
         let res;
-        if (idRubric) {
-            res = await fetch(`/api/catalog/categoriesID/${idRubric}`)
-        } else {
-            res = await fetch(`/api/catalog/categoriesSLUG/${slugRubric}`)
-        }
+        res = await fetch(`/api/catalog/categoriesSLUG/${slugRubric}`)
+        // if (idRubric) {
+        //     res = await fetch(`/api/catalog/categoriesID/${idRubric}`)
+        // } else {
+        //     res = await fetch(`/api/catalog/categoriesSLUG/${slugRubric}`)
+        // }
 
         const resJSON = await res.json();
         const data = resJSON.categories.data[0]
@@ -71,7 +72,7 @@
                     <!-- Current: "bg-slate-100 text-slate-900", Default: "text-slate-600 hover:bg-slate-50 hover:text-slate-900" -->
 
                     {#each category as {id, slug, name, product}}
-                    <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}/?id={id}'
+                    <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}'
                               class="text-slate-800 hover:bg-slate-100 hover:text-slate-900 hover:shadow-md hover:shadow-indigo-100/50 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Heroicon name: outline/folder -->
                         <!--                <svg aria-hidden="true" class="text-slate-400 group-hover:text-slate-500 mr-3 h-6 w-6"-->
@@ -138,7 +139,7 @@
                         <!--            </div>-->
                         <div class="flex-1 bg-slate-50 p-6 flex flex-col justify-between">
                             <div class="flex-1">
-                                <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}/?id={id}'>
+                                <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}'>
                                     <p class="text-2xl font-semibold text-slate-800">
                                         { name }
                                     </p>

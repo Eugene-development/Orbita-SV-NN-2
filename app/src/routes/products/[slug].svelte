@@ -4,11 +4,12 @@
     const slugCategory = params.slug;
 
     let res;
-    if (idCategory) {
-      res = await fetch(`/api/catalog/productsID/${idCategory}`)
-    } else {
       res = await fetch(`/api/catalog/productsSLUG/${slugCategory}`)
-    }
+    // if (idCategory) {
+    //   res = await fetch(`/api/catalog/productsID/${idCategory}`)
+    // } else {
+    //   res = await fetch(`/api/catalog/productsSLUG/${slugCategory}`)
+    // }
 
     const resJSON = await res.json();
     const data = resJSON.products.data[0];
@@ -108,7 +109,7 @@
     <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {#each products as { id, name, slug, size, unit, image }}
         <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow-lg shadow-indigo-200/50 divide-y divide-slate-200 border-2 border-indigo-50 ring-offset-1 ring-1 ring-indigo-50">
-          <a sveltekit:prefetch sveltekit:noscroll href="/product/{slug}/?id={id}">
+          <a sveltekit:prefetch sveltekit:noscroll href="/product/{slug}">
             <div class="flex-1 flex flex-col p-8">
 
               {#if (image[0])}
@@ -172,7 +173,7 @@
 <!--                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />-->
 <!--                  </svg>-->
 <!--                </div>-->
-                <a sveltekit:prefetch sveltekit:noscroll href="/product/{slug}/?id={id}"
+                <a sveltekit:prefetch sveltekit:noscroll href="/product/{slug}"
                    class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-slate-700 font-medium border  border-transparent rounded-bl-lg hover:text-slate-500">
                   <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                        xmlns="http://www.w3.org/2000/svg">

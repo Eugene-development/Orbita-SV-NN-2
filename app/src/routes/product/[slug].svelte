@@ -4,11 +4,15 @@
         const slugProduct = params.slug;
 
         let res;
-        if (idProduct) {
-            res = await fetch(`/api/catalog/productID/${idProduct}`)
-        } else {
-            res = await fetch(`/api/catalog/productSLUG/${slugProduct}`)
-        }
+        // // let noindex;
+        // if (idProduct) {
+        //     res = await fetch(`/api/catalog/productID/${idProduct}`)
+        //     noindex = true;
+        // } else {
+        //     res = await fetch(`/api/catalog/productSLUG/${slugProduct}`)
+        // }
+
+        res = await fetch(`/api/catalog/productSLUG/${slugProduct}`)
 
         const resJSON = await res.json();
         const data = resJSON.product.data[0]
@@ -41,7 +45,8 @@
                 pathAWS,
                 image,
                 unit,
-                size
+                size,
+                // noindex
             }
         }
     }
@@ -135,14 +140,20 @@
     export let image
     export let unit
     export let size
+    // export let noindex
 
 </script>
 
 <svelte:head>
+
     <title>{title}</title>
     <meta name="description" content="{description}">
-</svelte:head>
 
+    <!--{#if noindex}-->
+    <!--    <meta name="robots" content="noindex">-->
+    <!--{/if}-->
+
+</svelte:head>
 <div>
     <div>
         <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-white via-indigo-50 to-white shadow-lg shadow-indigo-200/50 mb-4 ">

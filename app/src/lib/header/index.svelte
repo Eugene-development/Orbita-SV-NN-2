@@ -229,14 +229,14 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-5xl font-extrabold text-gray-900 sm:text-6xl">
-                    Доставка строительных материалов
+                <h2 class="text-5xl font-extrabold text-slate-900 sm:text-6xl">
+                    Доставка стройматериалов
                 </h2>
                 <p class="mt-3 text-xl text-indigo-900 sm:mt-4">
                     При заказе через каталог стройматериалов на сайте для вас скидка 5%
                 </p>
             </div>
-            <p class="mt-4 text-3xl text-center font-extrabold text-gray-900">Каталог стройматериалов:</p>
+            <p class="mt-4 text-3xl text-center font-extrabold text-slate-900">Каталог стройматериалов:</p>
 
         </div>
 
@@ -248,8 +248,8 @@
                     <div class="w-full mx-auto">
                         <div class="rounded-lg bg-white shadow-xl shadow-indigo-700/50 lg:grid lg:grid-cols-7 ">
                             {#each head as {id, slug, name}}
-                                <a sveltekit:prefetch sveltekit:noscroll href='/rubric/{slug}/?id={id}'
-                                   class="flex flex-col bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-800 to-indigo-700 border border-indigo-300 p-4 text-center sm:border-r sm:border-l hover:bg-red-800">
+                                <a sveltekit:prefetch sveltekit:noscroll href='/rubric/{slug}'
+                                   class="flex flex-col bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-900 to-indigo-800 border border-indigo-300 p-4 text-center sm:border-r sm:border-l">
                                     <span class="order-2 text-sm leading-6 font-medium text-slate-50 tracking-wider">
                                         { name }
                                     </span>
