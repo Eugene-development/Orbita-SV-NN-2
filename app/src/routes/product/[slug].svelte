@@ -194,7 +194,7 @@
                             <br>Наша компания осуществляет доставку строительных и отделочных материалов как по Дзержинску, так и по Нижнему Новгороду и области. Стоимость доставки по Дзержинску составляет 450 рублей до 1500 кг, в Нижний Новгород от 1200 рублей. Более подробную информацию о стоимости за пределы города вы можете уточнить у менеджеров.</p>
                         {/if}
 
-                        <a sveltekit:prefetch sveltekit:noscroll href='/products/{slugCategory}/?id={idCategory}'>
+                        <a sveltekit:prefetch sveltekit:noscroll href='/products/{slugCategory}'>
                             <div class="flex border-t border-slate-200 py-2">
                                 <span class="text-slate-500">Категория:</span>
                                 <span class="ml-auto text-red-900 hover:text-red-800">{ nameCategory }</span>
