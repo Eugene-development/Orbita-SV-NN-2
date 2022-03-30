@@ -19,8 +19,8 @@
         const nameHead = data.name
         const rubric = data.rubric
         const text = data.text
-        const title = nameHead + ' || База стройматериалов Орбита-Строй в Нижнем Новгороде'
-        const description = nameHead + ' в Нижнем Новгороде и области. Предлагаем доставку и скидки.'
+        const title = nameHead + ' в Нижнем Новгороде || База стройматериалов Орбита-Строй в Нижнем Новгороде'
+        const description = nameHead + ' по отличным ценам в Нижнем Новгороде и области. Предлагаем доставку и скидки для товара ' + nameHead +'.'
         return {
             props: {
                 title,
