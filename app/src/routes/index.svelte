@@ -218,67 +218,110 @@
 </div>
 
 
-
-
-<div class="mt-12 max-w-7xl mx-auto px-6 lg:px-8">
-	<div class="lg:text-center">
-		<p class="text-base leading-6 text-teal-800 font-semibold tracking-wide uppercase"></p>
-		<h2 class=" mt-2 text-4xl leading-12 font-extrabold tracking-tight text-gray-800 sm:text-4xl sm:leading-10">
-			Сезонные товары
-		</h2>
-		<p class="mt-4 max-w-7xl text-xl leading-7 text-gray-500 lg:mx-auto">
-			Обратите внимание на наши топовые позиции с самыми привлекательными ценами, если вы хотите строительные материалы купить со скидкой. Наш строительный интеренет магазин предлагает комфортную ценовую политику для своих клиентов, поэтому это одна из лучших баз стройматериалов в Нижнем Новгороде.
-		</p>
-	</div>
-</div>
-
-
-
-
-<!--
-  This example requires Tailwind CSS v2.0+
-
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
-<div class="bg-white">
-	<div class="max-w-2xl mx-auto py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
-		<h2 class="sr-only">Products</h2>
-
-		<div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-
-			{#each seasonalGoods as {id, name, price, unit, img, link}}
-			<a sveltekit:prefetch href="/{link}" class="group">
-				<div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-					<img src="{img}" alt="{name}." class="w-full h-full object-contain object-center group-hover:opacity-75">
-				</div>
-				<h3 class="mt-4 text-sm text-gray-700">{name}</h3>
-				<p class="mt-1 text-lg font-medium text-gray-900">{price} руб/{unit}</p>
-			</a>
-				{/each}
-
+	<div class="mt-12 max-w-7xl mx-auto px-6 lg:px-8 ">
+		<div class="lg:text-center">
+			<p class="text-base leading-6 text-teal-800 font-semibold tracking-wide uppercase"></p>
+			<h2 class=" mt-2 text-4xl leading-12 font-extrabold tracking-tight text-gray-800 sm:text-4xl sm:leading-10">
+				Сезонные товары
+			</h2>
+			<p class="mt-4 max-w-7xl text-xl leading-7 text-gray-500 lg:mx-auto">
+				Обратите внимание на наши топовые позиции с самыми привлекательными ценами, если вы хотите строительные материалы купить со скидкой. Наш строительный интеренет магазин предлагает комфортную ценовую политику для своих клиентов, поэтому это одна из лучших баз стройматериалов в Нижнем Новгороде.
+			</p>
 		</div>
 	</div>
-</div>
+	<div class="bg-white lg:ml-16">
+		<div class="max-w-2xl mx-auto py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
+			<h2 class="sr-only">Products</h2>
 
+			<div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+
+				{#each seasonalGoods as {id, name, price, unit, img, link}}
+					<a sveltekit:prefetch href="/{link}" class="group">
+						<div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
+							<img src="{img}" alt="{name}." class="w-full h-full object-contain object-center group-hover:opacity-75">
+						</div>
+						<h3 class="mt-4 text-sm text-gray-700">{name}</h3>
+						<p class="mt-1 text-lg font-medium text-gray-900">{price} руб/{unit}</p>
+					</a>
+				{/each}
+
+			</div>
+		</div>
+	</div>
+
+
+
+<div class="bg-gradient-to-b from-white to-gray-50">
+	<div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-16 lg:px-8 ">
+
+		<div class="mt-12">
+			<div class="bg-gradient-to-br from-indigo-500 via-sky-800 to-indigo-500 pt-12 sm:pt-16 rounded-lg">
+
+				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+					<div class="max-w-4xl mx-auto text-center">
+
+						<h2 class="text-4xl font-extrabold text-slate-50 sm:text-5xl">Мы предлагаем</h2>
+						<p class="mt-3 text-xl text-slate-50 sm:mt-4">Стройматериалы в Нижнем Новгороде и области с доставкой до объекта</p>
+					</div>
+				</div>
+				<div class="mt-10 pb-12 sm:pb-16">
+					<div class="relative">
+						<!--						<div class="absolute inset-0 h-1/2 bg-gradient-to-r from-sky-500 via-sky-800 to-sky-500 pt-12 ro rounded-b-lg"></div>-->
+						<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+							<div class="max-w-4xl mx-auto">
+								<dl class="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3">
+									<div class="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
+										<dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">доставка
+										</dt>
+										<dd class="order-1 text-5xl font-extrabold text-sky-600">100%</dd>
+									</div>
+									<div class="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
+										<dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">на связи
+										</dt>
+										<dd class="order-1 text-5xl font-extrabold text-sky-600">24/7</dd>
+									</div>
+									<div class="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
+										<dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">товаров
+										</dt>
+										<dd class="order-1 text-5xl font-extrabold text-sky-600">3000</dd>
+									</div>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<dl class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
+			<div class="relative">
+				<dt>
+					<!-- Heroicon name: outline/check -->
+					<svg aria-hidden="true" class="absolute h-6 w-6 text-sky-600" fill="none"
+						 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+					</svg>
+					<p class="ml-9 text-lg leading-6 font-medium text-gray-900">Invite team members</p>
+				</dt>
+				<dd class="mt-2 ml-9 text-base text-gray-500">Tempor tellus in aliquet eu et sit nulla tellus.
+					Suspendisse est, molestie blandit quis ac. Lacus.
+				</dd>
+			</div>
+
+		</dl>
+
+	</div>
+</div>
 
 <div class="bg-white overflow-hidden">
 	<div class="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-		<div class="hidden lg:block bg-indigo-50 absolute top-0 bottom-0 left-3/4 w-screen"></div>
+		<div class="hidden lg:block  absolute top-0 bottom-0 left-3/4 w-screen"></div>
 		<div class="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
 			<div>
-				<h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Строительная база</h2>
-				<h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Орбита-строй</h3>
+				<h2 class="text-base text-sky-900 font-semibold tracking-wide uppercase">Строительная база</h2>
+				<h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+					Орбита-строй</h3>
 			</div>
 		</div>
 		<div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">

@@ -224,7 +224,8 @@
     </div>
 
 
-    <div class="bg-gradient-to-r from-indigo-500 via-slate-50 to-indigo-500 pt-6 sm:pt-8 ">
+    <div class="bg-slate-50 pt-6 sm:pt-8 ">
+<!--    <div class="bg-gradient-to-r from-indigo-200 via-slate-50 to-indigo-200 pt-6 sm:pt-8 ">-->
 <!--    <div class="bg-hero-pattern pt-6 sm:pt-8 ">-->
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -243,13 +244,14 @@
 
         <div class="mt-8 pb-4 bg-white sm:pb-8">
             <div class="relative">
-                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-500 via-slate-100 to-indigo-500 border-b border-slate-200"></div>
+                <div class="absolute inset-0 h-1/2 bg-slate-50 border-b border-slate-200"></div>
+<!--                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-200 via-slate-100 to-indigo-200 border-b border-slate-200"></div>-->
                 <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="w-full mx-auto">
-                        <div class="rounded-lg bg-white shadow-xl shadow-indigo-700/50 lg:grid lg:grid-cols-7 ">
+                        <div class="rounded-lg bg-white shadow-md shadow-indigo-700/50 lg:grid lg:grid-cols-7 ">
                             {#each head as {id, slug, name}}
                                 <a sveltekit:prefetch sveltekit:noscroll href='/rubric/{slug}'
-                                   class="flex flex-col bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-900 to-indigo-800 border border-indigo-300 p-4 text-center sm:border-r sm:border-l">
+                                   class="flex flex-col bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-800 to-indigo-700 border border-indigo-200 p-4 text-center sm:border-r sm:border-l">
                                     <span class="order-2 text-sm leading-6 font-medium text-slate-50 tracking-wider">
                                         { name }
                                     </span>
