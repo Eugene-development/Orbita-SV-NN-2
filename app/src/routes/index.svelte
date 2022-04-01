@@ -229,7 +229,7 @@
 			</p>
 		</div>
 	</div>
-	<div class="bg-white lg:ml-16">
+	<div class="bg-white lg:ml-24">
 		<div class="max-w-2xl mx-auto py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
 			<h2 class="sr-only">Products</h2>
 
