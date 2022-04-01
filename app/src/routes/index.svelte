@@ -41,14 +41,19 @@
 </script>
 
 <script>
-	import { useActions } from "$lib/use/content/actions";
+	import {useMain} from "$lib/use/content/main";
+
+	const {Benefits} = useMain
+
+	import {useActions} from "$lib/use/content/actions";
 	import pkg from 'lodash';
-	const { concat } = pkg;
-	import { InCart, lengthCart } from "../stores";
+
+	const {concat} = pkg;
+	import {InCart, lengthCart} from "../stores";
 	import axios from "axios";
-	import { onMount } from "svelte";
-	import { browser } from "$app/env";
-	import { useReturn } from "$lib/use/functions/return";
+	import {onMount} from "svelte";
+	import {browser} from "$app/env";
+	import {useReturn} from "$lib/use/functions/return";
 
 	const { mainAction, seasonalGoods } = useActions;
 	const { currentValue } = useReturn;
@@ -294,23 +299,22 @@
 			</div>
 
 		</div>
-		<dl class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
-			<div class="relative">
-				<dt>
-					<!-- Heroicon name: outline/check -->
-					<svg aria-hidden="true" class="absolute h-6 w-6 text-sky-600" fill="none"
-						 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-						<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-					</svg>
-					<p class="ml-9 text-lg leading-6 font-medium text-gray-900">Invite team members</p>
-				</dt>
-				<dd class="mt-2 ml-9 text-base text-gray-500">Tempor tellus in aliquet eu et sit nulla tellus.
-					Suspendisse est, molestie blandit quis ac. Lacus.
-				</dd>
-			</div>
+		<dl class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8">
+			{#each Benefits as {title, text, slug}}
+				<div class="relative">
+					<dt>
+						<!-- Heroicon name: outline/check -->
+						<svg aria-hidden="true" class="absolute h-6 w-6 text-sky-600" fill="none"
+							 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+						</svg>
+						<a href='/rubric/{slug}' class="ml-9 text-lg leading-6 font-medium text-gray-900">{title}</a>
+					</dt>
+					<dd class="mt-2 ml-9 text-base text-gray-500">{text}</dd>
+				</div>
+			{/each}
 
 		</dl>
-
 	</div>
 </div>
 
