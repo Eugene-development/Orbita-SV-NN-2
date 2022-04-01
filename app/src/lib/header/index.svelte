@@ -230,14 +230,14 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-5xl font-extrabold text-slate-900 sm:text-6xl">
+                <h2 class="text-3xl font-extrabold text-slate-900 sm:text-5xl lg:text-6xl">
                     Доставка стройматериалов
                 </h2>
                 <p class="mt-3 text-xl text-indigo-900 sm:mt-4">
                     При заказе через каталог стройматериалов на сайте для вас скидка 5%
                 </p>
             </div>
-            <p class="mt-4 text-3xl text-center font-extrabold text-slate-900">Каталог стройматериалов:</p>
+            <p class="mt-4 text-2xl sm:text-3xl text-center font-extrabold text-slate-900">Каталог стройматериалов:</p>
 
         </div>
 
