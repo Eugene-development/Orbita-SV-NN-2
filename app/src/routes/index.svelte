@@ -1,7 +1,7 @@
 <script context="module">
 	export const load = async ({fetch, params, url}) => {
 		let res;
-		res = await fetch(`/api/catalog/productID/466`)
+		res = await fetch(`/api/catalog/productID/446`)
 
 		const resJSON = await res.json();
 		const data = resJSON.product.data[0]
@@ -116,9 +116,9 @@
 
 <div class="mt-12 max-w-7xl mx-auto px-6 lg:px-8">
 	<div class="lg:text-center">
-		<p class="text-base leading-6 text-teal-800 font-semibold tracking-wide uppercase"></p>
-		<h2 class=" mt-2 text-4xl leading-12 font-extrabold tracking-tight text-gray-800 sm:text-4xl sm:leading-10">
-			Акция
+		<p class="text-base leading-6 text-red-800 font-semibold tracking-wide uppercase">спецпредложение</p>
+		<h2 class=" mt-2 text-4xl leading-12 font-extrabold tracking-tight text-gray-800 sm:text-5xl sm:leading-10">
+			Акции в этом месяце
 		</h2>
 		<p class="mt-4 max-w-5xl text-xl leading-7 text-gray-500 lg:mx-auto">
 			Акционное ограниченное предложение. Актуальное наличие уточняйте у наших менеджеров по рабочим телефонам. Обращайте внимание на сроки проведения акций.
@@ -133,7 +133,8 @@
 			<!-- Product image -->
 			<div class="lg:row-end-1 lg:col-span-4">
 				<div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden">
-					<img src="{pathAWS}{image[0].filename}" alt="action product" class="object-center object-cover">
+					<img src="https://uralmegaprom.ru/image/cache/catalog/Strojka/Stroitelniesmesi/SHpatlevki/VETONIT/SHpaklevka-polimernaya-Weber.Vetonit-LR+-20kg-1200x800.png" alt="action product" class="object-center object-cover">
+<!--					<img src="{pathAWS}{image[0].filename}" alt="action product" class="object-center object-cover">-->
 				</div>
 			</div>
 
@@ -219,13 +220,16 @@
 			</div>
 
 		</div>
+
 	</div>
+
 </div>
+<!--<hr class="max-w-7xl mx-auto">-->
 
 
 	<div class="mt-12 max-w-7xl mx-auto px-6 lg:px-8 ">
 		<div class="lg:text-center">
-			<p class="text-base leading-6 text-teal-800 font-semibold tracking-wide uppercase"></p>
+			<p class="text-base leading-6 text-red-800 font-semibold tracking-wide uppercase">обратите внимание</p>
 			<h2 class=" mt-2 text-4xl leading-12 font-extrabold tracking-tight text-gray-800 sm:text-4xl sm:leading-10">
 				Сезонные товары
 			</h2>

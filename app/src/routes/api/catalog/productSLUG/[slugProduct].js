@@ -3,7 +3,6 @@ const { forEach, find } = pkg;
 import axios from "axios";
 export const get = async ({ params }) => {
   const { slugProduct } = params;
-  console.log(slugProduct)
   const headers = {
     Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
   };
