@@ -327,7 +327,7 @@
 		<div class="hidden lg:block  absolute top-0 bottom-0 left-3/4 w-screen"></div>
 		<div class="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
 			<div>
-				<h2 class="text-base text-sky-900 font-semibold tracking-wide uppercase">Строительная база</h2>
+				<h2 class="text-base text-red-800 font-semibold tracking-wide uppercase">Строительная база</h2>
 				<h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
 					Орбита-строй</h3>
 			</div>

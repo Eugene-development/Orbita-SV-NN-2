@@ -73,10 +73,12 @@
       product_id: id,
       sessionUser: localStorage.getItem("dataS")
     };
+
+    const domain = import.meta.env.VITE_API_CART;
     const apiCart = {
-      baseURL: "https://adminexpo.com:7711/",
+      baseURL: `${domain}`,
       headers: {
-        Authorization: `Bearer 1`
+        Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
       }
     };
     await axios.post(url, payloadCart, apiCart);
