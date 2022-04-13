@@ -83,7 +83,7 @@
   }
   ```
 -->
-    <nav class="bg-indigo-800">
+    <nav class="bg-slate-800">
         <div class="max-w-7xl mx-auto px-2 sm:px-6">
             <div class="relative flex items-center justify-between h-12">
                 <div class="flex items-center px-2 lg:px-0">
