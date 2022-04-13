@@ -2,16 +2,16 @@
     import {clickOutside} from "$lib/use/functions/click_outside/index.js";
 
     import MobileMenu from "./mobile/index.svelte";
-    import {useHead} from "$lib/use/content/header";
-    import {useVisible} from "$lib/use/functions/visible";
-    import {informationMenu, lengthCart, mobileMenu} from "../../stores.js";
-    import {onMount} from "svelte";
-    import {browser} from "$app/env";
+    import { useHead } from "$lib/use/content/header";
+    import { useVisible } from "$lib/use/functions/visible";
+    import { informationMenu, lengthCart, mobileMenu, formSearch } from "../../stores.js";
+    import { onMount } from "svelte";
+    import { browser } from "$app/env";
 
-    const {head, information} = useHead;
-    const {left: leftInfo, right: rightInfo} = information[0];
+    const { head, information } = useHead;
+    const { left: leftInfo, right: rightInfo } = information[0];
 
-    const {invert, invertToFalse} = useVisible;
+    const { invert, invertToFalse } = useVisible;
 
     const changeVisibleInformationMenu = () => {
         informationMenu.update(invert);
@@ -21,8 +21,6 @@
     };
     let visibleInformationMenu;
     informationMenu.subscribe(value => visibleInformationMenu = value);
-
-    // const setId = (id) => localStorage.setItem('inCart', id);
 
     let countLengthCart;
     onMount(async () => {
@@ -37,7 +35,14 @@
     mobileMenu.subscribe(value => visibleMobileMenu = value);
 
 
+    import Search from "$lib/components/forms/search/index.svelte";
+
+    const changeVisibleFormSearch = () => formSearch.update( invert )
+    let visibleFormSearch;
+    formSearch.subscribe( value => visibleFormSearch = value );
+
 </script>
+
 
 <header>
     <!-- This example requires Tailwind CSS v2.0+ -->
@@ -86,6 +91,9 @@
     <nav class="bg-indigo-900">
         <div class="max-w-7xl mx-auto px-2 sm:px-10">
             <div class="relative flex items-center justify-between h-12">
+
+                <Search/>
+
                 <div class="flex items-center px-1 lg:px-0">
                     <div class="hidden lg:block ">
                         <div class="flex space-x-2">
@@ -154,13 +162,10 @@
                 <div class="hidden lg:block lg:ml-4">
                     <div class="flex items-center">
                         <div class="flex items-center md:ml-12 mr-8">
-                            <button class=" inline-flex items-center justify-center pl-2 pr-12  py-0.5 border border-transparent rounded-md text-base font-medium text-gray-500 bg-slate-100 hover:bg-slate-200  " >
-                                                            <svg aria-hidden="true" class="h-5 w-5 text-gray-500 mr-2" fill="currentColor"
-                                                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                                <path clip-rule="evenodd"
-                                                                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                                                      fill-rule="evenodd"/>
-                                                            </svg>
+                            <button on:click={ changeVisibleFormSearch } class=" inline-flex items-center justify-center pl-2 pr-12  py-0.5 border border-transparent rounded-md text-base font-medium text-gray-500 bg-slate-100 hover:bg-slate-200  " >
+                                    <svg aria-hidden="true" class="h-5 w-5 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" fill-rule="evenodd"/>
+                                    </svg>
                                 Поиск товара
                             </button>
                         </div>
@@ -452,5 +457,8 @@
         </div>
     </div>
 
+
 </header>
+
+
 
