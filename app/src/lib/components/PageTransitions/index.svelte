@@ -2,6 +2,6 @@
     import { fade } from 'svelte/transition';
 </script>
 
-<div in:fade={{ duration: 800}} >
+<div in:fade={{ duration: 1000}} out:fade>
     <slot/>
 </div>

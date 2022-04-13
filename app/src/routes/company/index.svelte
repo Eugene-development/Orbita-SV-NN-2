@@ -1,10 +1,15 @@
+<script>
+  import PageTransitions from "$lib/components/PageTransitions/index.svelte";
+</script>
+
+
 <svelte:head>
   <title>О компании</title>
   <meta name="description" content="Информация о компании 'Орбита строй'">
 </svelte:head>
 
-
-<div class="relative py-16 bg-white overflow-hidden">
+<PageTransitions>
+  <div class="relative py-16 bg-white overflow-hidden">
   <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
     <div class="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
       <svg class="absolute top-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
@@ -68,3 +73,4 @@
     </div>
   </div>
 </div>
+</PageTransitions>
