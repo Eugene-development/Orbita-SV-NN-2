@@ -11,10 +11,8 @@
 </script>
 
 <Header />
-
-	<main>
-		<slot />
+	<main >
+		<slot  />
 	</main>
-
 <Footer />
 
