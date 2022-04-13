@@ -83,44 +83,50 @@
   }
   ```
 -->
-    <nav class="bg-slate-800">
-        <div class="max-w-7xl mx-auto px-2 sm:px-6">
+    <nav class="bg-indigo-900">
+        <div class="max-w-7xl mx-auto px-2 sm:px-10">
             <div class="relative flex items-center justify-between h-12">
                 <div class="flex items-center px-1 lg:px-0">
                     <div class="hidden lg:block ">
                         <div class="flex space-x-2">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" />
+                            <svg class="h-6 w-6 text-gray-300" fill="none" stroke="currentColor"
+                                 stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
                             </svg>
-                            <p class="text-gray-300 pr-3 rounded-md text-lg font-medium">8 (800) 555-8-111</p>
+                            <p class="text-gray-300 pr-3 rounded-md text-base font-medium">8 (800) 555-8-111</p>
 
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" />
                             </svg>
-                            <p class="text-gray-300 pr-3 rounded-md text-lg font-medium">8 (930) 688-88-62</p>
+                            <p class="text-gray-300 pr-3 rounded-md text-base font-medium">8 (930) 688-88-62</p>
 
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" />
                             </svg>
-                            <p class="text-gray-300 pr-3 rounded-md text-lg font-medium">8 (902) 303-36-54</p>
+                            <p class="text-gray-300 pr-3 rounded-md text-base font-medium">8 (902) 303-36-54</p>
                         </div>
                     </div>
                 </div>
-                <div class="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
-                    <div class="max-w-lg w-full lg:max-w-xs">
-                        <label for="search" class="sr-only">Поиск</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <!-- Heroicon name: solid/search -->
-                                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <input id="search" name="search" class="block w-full pl-10  py-1 border border-transparent rounded-md leading-5 bg-slate-200 text-gray-300 placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 sm:text-sm" placeholder="Поиск товара" type="search">
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="flex-1 flex justify-center px-2 lg:ml-6 ">-->
+<!--                    <div class="max-w-lg w-full lg:max-w-xs">-->
+<!--                        <label for="search" class="sr-only">Поиск</label>-->
+<!--                        <button id="search" class="ml-8 inline-flex items-center px-12 py-1 border border-transparent rounded-md text-base font-medium text-slate-800 bg-slate-100 hover:bg-slate-800 shadow-lg shadow-slate-700/50">-->
+<!--                            <svg aria-hidden="true" class="h-5 w-5 text-gray-400 mr-4" fill="currentColor"-->
+<!--                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                <path clip-rule="evenodd"-->
+<!--                                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"-->
+<!--                                      fill-rule="evenodd"/>-->
+<!--                            </svg>-->
+<!--                            Поиск-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+
+
                 <div class="flex lg:hidden">
                     <!-- Mobile menu button -->
                     <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
@@ -149,7 +155,19 @@
                 </div>
                 <div class="hidden lg:block lg:ml-4">
                     <div class="flex items-center">
-                        <button type="button" class="flex-shrink-0 bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                        <div class="flex items-center md:ml-12 mr-8">
+                            <button class=" inline-flex items-center justify-center pl-2 pr-12  py-0.5 border border-transparent rounded-md text-base font-medium text-gray-500 bg-slate-100 hover:bg-slate-200  " >
+                                                            <svg aria-hidden="true" class="h-5 w-5 text-gray-500 mr-2" fill="currentColor"
+                                                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                <path clip-rule="evenodd"
+                                                                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                                                      fill-rule="evenodd"/>
+                                                            </svg>
+                                Поиск товара
+                            </button>
+                        </div>
+
+                        <button type="button" class="flex-shrink-0 bg-slate-700 p-1 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                             <span class="sr-only">View notifications</span>
                             <!-- Heroicon name: outline/bell -->
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -186,7 +204,9 @@
                     </div>
                 </div>
             </div>
+
         </div>
+
 
         <!-- Mobile menu, show/hide based on menu state. -->
         <div class="lg:hidden" id="mobile-menu">
