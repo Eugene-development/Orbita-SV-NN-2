@@ -1,4 +1,5 @@
 <script>
+    import { fade } from 'svelte/transition';
     import { formSearch } from "../../../../stores";
     import { useVisible } from "$lib/use/functions/visible";
 
@@ -13,7 +14,7 @@
 
 </script>
 {#if (visibleFormSearch)}
-    <div class="fixed inset-0 z-40 overflow-y-auto p-4 sm:p-6 md:p-20" role="dialog" aria-modal="true">
+    <div transition:fade={{ duration: 80}} class="fixed inset-0 z-40 overflow-y-auto p-4 sm:p-6 md:p-20" role="dialog" aria-modal="true">
         <!--
           Background overlay, show/hide based on modal state.
 
@@ -24,6 +25,9 @@
             From: "opacity-100"
             To: "opacity-0"
         -->
+
+
+
         <div class="fixed inset-0 bg-gray-500 bg-opacity-50 transition-opacity" aria-hidden="true"></div>
 
 
@@ -93,6 +97,9 @@
 <!--            </div>-->
 
         </div>
+
+
+
 
     </div>
 
