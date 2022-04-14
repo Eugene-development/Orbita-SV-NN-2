@@ -4,7 +4,7 @@
     import MobileMenu from "./mobile/index.svelte";
     import { useHead } from "$lib/use/content/header";
     import { useVisible } from "$lib/use/functions/visible";
-    import { informationMenu, lengthCart, mobileMenu, formSearch } from "../../stores.js";
+    import {informationMenu, lengthCart, mobileMenu, formSearch, InCart} from "../../stores.js";
     import { onMount } from "svelte";
     import { browser } from "$app/env";
 
@@ -36,10 +36,52 @@
 
 
     import Search from "$lib/components/forms/search/index.svelte";
+    import axios from "axios";
 
     const changeVisibleFormSearch = () => formSearch.update( invert )
     let visibleFormSearch;
     formSearch.subscribe( value => visibleFormSearch = value );
+
+
+
+    import pkg from 'lodash';
+    const { filter } = pkg;
+    const getAllProducts = async () => {
+
+        const headers = {
+            Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
+        };
+        const domain = import.meta.env.VITE_API_CRUD;
+        const pathAWS = import.meta.env.VITE_IMAGE_PRODUCTS
+
+        const urlProducts = `${domain}/get-all-product/`;
+        const allProducts = await axios(urlProducts, { headers });
+
+        // let result = allProducts.match(/Java(Script)/g);
+        // let result = filter(allProducts.data.data, ['name', /'УТЕПЛИТЕЛЬ'/])
+
+        // const filterItems = (arr, query) => {
+        //     return arr.filter(el => el.toLowerCase().indexOf(query.toLowerCase()) !== -1)
+        // }
+        // const query = 'УТЕПЛИТЕЛЬ'
+        // const result = filterItems(allProducts.data.data, query)
+
+        // const text = 'УТЕП'
+        // const search = allProducts.data.data.filter(({name}) => name.includes(text));
+        // console.log(search)
+
+        const search = (query) => allProducts.data.data.filter(({name}) => name.toLowerCase().includes(query));
+        const query = 'утеплитель'
+        const result = search(query);
+        console.log(result)
+
+
+
+        // const result = filterItems(allProducts.data.data.name, 'УТЕПЛИТЕЛЬ')
+        // console.log(result)
+
+    };
+
 
 </script>
 
@@ -161,7 +203,7 @@
                 <div class="hidden lg:block lg:ml-4">
                     <div class="flex items-center">
                         <div class="flex items-center md:ml-12 mr-8">
-                            <button on:click={ changeVisibleFormSearch } class=" inline-flex items-center justify-center pl-2 pr-12  py-0.5 border border-transparent rounded-md text-base font-medium text-gray-500 bg-slate-100 hover:bg-slate-200  " >
+                            <button on:click={ changeVisibleFormSearch } on:click={ getAllProducts } class=" inline-flex items-center justify-center pl-2 pr-12  py-0.5 border border-transparent rounded-md text-base font-medium text-gray-500 bg-slate-100 hover:bg-slate-200  " >
                                     <svg aria-hidden="true" class="h-5 w-5 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <path clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" fill-rule="evenodd"/>
                                     </svg>
