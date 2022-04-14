@@ -70,9 +70,9 @@
         // const search = allProducts.data.data.filter(({name}) => name.includes(text));
         // console.log(search)
 
-        const search = (query) => allProducts.data.data.filter(({name}) => name.toLowerCase().includes(query));
+        const search = ( query ) => allProducts.data.data.filter(({ name }) => name.toLowerCase().includes( query ));
         const query = 'УТЕПлитель'.toLowerCase();
-        const result = search(query);
+        const result = search( query );
         console.log(result)
 
 
