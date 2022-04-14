@@ -158,7 +158,7 @@
 </svelte:head>
 <div>
     <div>
-        <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-white via-indigo-50 to-white shadow-lg shadow-indigo-200/50 mb-4 ">
+        <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-50 to-white shadow-lg shadow-slate-200/50 mb-4 ">
             <div class="flex flex-col text-center w-full">
                 <h1 class=" text-5xl font-medium title-font text-slate-900">{ nameProduct }</h1>
             </div>
@@ -214,16 +214,23 @@
                         <div class="flex">
                             <span class="title-font font-medium text-4xl text-slate-900">{ size[0].price.price } р/{ unit }.</span>
                             {#if !(idProductsInCart).some(arrVal => id === arrVal)}
-                            <button
-                              on:click|preventDefault|once={sendToCart(id)}
-                              type="button"
-                              class="ml-auto bg-indigo-50 border border-transparent rounded-md py-2 px-6 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-50 focus:ring-indigo-500">
-                                В корзину
+                            <button on:click|preventDefault|once={sendToCart(id)} type="button" class="ml-auto bg-slate-50 border border-transparent rounded-md py-2 px-6 flex items-center justify-center text-base font-medium text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-50 focus:ring-slate-500">
+                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                </svg>
+                                <span class="ml-3">В корзину</span>
                             </button>
                             {:else }
-                            <button
-                              class="flex ml-auto text-white bg-red-700 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-900 rounded">
-                                В корзине
+                            <button class="ml-auto bg-indigo-800 border border-transparent rounded-md py-2 px-6 flex items-center justify-center text-base font-medium text-slate-100 ">
+                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                </svg>
+
+                                <span class="ml-3">В корзине</span>
                             </button>
                             {/if}
 <!--                            <button-->
@@ -239,7 +246,7 @@
                     </div>
 
                     {#if (image[0])}
-                    <img alt="ecommerce" class="lg:w-1/2 p-8 max-w-xl object-contain object-center rounded shadow-lg shadow-indigo-200/50 border-2 border-indigo-50 ring-offset-1 ring-1 ring-indigo-50" src="{pathAWS}{image[0].filename}">
+                    <img alt="ecommerce" class="lg:w-1/2 p-8 max-w-xl object-contain object-center rounded shadow-lg shadow-slate-200/50 border-2 border-slate-50 ring-offset-1 ring-1 ring-slate-50" src="{pathAWS}{image[0].filename}">
                     {/if}
                 </div>
             </div>
