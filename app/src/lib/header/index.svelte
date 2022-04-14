@@ -71,7 +71,7 @@
         // console.log(search)
 
         const search = (query) => allProducts.data.data.filter(({name}) => name.toLowerCase().includes(query));
-        const query = 'утеплитель'
+        const query = 'УТЕПЛИТЕЛЬ'.toLowerCase();
         const result = search(query);
         console.log(result)
 
