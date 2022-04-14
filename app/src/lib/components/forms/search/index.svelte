@@ -32,7 +32,7 @@
 
 </script>
 {#if (visibleFormSearch)}
-    <div out:whoosh class="fixed inset-0 z-40 overflow-y-auto p-4 sm:p-6 md:p-20" role="dialog" aria-modal="true">
+    <div in:fade={{ duration: 300}} out:fade class="fixed inset-0 z-40 overflow-y-auto p-4 sm:p-6 md:p-20" role="dialog" aria-modal="true">
         <!--
           Background overlay, show/hide based on modal state.
 
