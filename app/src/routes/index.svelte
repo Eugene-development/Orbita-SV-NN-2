@@ -77,10 +77,11 @@
 			product_id: id,
 			sessionUser: localStorage.getItem("dataS")
 		};
+		const domain = import.meta.env.VITE_API_CART;
 		const apiCart = {
-			baseURL: "https://adminexpo.com:7711/",
+			baseURL: `${domain}`,
 			headers: {
-				Authorization: `Bearer 1`
+				Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
 			}
 		};
 		await axios.post(url, payloadCart, apiCart);
@@ -188,9 +189,9 @@
 				<p class="text-gray-500 mt-6">{@html descriptionProduct}</p>
 
 				<div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-					<button class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
-									type="button">{size[0].price.price}
-						р/{unit}</button>
+					<div class="w-full bg-indigo-800 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
+						Цена: {size[0].price.price} р/{unit}
+					</div>
 
 					{#if !(idProductsInCart).some(arrVal => id === arrVal)}
 						<button
@@ -202,7 +203,7 @@
 					{:else }
 						<button
 							type="button"
-							class="w-full bg-red-700 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
+							class="w-full bg-red-700 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
 							В корзине
 						</button>
 					{/if}

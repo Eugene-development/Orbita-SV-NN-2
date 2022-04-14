@@ -46,10 +46,11 @@
     lengthCart.update(() => currentValue(visibleLengthCart));
     InCart.update(() => productsInCart);
 
+    const domain = import.meta.env.VITE_API_CART;
     const apiCart = {
-      baseURL: "https://adminexpo.com:7711/",
+      baseURL: `${domain}`,
       headers: {
-        Authorization: `Bearer 1`
+        Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
       }
     };
     await axios.delete("delete-cart-one/" + id + "/" + localStorage.getItem("dataS"), apiCart);
