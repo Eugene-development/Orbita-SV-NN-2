@@ -45,7 +45,7 @@
 
 
 <div >
-    <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-white via-indigo-50 to-white shadow-lg shadow-indigo-200/50 mb-4">
+    <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-100 to-white shadow-lg shadow-slate-200/50 mb-4">
         <div class="flex flex-col text-center w-full">
             <h1 class=" text-5xl font-medium title-font text-slate-900">{ nameRubric } в Нижнем Новгороде</h1>
         </div>
@@ -73,7 +73,7 @@
 
                     {#each category as {id, slug, name, product}}
                     <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}'
-                              class="text-slate-800 hover:bg-slate-100 hover:text-slate-900 hover:shadow-md hover:shadow-indigo-100/50 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                              class="text-slate-800 hover:bg-slate-100 hover:text-slate-900 hover:shadow-md hover:shadow-slate-100/50 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Heroicon name: outline/folder -->
                         <!--                <svg aria-hidden="true" class="text-slate-400 group-hover:text-slate-500 mr-3 h-6 w-6"-->
                         <!--                     fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">-->
@@ -100,7 +100,7 @@
 
 
             <!-- This example requires Tailwind CSS v2.0+ -->
-            <div class="py-1 bg-slate-50 relative shadow-lg shadow-indigo-100/50 rounded-lg border-2 border-indigo-50 ring-offset-1 ring-1 ring-indigo-50">
+            <div class="py-1 bg-slate-50 relative shadow-lg shadow-slate-100/50 rounded-lg border-2 border-slate-50 ring-offset-1 ring-1 ring-slate-50">
                 <!--          <div class="py-1 relative bg-gradient-to-b from-slate-50 via-slate-800 to-slate-50 shadow-lg rounded-lg">-->
                 <div class="max-w-full mx-auto py-3 px-3 sm:px-6 lg:px-8">
                     {#if text}
@@ -133,7 +133,7 @@
                 <div class="mt-8 max-w-lg mx-auto grid gap-5 lg:grid-cols-2 lg:max-w-none">
 
                     {#each category as {id, name, slug, text}}
-                    <div class=" flex flex-col rounded-lg shadow-lg shadow-indigo-100/50 overflow-hidden border-2 border-indigo-50 ring-offset-1 ring-1 ring-indigo-50">
+                    <div class=" flex flex-col rounded-lg shadow-lg shadow-slate-100/50 overflow-hidden border-2 border-slate-50 ring-offset-1 ring-1 ring-slate-50">
                         <!--            <div class="flex-shrink-0">-->
                         <!--              <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=IrF17Golbw&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">-->
                         <!--            </div>-->

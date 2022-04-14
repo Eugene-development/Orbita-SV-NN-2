@@ -92,7 +92,6 @@
         <div class="max-w-7xl mx-auto px-2 sm:px-10">
             <div class="relative flex items-center justify-between h-12">
 
-                <Search/>
 
                 <div class="flex items-center px-1 lg:px-0">
                     <div class="hidden lg:block ">
@@ -457,6 +456,7 @@
         </div>
     </div>
 
+    <Search/>
 
 </header>
 

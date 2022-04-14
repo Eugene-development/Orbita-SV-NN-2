@@ -101,7 +101,7 @@
 
 <div class="bg-blueGray-50">
   <div
-    class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-white via-indigo-50 to-white shadow-lg shadow-indigo-200/50 mb-4">
+    class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-50 to-white shadow-lg shadow-slate-200/50 mb-4">
     <div class="flex flex-col text-center w-full">
       <h1 class=" text-5xl font-medium title-font text-slate-900">{ nameCategory } в Нижнем Новгороде</h1>
     </div>
@@ -110,7 +110,7 @@
   <div class="p-8">
     <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {#each products as { id, name, slug, size, unit, image }}
-        <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow-lg shadow-indigo-200/50 divide-y divide-slate-200 border-2 border-indigo-50 ring-offset-1 ring-1 ring-indigo-50">
+        <li class="col-span-1 flex flex-col text-center rounded-lg shadow-lg shadow-slate-200/50 divide-y divide-slate-200 border-2 border-slate-100 ring-offset-1 ring-1 ring-slate-100">
           <a sveltekit:prefetch sveltekit:noscroll href="/product/{slug}">
             <div class="flex-1 flex flex-col p-8">
 
@@ -126,7 +126,7 @@
                 <dt class="sr-only">Product</dt>
                 <dd class="mt-4">
                   <span
-                    class="px-2 py-1 text-indigo-800 text-base font-medium bg-indigo-100 rounded-full">{ size[0].price.price }
+                    class="px-3 py-1.5 text-slate-100 text-base font-medium bg-indigo-800 rounded-full">{ size[0].price.price }
                     р/{ unit }</span>
                 </dd>
               </dl>
@@ -139,7 +139,7 @@
                   <button
                     on:click|preventDefault|once={sendToCart(id)}
                     class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-slate-700 font-medium border border-transparent rounded-bl-lg hover:text-slate-500">
-                    <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                          xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
@@ -149,8 +149,8 @@
                   </button>
                 {:else }
                   <button
-                    class="focus:outline-none relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-slate-50 font-medium border border-transparent rounded-bl-lg hover:text-slate-100 bg-indigo-900">
-                    <svg class="w-5 h-5 text-slate-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    class="focus:outline-none relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-slate-50 font-medium border border-transparent rounded-bl-lg hover:text-slate-100 bg-indigo-800">
+                    <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                          xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
@@ -168,7 +168,7 @@
 <!--                  </svg>-->
 
 <!--                    <div class="mt-1 mx-4">-->
-<!--                      <input type="email" name="email" id="email" class="h-6 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-slate-300 rounded-md text-center" placeholder="1">-->
+<!--                      <input type="email" name="email" id="email" class="h-6 shadow-sm focus:ring-slate-500 focus:border-slate-500 block w-full sm:text-sm border-slate-300 rounded-md text-center" placeholder="1">-->
 <!--                    </div>-->
 
 <!--                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" >-->
@@ -177,7 +177,7 @@
 <!--                </div>-->
                 <a sveltekit:prefetch sveltekit:noscroll href="/product/{slug}"
                    class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-slate-700 font-medium border  border-transparent rounded-bl-lg hover:text-slate-500">
-                  <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                        xmlns="http://www.w3.org/2000/svg">
                     <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"
                           stroke-width="2" />
