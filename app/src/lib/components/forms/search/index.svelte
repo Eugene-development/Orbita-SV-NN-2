@@ -1,4 +1,6 @@
 <script>
+    const l = console.log;
+
     import { fade } from 'svelte/transition';
     import { formSearch } from "../../../../stores";
     import { useVisible } from "$lib/use/functions/visible";
@@ -30,7 +32,8 @@
         };
     }
 
-    let value;
+    let value = '';
+    $: if (value.length >= 4) l(value);
 </script>
 {#if (visibleFormSearch)}
     <div in:fade={{ duration: 300}} out:fade class="fixed inset-0 z-40 overflow-y-auto p-4 sm:p-6 md:p-20" role="dialog" aria-modal="true">
