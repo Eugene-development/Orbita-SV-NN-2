@@ -17,7 +17,7 @@
         const resJSON = await res.json();
         const data = resJSON.product.data[0]
         const id = data.id
-        const nameProduct = data.name
+        const nameProduct = data.name.charAt(0).toUpperCase() + data.name.slice(1).toLowerCase();
         const descriptionProduct = data.description
         const idCategory = data.category.id
         const nameCategory = data.category.name

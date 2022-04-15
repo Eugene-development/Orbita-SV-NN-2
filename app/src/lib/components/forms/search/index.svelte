@@ -1,22 +1,17 @@
 <script>
     const l = console.log;
 
-    import { fade } from 'svelte/transition';
-    import { formSearch, allProd } from "../../../../stores";
-    import { useVisible } from "$lib/use/functions/visible";
+    import {fade} from 'svelte/transition';
+    import {formSearch, allProd} from "../../../../stores";
+    import {useVisible} from "$lib/use/functions/visible";
 
     import axios from "axios";
 
-    const { invert } = useVisible;
+    const {invert} = useVisible;
 
     const changeVisibleFormSearch = () => formSearch.update(invert)//Сеттер
     let visibleFormSearch;
     formSearch.subscribe(value => visibleFormSearch = value);//Геттер
-
-
-
-
-
 
 
     // import { elasticOut } from 'svelte/easing';
@@ -35,21 +30,21 @@
     // }
 
     let value = '';
+    let result = [];
     $: if (value.length >= 4) {
         let allProduct;
         allProd.subscribe(value => allProduct = value);
-        console.log(allProduct)
 
 
-
-        const search = ( query ) => allProduct.filter(({ name }) => name.toLowerCase().includes( query ));
+        const search = (query) => allProduct.filter(({name}) => name.toLowerCase().includes(query));
         const query = 'УТЕП'.toLowerCase();
-        const result = search( query );
-        console.log(result);
+        result = search(query);
+        l(result)
     }
 </script>
 {#if (visibleFormSearch)}
-    <div in:fade={{ duration: 300}} out:fade class="fixed inset-0 z-40 overflow-y-auto p-4 sm:p-6 md:p-20" role="dialog" aria-modal="true">
+    <div in:fade={{ duration: 300}} out:fade class="fixed inset-0 z-40 overflow-y-auto p-4 sm:p-6 md:p-20" role="dialog"
+         aria-modal="true">
         <!--
           Background overlay, show/hide based on modal state.
 
@@ -60,7 +55,6 @@
             From: "opacity-100"
             To: "opacity-0"
         -->
-
 
 
         <div class="fixed inset-0 bg-gray-500 bg-opacity-50 transition-opacity" aria-hidden="true"></div>
@@ -94,8 +88,11 @@
 
             <div class="relative">
                 <!-- Heroicon name: solid/search -->
-                <svg class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                <svg class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
+                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                          clip-rule="evenodd"/>
                 </svg>
                 <input
                         bind:value={value}
@@ -107,42 +104,45 @@
                         aria-controls="options">
             </div>
 
-            {value}
-
             <!-- Results, show/hide based on command palette state -->
             <ul class="max-h-96 scroll-py-3 overflow-y-auto p-3" id="options" role="listbox">
                 <!-- Active: "bg-gray-100" -->
-                <li class="group flex cursor-default select-none rounded-xl p-3 bg-gray-100" id="option-1" role="option" tabindex="-1">
-                    <div class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-indigo-500">
-                        <!-- Heroicon name: outline/pencil-alt -->
-                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                        </svg>
-                    </div>
-                    <div class="ml-4 flex-auto">
-                        <!-- Active: "text-gray-900", Not Active: "text-gray-700" -->
-                        <p class="text-sm font-medium text-gray-700">Text</p>
-                        <!-- Active: "text-gray-700", Not Active: "text-gray-500" -->
-                        <p class="text-sm text-gray-500">Add freeform text with basic formatting options.</p>
-                    </div>
-                </li>
 
-                <!-- More items... -->
+
+                {#each result as {name, size, slug}}
+                    <li class="group flex cursor-default select-none rounded-xl p-3" id="option-1" role="option"
+                        tabindex="-1">
+                        <div class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-indigo-500">
+                            <!-- Heroicon name: outline/pencil-alt -->
+                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                        </div>
+                        <a href="/product/{slug}" sveltekit:prefetch sveltekit:noscroll  on:click={ changeVisibleFormSearch } class="ml-4 flex-auto">
+                            <!-- Active: "text-gray-900", Not Active: "text-gray-700" -->
+                            <p class="text-sm font-medium text-gray-700">{name}</p>
+                            <!-- Active: "text-gray-700", Not Active: "text-gray-500" -->
+                            <p class="text-sm text-gray-500"></p>
+                        </a>
+                    </li>
+                {:else}
+                    <div class="py-14 px-6 text-center text-sm sm:px-14">
+                        <!-- Heroicon name: outline/exclamation-circle -->
+                        <svg class="mx-auto h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <p class="mt-4 font-semibold text-gray-900">Ничего не найдено</p>
+                        <p class="mt-2 text-gray-500">Проверьте правильность написания наименования</p>
+                    </div>
+                {/each}
             </ul>
 
-            <!-- Empty state, show/hide based on command palette state -->
-<!--            <div class="py-14 px-6 text-center text-sm sm:px-14">-->
-<!--                &lt;!&ndash; Heroicon name: outline/exclamation-circle &ndash;&gt;-->
-<!--                <svg class="mx-auto h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">-->
-<!--                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />-->
-<!--                </svg>-->
-<!--                <p class="mt-4 font-semibold text-gray-900">Ничего не найдено</p>-->
-<!--                <p class="mt-2 text-gray-500">Проверьте правильность написания наименования</p>-->
-<!--            </div>-->
 
         </div>
-
-
 
 
     </div>
