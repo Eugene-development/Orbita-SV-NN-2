@@ -13,4 +13,4 @@ export const deliveryInfo = writable(false)
 export const lengthCart = writable(0)
 
 export const InCart = writable([])
-export const allProducts = writable([])
+export const allProd = writable([])

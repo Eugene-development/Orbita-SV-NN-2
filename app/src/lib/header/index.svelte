@@ -4,7 +4,7 @@
     import MobileMenu from "./mobile/index.svelte";
     import { useHead } from "$lib/use/content/header";
     import { useVisible } from "$lib/use/functions/visible";
-    import {informationMenu, lengthCart, mobileMenu, formSearch, InCart} from "../../stores.js";
+    import {informationMenu, lengthCart, mobileMenu, formSearch, allProd} from "../../stores.js";
     import { onMount } from "svelte";
     import { browser } from "$app/env";
 
@@ -71,16 +71,24 @@
         // const search = allProducts.data.data.filter(({name}) => name.includes(text));
         // console.log(search)
 
-        const search = ( query ) => allProducts.data.data.filter(({ name }) => name.toLowerCase().includes( query ));
-        const query = 'УТЕП'.toLowerCase();
-        const result = search( query );
-        console.log(result)
+        // const search = ( query ) => allProducts.data.data.filter(({ name }) => name.toLowerCase().includes( query ));
+        // const query = 'УТЕП'.toLowerCase();
+        // const result = search( query );
+        // console.log(result);
 
 
 
         // const result = filterItems(allProducts.data.data.name, 'УТЕПЛИТЕЛЬ')
         // console.log(result)
 
+
+
+        allProd.update(() => allProducts.data.data )
+
+        let test;
+        allProd.subscribe( value => test = value );
+
+        console.log(test)
     };
 
 
@@ -499,7 +507,7 @@
         </div>
     </div>
 
-    <Search value={allProducts}/>
+    <Search/>
 
 </header>
 

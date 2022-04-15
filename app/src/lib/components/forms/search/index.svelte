@@ -2,7 +2,7 @@
     const l = console.log;
 
     import { fade } from 'svelte/transition';
-    import { formSearch } from "../../../../stores";
+    import { formSearch, allProd } from "../../../../stores";
     import { useVisible } from "$lib/use/functions/visible";
 
     import axios from "axios";
@@ -17,23 +17,36 @@
 
 
 
-    import { elasticOut } from 'svelte/easing';
 
-    export let visible;
 
-    function whoosh(node, params) {
-        const existingTransform = getComputedStyle(node).transform.replace('none', '');
-
-        return {
-            delay: params.delay || 0,
-            duration: params.duration || 400,
-            easing: params.easing || elasticOut,
-            css: (t, u) => `transform: ${existingTransform} scale(${t})`
-        };
-    }
+    // import { elasticOut } from 'svelte/easing';
+    //
+    // export let visible;
+    //
+    // function whoosh(node, params) {
+    //     const existingTransform = getComputedStyle(node).transform.replace('none', '');
+    //
+    //     return {
+    //         delay: params.delay || 0,
+    //         duration: params.duration || 400,
+    //         easing: params.easing || elasticOut,
+    //         css: (t, u) => `transform: ${existingTransform} scale(${t})`
+    //     };
+    // }
 
     let value = '';
-    $: if (value.length >= 4) l(value);
+    $: if (value.length >= 4) {
+        let allProduct;
+        allProd.subscribe(value => allProduct = value);
+        // console.log(allProduct)
+
+
+
+        const search = ( query ) => allProduct.filter(({ name }) => name.toLowerCase().includes( query ));
+        const query = 'УТЕП'.toLowerCase();
+        const result = search( query );
+        // console.log(result);
+    }
 </script>
 {#if (visibleFormSearch)}
     <div in:fade={{ duration: 300}} out:fade class="fixed inset-0 z-40 overflow-y-auto p-4 sm:p-6 md:p-20" role="dialog" aria-modal="true">
