@@ -38,14 +38,14 @@
     $: if (value.length >= 4) {
         let allProduct;
         allProd.subscribe(value => allProduct = value);
-        // console.log(allProduct)
+        console.log(allProduct)
 
 
 
         const search = ( query ) => allProduct.filter(({ name }) => name.toLowerCase().includes( query ));
         const query = 'УТЕП'.toLowerCase();
         const result = search( query );
-        // console.log(result);
+        console.log(result);
     }
 </script>
 {#if (visibleFormSearch)}

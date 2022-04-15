@@ -85,10 +85,10 @@
 
         allProd.update(() => allProducts.data.data )
 
-        let test;
-        allProd.subscribe( value => test = value );
-
-        console.log(test)
+        // let test;
+        // allProd.subscribe( value => test = value );
+        //
+        // console.log(test)
     };
 
 
