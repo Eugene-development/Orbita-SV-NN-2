@@ -46,6 +46,7 @@
 
     import pkg from 'lodash';
     const { filter } = pkg;
+    const allProducts =[]
     const getAllProducts = async () => {
 
         const headers = {
@@ -498,7 +499,7 @@
         </div>
     </div>
 
-    <Search/>
+    <Search value={allProducts}/>
 
 </header>
 
