@@ -34,12 +34,9 @@
     $: if (value.length >= 4) {
         let allProduct;
         allProd.subscribe(value => allProduct = value);
-
-
         const search = (query) => allProduct.filter(({name}) => name.toLowerCase().includes(query));
-        const query = 'УТЕП'.toLowerCase();
+        const query = value.toLowerCase();
         result = search(query);
-        l(result)
     }
 </script>
 {#if (visibleFormSearch)}
@@ -135,7 +132,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
-                        <p class="mt-4 font-semibold text-gray-900">Здесь пусто</p>
+                        <p class="mt-4 font-semibold text-gray-900">Здесь пока пусто</p>
                         <p class="mt-2 text-gray-500">Введите наименование товара</p>
                     </div>
                 {/each}
