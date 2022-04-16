@@ -334,7 +334,7 @@
                 </div>
                 <div class="hidden lg:flex-1 lg:flex sm:items-center sm:justify-between">
                     <nav class="flex space-x-10 font-semibold">
-                        <a href="/" class="text-base text-slate-900 hover:text-red-800">Главная</a>
+                        <a href="/" class="text-base text-slate-900 hover:text-red-800 ">Главная</a>
                         <a href="/company" class="text-base text-slate-900 hover:text-red-800">Компания</a>
                         <div use:clickOutside on:outclick={closeVisibleInformationMenu}>
                             <!-- Item active: "text-slate-900", Item inactive: "text-slate-500" -->

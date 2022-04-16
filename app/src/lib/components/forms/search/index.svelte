@@ -122,7 +122,7 @@
                         </div>
                         <a href="/product/{slug}" sveltekit:prefetch sveltekit:noscroll  on:click={ changeVisibleFormSearch } class="ml-4 flex-auto">
                             <!-- Active: "text-gray-900", Not Active: "text-gray-700" -->
-                            <p class="text-sm font-medium text-gray-700">{++i}. {name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()}</p>
+                            <p class="text-sm font-medium text-gray-700 lowercase first-letter:uppercase"> {name}</p>
                             <!-- Active: "text-gray-700", Not Active: "text-gray-500" -->
                             <p class="text-sm text-gray-500"></p>
                         </a>
@@ -135,7 +135,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
-                        <p class="mt-4 font-semibold text-gray-900">Пусто</p>
+                        <p class="mt-4 font-semibold text-gray-900">Здесь пусто</p>
                         <p class="mt-2 text-gray-500">Введите наименование товара</p>
                     </div>
                 {/each}

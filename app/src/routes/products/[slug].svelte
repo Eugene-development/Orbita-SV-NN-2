@@ -103,7 +103,7 @@
   <div
     class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-50 to-white shadow-lg shadow-slate-200/50 mb-4">
     <div class="flex flex-col text-center w-full">
-      <h1 class=" text-5xl font-medium title-font text-slate-900">{ nameCategory } в Нижнем Новгороде</h1>
+      <h1 class=" text-5xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">{ nameCategory } в Нижнем Новгороде</h1>
     </div>
   </div>
 
@@ -119,7 +119,7 @@
                    alt="product"
                    class="w-32 h-32 object-contain flex-shrink-0 mx-auto">
                 {/if}
-              <h3 class="mt-6 text-slate-900 text-sm font-medium h-10">{ name.charAt(0).toUpperCase() + name.slice(1).toLowerCase() }</h3>
+              <h3 class="mt-6 text-slate-900 text-sm font-medium h-10 lowercase first-letter:uppercase">{ name }</h3>
               <dl class="mt-1 flex-grow flex flex-col justify-between">
                 <dt class="sr-only">Title</dt>
                 <hr class="mt-4">

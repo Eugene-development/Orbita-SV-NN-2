@@ -17,7 +17,7 @@
         const resJSON = await res.json();
         const data = resJSON.product.data[0]
         const id = data.id
-        const nameProduct = data.name.charAt(0).toUpperCase() + data.name.slice(1).toLowerCase();
+        const nameProduct = data.name;
         const descriptionProduct = data.description
         const idCategory = data.category.id
         const nameCategory = data.category.name
@@ -160,7 +160,7 @@
     <div>
         <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-50 to-white shadow-lg shadow-slate-200/50 mb-4 ">
             <div class="flex flex-col text-center w-full">
-                <h1 class=" text-5xl font-medium title-font text-slate-900">{ nameProduct }</h1>
+                <h1 class=" text-5xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">{ nameProduct }</h1>
             </div>
         </div>
 
@@ -169,7 +169,7 @@
                 <div class="lg:w-4/5 mx-auto flex flex-wrap">
                     <div class="lg:w-1/2 w-full lg:pr-12 lg:py-6 mb-6 lg:mb-0">
                         <h2 class="text-sm title-font text-slate-500 tracking-widest">НАИМЕНОВАНИЕ</h2>
-                        <h1 class="text-slate-900 text-3xl title-font font-medium mb-4">{ nameProduct }</h1>
+                        <h1 class="text-slate-900 text-3xl title-font font-medium mb-4 lowercase first-letter:uppercase">{ nameProduct }</h1>
                         <div class="flex mb-4">
                             <button on:click={changeVisibleDescriptionInfo}
                                     class="focus:outline-none flex-grow border-b-2 border-slate-300 py-2 text-lg px-1 {visibleDescription ? 'font-bold' : 'font-normal'}"
