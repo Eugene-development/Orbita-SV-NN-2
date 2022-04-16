@@ -158,14 +158,14 @@
 </svelte:head>
 <div>
     <div>
-        <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-50 to-white shadow-lg shadow-slate-200/50 mb-4 ">
+        <div id="start" class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-50 to-white shadow-lg shadow-slate-200/50 mb-4">
             <div class="flex flex-col text-center w-full">
                 <h1 class=" text-5xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">{ nameProduct }</h1>
             </div>
         </div>
 
         <section class="text-slate-600 body-font overflow-hidden">
-            <div class="container px-2 py-24 mx-auto">
+            <div class="container px-8 py-24 mx-auto">
                 <div class="lg:w-4/5 mx-auto flex flex-wrap">
                     <div class="lg:w-1/2 w-full lg:pr-12 lg:py-6 mb-6 lg:mb-0">
                         <h2 class="text-sm title-font text-slate-500 tracking-widest">НАИМЕНОВАНИЕ</h2>
