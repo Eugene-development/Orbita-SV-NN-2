@@ -35,10 +35,10 @@
                                 Контакты:
                             </h3>
                             <div class="mt-4 space-y-4">
-                                <p class="text-sm text-gray-50">
+                                <p class="text-xs text-gray-50">
                                     г. Нижний Новгород, <br> ул. Зеленхозовская 4-а
                                 </p>
-                                <p class="text-base text-gray-50 flex">
+                                <p class="text-xs text-gray-50 flex">
                                     <svg class="my-auto mr-2 text-gray-50 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" stroke-linecap="round" stroke-linejoin="round"
@@ -46,8 +46,7 @@
                                     </svg>
                                     8 (800) 555-8-111
                                 </p>
-                                <p class="text-sm text-gray-50 flex">
-
+                                <p class="text-xs text-gray-50 flex">
                                     <svg class="my-auto mr-2 text-gray-50 w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
@@ -198,7 +197,7 @@
                         <label for="emailAddress" class="sr-only">Email address</label>
                         <input type="email" id="emailAddress" required class="appearance-none min-w-0 w-full bg-white border border-transparent rounded-md py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white focus:placeholder-gray-400" placeholder="Ваша почта">
                         <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                            <button type="submit" class="w-full bg-indigo-700 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-800 focus:ring-indigo-700">
+                            <button type="submit" class="w-full bg-indigo-800 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-800 focus:ring-indigo-700">
                                 Подписаться
                             </button>
                         </div>

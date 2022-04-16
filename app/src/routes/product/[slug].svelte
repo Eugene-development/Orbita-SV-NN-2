@@ -168,17 +168,17 @@
             <div class="container px-8 py-24 mx-auto">
                 <div class="lg:w-4/5 mx-auto flex flex-wrap">
                     <div class="lg:w-1/2 w-full lg:pr-12 lg:py-6 mb-6 lg:mb-0">
-                        <h2 class="text-sm title-font text-slate-500 tracking-widest">НАИМЕНОВАНИЕ</h2>
-                        <h1 class="text-slate-900 text-2xl title-font font-medium mb-4 lowercase first-letter:uppercase">{ nameProduct }</h1>
+                        <h2 class="text-sm title-font text-red-500 tracking-widest">НАИМЕНОВАНИЕ</h2>
+                        <h1 class="text-slate-900 text-2xl title-font font-medium my-4 lowercase first-letter:uppercase">{ nameProduct }</h1>
                         <div class="flex mb-4">
                             <button on:click={changeVisibleDescriptionInfo}
-                                    class="focus:outline-none flex-grow border-b-2 border-slate-300 py-2 text-lg px-1 {visibleDescription ? 'font-bold' : 'font-normal'}"
+                                    class="focus:outline-none flex-grow  border-slate-300 py-2 text-lg px-1 {visibleDescription ? 'font-bold border-b-2' : 'font-normal '}"
                             >Описание</button>
                             <button on:click={changeVisiblePaymentInfo}
-                                    class="focus:outline-none flex-grow border-b-2 border-slate-300 py-2 text-lg px-1 {visiblePayment ? 'font-bold' : 'font-normal'}"
+                                    class="focus:outline-none flex-grow border-slate-300 py-2 text-lg px-1 {visiblePayment ? 'font-bold border-b-2' : 'font-normal '}"
                             >Оплата</button>
                             <button on:click={changeVisibleDeliveryInfo}
-                                    class="focus:outline-none flex-grow border-b-2 border-slate-300 py-2 text-lg px-1 {visibleDelivery ? 'font-bold' : 'font-normal'}"
+                                    class="focus:outline-none flex-grow border-slate-300 py-2 text-lg px-1 {visibleDelivery ? 'font-bold border-b-2' : 'font-normal '}"
                             >Доставка</button>
                         </div>
 
@@ -212,7 +212,7 @@
                             <span class="ml-auto text-slate-900">Уточняйте у менеджера</span>
                         </div>
                         <div class="flex">
-                            <span class="title-font font-medium text-xl text-slate-900">{ size[0].price.price } р/{ unit }.</span>
+                            <span class="title-font py-2 px-4 font-medium text-lg text-slate-100 rounded-2xl bg-indigo-800">{ size[0].price.price } р/{ unit }.</span>
                             {#if !(idProductsInCart).some(arrVal => id === arrVal)}
                             <button on:click|preventDefault|once={sendToCart(id)} type="button" class="ml-auto bg-slate-50 border border-transparent rounded-md py-2 px-6 flex items-center justify-center text-sm font-medium text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-50 focus:ring-slate-500">
                                 <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
