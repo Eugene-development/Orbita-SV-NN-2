@@ -160,7 +160,7 @@
     <div>
         <div id="start" class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-50 to-white shadow-lg shadow-slate-200/50 mb-4">
             <div class="flex flex-col text-center w-full">
-                <h1 class=" text-5xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">{ nameProduct }</h1>
+                <h1 class=" text-4xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">{ nameProduct }</h1>
             </div>
         </div>
 
@@ -169,7 +169,7 @@
                 <div class="lg:w-4/5 mx-auto flex flex-wrap">
                     <div class="lg:w-1/2 w-full lg:pr-12 lg:py-6 mb-6 lg:mb-0">
                         <h2 class="text-sm title-font text-slate-500 tracking-widest">НАИМЕНОВАНИЕ</h2>
-                        <h1 class="text-slate-900 text-3xl title-font font-medium mb-4 lowercase first-letter:uppercase">{ nameProduct }</h1>
+                        <h1 class="text-slate-900 text-2xl title-font font-medium mb-4 lowercase first-letter:uppercase">{ nameProduct }</h1>
                         <div class="flex mb-4">
                             <button on:click={changeVisibleDescriptionInfo}
                                     class="focus:outline-none flex-grow border-b-2 border-slate-300 py-2 text-lg px-1 {visibleDescription ? 'font-bold' : 'font-normal'}"
@@ -199,7 +199,7 @@
                         <a sveltekit:prefetch sveltekit:noscroll href='/products/{slugCategory}'>
                             <div class="flex border-t border-slate-200 py-2">
                                 <span class="text-slate-500">Категория:</span>
-                                <span class="ml-auto text-red-500 hover:text-red-600">{ nameCategory }</span>
+                                <span class="ml-auto text-red-500 hover:text-red-600 text-sm">{ nameCategory }</span>
                             </div>
                         </a>
 
@@ -208,13 +208,13 @@
                             <span class="ml-auto text-slate-900">{ unit }</span>
                         </div>
                         <div class="flex border-t border-b mb-6 border-slate-200 py-2">
-                            <span class="text-slate-500">Наличие на складе:</span>
+                            <span class="text-slate-500">Наличие:</span>
                             <span class="ml-auto text-slate-900">Уточняйте у менеджера</span>
                         </div>
                         <div class="flex">
-                            <span class="title-font font-medium text-4xl text-slate-900">{ size[0].price.price } р/{ unit }.</span>
+                            <span class="title-font font-medium text-xl text-slate-900">{ size[0].price.price } р/{ unit }.</span>
                             {#if !(idProductsInCart).some(arrVal => id === arrVal)}
-                            <button on:click|preventDefault|once={sendToCart(id)} type="button" class="ml-auto bg-slate-50 border border-transparent rounded-md py-2 px-6 flex items-center justify-center text-base font-medium text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-50 focus:ring-slate-500">
+                            <button on:click|preventDefault|once={sendToCart(id)} type="button" class="ml-auto bg-slate-50 border border-transparent rounded-md py-2 px-6 flex items-center justify-center text-sm font-medium text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-50 focus:ring-slate-500">
                                 <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                 </svg>
@@ -223,11 +223,8 @@
                             {:else }
                             <button class="ml-auto bg-indigo-800 border border-transparent rounded-md py-2 px-6 flex items-center justify-center text-base font-medium text-slate-100 ">
                                 <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                    <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                 </svg>
-
                                 <span class="ml-3">В корзине</span>
                             </button>
                             {/if}
