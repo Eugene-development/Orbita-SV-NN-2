@@ -140,12 +140,12 @@
   ```
 -->
     <nav class="bg-indigo-900">
-        <div class="max-w-7xl mx-auto px-2 sm:px-10">
+        <div class="max-w-7xl mx-auto px-2 sm:px-10 hidden lg:block">
             <div class="relative flex items-center justify-between h-12">
 
 
                 <div class="flex items-center px-1 lg:px-0">
-                    <div class="hidden lg:block ">
+                    <div class=" ">
                         <div class="flex space-x-2">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
