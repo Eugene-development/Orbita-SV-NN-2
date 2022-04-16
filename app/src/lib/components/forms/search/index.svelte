@@ -86,7 +86,7 @@
             </div>
 
 
-            <div class="relative">
+            <div class="relative bg-slate-50">
                 <!-- Heroicon name: solid/search -->
                 <svg class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -97,7 +97,7 @@
                 <input
                         bind:value={value}
                         type="text"
-                        class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
+                        class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm "
                         placeholder="Введите наименование..."
                         role="combobox"
                         aria-expanded="false"
@@ -109,10 +109,10 @@
                 <!-- Active: "bg-gray-100" -->
 
 
-                {#each result as {name, size, slug}}
-                    <li class="group flex cursor-default select-none rounded-xl p-3" id="option-1" role="option"
+                {#each result as {name, size, slug}, i}
+                    <li class="group flex cursor-default select-none rounded-xl p-3 " id="option-1" role="option"
                         tabindex="-1">
-                        <div class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-indigo-500">
+                        <div class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-indigo-800">
                             <!-- Heroicon name: outline/pencil-alt -->
                             <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
                                  viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -122,21 +122,21 @@
                         </div>
                         <a href="/product/{slug}" sveltekit:prefetch sveltekit:noscroll  on:click={ changeVisibleFormSearch } class="ml-4 flex-auto">
                             <!-- Active: "text-gray-900", Not Active: "text-gray-700" -->
-                            <p class="text-sm font-medium text-gray-700">{name}</p>
+                            <p class="text-sm font-medium text-gray-700">{++i}. {name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()}</p>
                             <!-- Active: "text-gray-700", Not Active: "text-gray-500" -->
                             <p class="text-sm text-gray-500"></p>
                         </a>
                     </li>
                 {:else}
-                    <div class="py-14 px-6 text-center text-sm sm:px-14">
+                    <div class="py-14 px-6 text-center text-sm sm:px-14 ">
                         <!-- Heroicon name: outline/exclamation-circle -->
                         <svg class="mx-auto h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
                              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
-                        <p class="mt-4 font-semibold text-gray-900">Ничего не найдено</p>
-                        <p class="mt-2 text-gray-500">Проверьте правильность написания наименования</p>
+                        <p class="mt-4 font-semibold text-gray-900">Пусто</p>
+                        <p class="mt-2 text-gray-500">Введите наименование товара</p>
                     </div>
                 {/each}
             </ul>
