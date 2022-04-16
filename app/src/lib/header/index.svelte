@@ -183,32 +183,6 @@
 
 
 
-                <div class="flex lg:hidden">
-                    <!-- Mobile menu button -->
-                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <!--
-                          Icon when menu is closed.
-
-                          Heroicon name: outline/menu
-
-                          Menu open: "hidden", Menu closed: "block"
-                        -->
-                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <!--
-                          Icon when menu is open.
-
-                          Heroicon name: outline/x
-
-                          Menu open: "block", Menu closed: "hidden"
-                        -->
-                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
                 <div class="hidden lg:block lg:ml-4">
                     <div class="flex items-center">
                         <div class="flex items-center md:ml-12 mr-8">
@@ -267,23 +241,33 @@
 
         <!-- Mobile menu, show/hide based on menu state. -->
         <div class="lg:hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
-                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-            </div>
             <div class="pt-4 pb-3 border-t border-gray-700">
                 <div class="flex items-center px-5">
-                    <div class="flex-shrink-0">
-                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                    <!--                    <div class="flex-shrink-0">-->
+                    <!--                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">-->
+                    <!--                    </div>-->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                    </svg>
+
+                    <div class="flex items-center mx-auto">
+                        <button on:click={ changeVisibleFormSearch } on:click={ getAllProducts } class=" inline-flex items-center justify-center pl-2 pr-12  py-0.5 border border-transparent rounded-md text-base font-medium text-gray-500 bg-slate-100 hover:bg-slate-200  " >
+
+
+                            <svg aria-hidden="true" class="h-5 w-5 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" fill-rule="evenodd"/>
+                            </svg>
+                            Поиск товара
+
+                        </button>
                     </div>
-                    <div class="ml-3">
-                        <div class="text-base font-medium text-white">Tom Cook</div>
-                        <div class="text-sm font-medium text-gray-400">tom@example.com</div>
-                    </div>
-                    <button type="button" class="ml-auto flex-shrink-0 bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+
+
+                    <!--                    <div class="ml-3">-->
+                    <!--                        <div class="text-base font-medium text-white">Tom Cook</div>-->
+                    <!--                        <div class="text-sm font-medium text-gray-400">tom@example.com</div>-->
+                    <!--                    </div>-->
+                    <button type="button" class="flex-shrink-0 bg-red-400 p-1 rounded-full text-slate-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                         <span class="sr-only">View notifications</span>
                         <!-- Heroicon name: outline/bell -->
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -291,11 +275,33 @@
                         </svg>
                     </button>
                 </div>
-<!--                <div class="mt-3 px-2 space-y-1">-->
-<!--                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your Profile</a>-->
-<!--                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>-->
-<!--                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign out</a>-->
-<!--                </div>-->
+                <!--                <div class="mt-3 px-2 space-y-1">-->
+                <!--                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your Profile</a>-->
+                <!--                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>-->
+                <!--                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign out</a>-->
+                <!--                </div>-->
+            </div>
+
+            <div class="px-2 pt-2 pb-3 space-y-1 ">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <div class=" mx-auto flex justify-between items-center">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" />
+                    </svg>
+                    <p class="text-gray-300 pr-1 rounded-md text-xs font-medium">8 (800) 555-8-111</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" />
+                    </svg>
+
+                    <p class="text-gray-300 pr-1 rounded-md text-xs font-medium">8 (930) 688-88-62</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" />
+                    </svg>
+
+                    <p class="text-gray-300 pr-1 rounded-md text-xs font-medium">8 (902) 303-36-54</p>
+                </div>
+
             </div>
         </div>
     </nav>
@@ -314,7 +320,7 @@
                 </div>
 
                 <div class="flex items-center md:ml-12 lg:hidden">
-                    <a class="ml-8 inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-800 shadow-lg shadow-indigo-700/50" href="/shop/cart"
+                    <a class="ml-8 inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md text-base font-medium text-white bg-indigo-900 hover:bg-indigo-800 shadow-lg shadow-indigo-700/50" href="/shop/cart"
                        sveltekit:noscroll>
                         <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                              xmlns="http://www.w3.org/2000/svg">
@@ -322,7 +328,7 @@
                                   stroke-width="2" />
                         </svg>
                         Корзина
-                        <div class="ml-1 animate-pulse">({countLengthCart})</div>
+                        (<div class="mx-1 animate-pulse text-red-400">{countLengthCart}</div>)
                     </a>
                 </div>
 
