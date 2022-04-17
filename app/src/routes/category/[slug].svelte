@@ -95,12 +95,12 @@
         </div>
 
         <!-- This example requires Tailwind CSS v2.0+ -->
-        <div class="relative pt-4 pb-4 px-4 sm:px-6 lg:pt-4 lg:pb-8 lg:px-8">
+        <div class="relative pt-4 pb-4 px-2 sm:px-6 lg:pt-4 lg:pb-8 lg:px-8">
 
 
 
             <!-- This example requires Tailwind CSS v2.0+ -->
-            <div class="py-1 bg-slate-50 relative shadow-lg shadow-slate-100/50 rounded-lg border-2 border-slate-50 ring-offset-1 ring-1 ring-slate-50">
+            <div class="py-1 bg-slate-100 relative shadow-lg shadow-slate-100/50 rounded-lg border-2 border-slate-100 ring-offset-1 ring-1 ring-slate-50">
                 <!--          <div class="py-1 relative bg-gradient-to-b from-slate-50 via-slate-800 to-slate-50 shadow-lg rounded-lg">-->
                 <div class="max-w-full mx-auto py-3 px-3 sm:px-6 lg:px-8">
                     {#if text}
@@ -137,7 +137,7 @@
                         <!--            <div class="flex-shrink-0">-->
                         <!--              <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=IrF17Golbw&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">-->
                         <!--            </div>-->
-                        <div class="flex-1 bg-slate-50 p-6 flex flex-col justify-between">
+                        <div class="flex-1 bg-slate-100 p-6 flex flex-col justify-between">
                             <div class="flex-1">
                                 <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}'>
                                     <p class="text-2xl font-semibold text-slate-800">
@@ -148,7 +148,7 @@
                                         { text.descriptionText }
                                     </p>
                                     {:else }
-                                    <p class="mt-3 text-base text-slate-50">Уточняйте наличие</p>
+                                    <p class="mt-3 text-base text-slate-800">Уточняйте наличие</p>
                                     {/if}
                                     <p class="mt-2 text-base font-medium text-red-600 place-items-end">Выбрать &rarr;</p>
                                 </a>
