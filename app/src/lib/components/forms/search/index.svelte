@@ -117,7 +117,7 @@
                                       d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                             </svg>
                         </div>
-                        <a href="/product/{slug}//#start" sveltekit:prefetch sveltekit:noscroll  on:click={ changeVisibleFormSearch } class="ml-4 flex-auto ">
+                        <a href="/product/{slug}//#start" sveltekit:prefetch on:click={ changeVisibleFormSearch } class="ml-4 flex-auto ">
                             <!-- Active: "text-gray-900", Not Active: "text-gray-700" -->
                             <p class="text-sm font-medium text-gray-700  lowercase first-letter:uppercase">{ name }</p>
                             <!-- Active: "text-gray-700", Not Active: "text-gray-500" -->
