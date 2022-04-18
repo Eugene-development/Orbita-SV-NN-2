@@ -81,8 +81,9 @@
       information: informationForm
     }
 
+    //TODO исправь на env
     const apiMail = {
-      baseURL: "https://adminexpo.com:7721/",
+      baseURL: "https://larux.ru:7721/",
       headers: {
         Authorization: `Bearer 1`
       }
@@ -91,7 +92,7 @@
     await axios.post('/sendOrder', data, apiMail);
 
     const apiCart = {
-      baseURL: "https://adminexpo.com:7711/",
+      baseURL: "https://larux.ru:7711/",
       headers: {
         Authorization: `Bearer 1`
       }
@@ -187,9 +188,7 @@
                       <!--                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" alt="">-->
                       <!--                                      </div>-->
                       <div class="">
-                        <div class="text-sm font-medium text-gray-900">
-                          {name}
-                        </div>
+                        <div class="text-sm font-medium text-gray-900">{ name }</div>
                         <div class="text-sm text-gray-500">
                           <!--                        jane.cooper@example.com-->
                         </div>
@@ -429,7 +428,7 @@
 
         <div class="flex justify-end mt-8">
           <!--{#if (visibleSendOrder)}-->
-          <button on:click={sendOrder}
+          <button on:click={ sendOrder }
             class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
             type="submit">
             Отправить менеджеру
