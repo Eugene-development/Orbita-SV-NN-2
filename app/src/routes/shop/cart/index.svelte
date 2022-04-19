@@ -12,34 +12,31 @@
   const l = console.log;
   let productsInCart = [];
 
-
-  onMount(async () => {
-    const domain = import.meta.env.VITE_API_CART;
-    const dataS = browser && localStorage.getItem("dataS");
-    const url = `${domain}/get-cart/${dataS}`;
-    const headers = {
-      Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
-    };
-
-    const res = await axios(url, { headers });
-    productsInCart = res.data;
+  let test;
+  arrayProductsInCart.subscribe(value => test = value);
+  l(test)
 
 
+    onMount(async () => {
+      const domain = import.meta.env.VITE_API_CART;
+      const dataS = browser && localStorage.getItem("dataS");
+      const url = `${domain}/get-cart/${dataS}`;
+      const headers = {
+        Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
+      };
+
+      const res = await axios(url, { headers });
+      productsInCart = [...test, ...res.data];
+      l(productsInCart)
+      // productsInCart = res.data;
+
+      arrayProductsInCart.update(() => productsInCart)
 
 
+      // $: arrayTest = test
 
 
-
-    arrayProductsInCart.update(() => productsInCart)
-    let test;
-    arrayProductsInCart.subscribe(value => test = value);
-    $: test = test
-    l(test)
-
-    // $: arrayTest = test
-
-
-  });
+    });
 
 
   $: total = productsInCart.reduce((sum, product) => {
@@ -48,6 +45,8 @@
   }, 0);
 
   $: totalSum = (total - total * 0.05).toFixed(2);
+
+
 
 
   const deleteProductFromCart = async (id) => {
@@ -60,18 +59,7 @@
     const visibleLengthCart = productsInCart.length;
     lengthCart.update(() => currentValue(visibleLengthCart));
 
-
-
-
-
     InCart.update(() => productsInCart);
-
-
-
-
-
-
-
     const domain = import.meta.env.VITE_API_CART;
     const apiCart = {
       baseURL: `${domain}`,
@@ -88,11 +76,13 @@
   $: address = "";
   $: comments = "";
 
-  const visibleSendOrder = true;
+  // $: test = [];
+
+
+
+
 
   const sendOrder = async () => {
-
-    const visibleSendOrder = false;
 
     const informationForm = {
       name: first_name,
@@ -107,9 +97,10 @@
       information: informationForm
     }
 
+    l(data)
     //TODO исправь на env
     const apiMail = {
-      baseURL: "https://larux.ru:7721/",
+      // baseURL: "https://larux.ru:7721/",
       headers: {
         Authorization: `Bearer 1`
       }
@@ -176,6 +167,7 @@
     </div>
   </div>
 
+  <!--{quantity}-->
 
   <!-- This example requires Tailwind CSS v2.0+ -->
   {#if (productsInCart.length > 0)}
@@ -209,7 +201,9 @@
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
 
-              {#each productsInCart as { id, name, size, unit, quantity }, idx}
+
+              {first_name}
+              {#each test as { id, name, size, unit, quantity }, idx}
                 <tr>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     { idx + 1 }
