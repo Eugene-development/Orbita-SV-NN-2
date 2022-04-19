@@ -160,7 +160,7 @@
 
 
 <div class="bg-gray-50">
-  <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-blueGray-300 to-gray-50 shadow-lg mb-4">
+  <div class="p-10 mx-auto sm:px-4 lg:px-8 bg-gradient-to-b from-blueGray-300 to-gray-50 shadow-lg mb-4">
     <div class="flex flex-col text-center w-full">
       <h1 class=" text-5xl font-medium title-font text-gray-900">Корзина</h1>
     </div>
@@ -173,27 +173,27 @@
     <div class="m-8 flex flex-col">
       <!--  <div v-if="cartList.length > 0" class="m-8 flex flex-col">-->
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-4 lg:px-8">
           <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table class="min-w-full divide-y divide-gray-200">
               <thead class="bg-gray-50">
               <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
                   №
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
                   Наименование
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
                   Количество
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
                   Цена
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
+                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
                   Итого
                 </th>
-                <th class="relative px-6 py-3" scope="col">
+                <th class="relative px-4 py-3" scope="col">
                   <span class="sr-only">Удалить</span>
                 </th>
               </tr>
@@ -204,24 +204,24 @@
               {first_name}
               {#each test as { id, name, size, unit, quantity }, idx}
                 <tr>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    { idx + 1 }
+                  <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
+                    { idx + 1 }.
                   </td>
 
-                  <td class="px-6 py-4 whitespace-nowrap">
+                  <td class="px-4 py-4 whitespace-nowrap">
                     <div class="flex items-center">
                       <!--                                      <div class="flex-shrink-0 h-10 w-10">-->
                       <!--                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" alt="">-->
                       <!--                                      </div>-->
                       <div class="">
-                        <div class="text-sm font-medium text-gray-900">{ name }</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-900 lowercase first-letter:uppercase">{ name }</div>
                         <div class="text-sm text-gray-500">
-                          <!--                        jane.cooper@example.com-->
+                                                  jane.cooper@example.com
                         </div>
                       </div>
                     </div>
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
+                  <td class="px-4 py-4 whitespace-nowrap">
 
                     <div>
                       <div class="mt-1 ">
@@ -251,17 +251,17 @@
                       </div>
                     </div>
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
+                  <td class="px-4 py-4 whitespace-nowrap">
                 <span class="px-2 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                   { size[0].price.price } руб/{ unit }
                 </span>
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
                     { (size[0].price.price * quantity).toFixed(2) } руб.
                   </td>
 
 
-                  <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <td class="px-4 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <!--                <button-->
                     <!--                  class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-red-800 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"-->
                     <!--                  type="button"-->
