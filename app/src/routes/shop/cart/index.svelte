@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { browser } from "$app/env";
   import axios from "axios";
-  import { reject, without } from "lodash";
+  import { reject, without, differenceBy, pullAllBy } from "lodash";
   import {arrayProductsInCart, InCart, lengthCart} from "../../../stores";
   import { useReturn } from "$lib/use/functions/return";
 
@@ -14,7 +14,7 @@
 
   let test;
   arrayProductsInCart.subscribe(value => test = value);
-  l(test)
+  // l(test)
 
 
     onMount(async () => {
@@ -26,8 +26,14 @@
       };
 
       const res = await axios(url, { headers });
+
+      const aaa = pullAllBy(res.data, test, 'id');
+      l(aaa)
+
+
+
       productsInCart = [...test, ...res.data];
-      l(productsInCart)
+      // l(productsInCart)
       // productsInCart = res.data;
 
       arrayProductsInCart.update(() => productsInCart)
