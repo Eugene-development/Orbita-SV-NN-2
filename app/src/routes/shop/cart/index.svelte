@@ -3,7 +3,7 @@
   import { browser } from "$app/env";
   import axios from "axios";
   import { reject, without } from "lodash";
-  import { InCart, lengthCart } from "../../../stores";
+  import {arrayProductsInCart, InCart, lengthCart} from "../../../stores";
   import { useReturn } from "$lib/use/functions/return";
 
   const { currentValue } = useReturn;
@@ -23,6 +23,20 @@
 
     const res = await axios(url, { headers });
     productsInCart = res.data;
+
+
+
+
+
+
+
+    arrayProductsInCart.update(() => productsInCart)
+    let test;
+    arrayProductsInCart.subscribe(value => test = value);
+    l(test)
+
+    $: arrayTest = test
+
 
   });
 
@@ -44,7 +58,18 @@
 
     const visibleLengthCart = productsInCart.length;
     lengthCart.update(() => currentValue(visibleLengthCart));
+
+
+
+
+
     InCart.update(() => productsInCart);
+
+
+
+
+
+
 
     const domain = import.meta.env.VITE_API_CART;
     const apiCart = {
@@ -111,9 +136,21 @@
 
     let idProductsInCart = [];
     InCart.update(() => idProductsInCart);
-
-
   }
+
+
+
+
+
+  arrayProductsInCart.update(() => productsInCart);
+
+  let test
+  arrayProductsInCart.subscribe(value => test = value)
+  l(test)
+
+
+
+
 
   //let count = 0;
   //$: quantity = count;

@@ -14,3 +14,5 @@ export const lengthCart = writable(0)
 
 export const InCart = writable([])
 export const allProd = writable([])
+
+export const arrayProductsInCart = writable([])
