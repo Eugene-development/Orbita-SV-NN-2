@@ -33,9 +33,10 @@
     arrayProductsInCart.update(() => productsInCart)
     let test;
     arrayProductsInCart.subscribe(value => test = value);
+    $: test = test
     l(test)
 
-    $: arrayTest = test
+    // $: arrayTest = test
 
 
   });
@@ -142,12 +143,6 @@
 
 
 
-  arrayProductsInCart.update(() => productsInCart);
-
-  let test
-  arrayProductsInCart.subscribe(value => test = value)
-  l(test)
-
 
 
 
@@ -172,6 +167,7 @@
   <title>Корзина</title>
   <meta content="Корзина интернет-магазина компании 'Орбита строй'" name="description">
 </svelte:head>
+
 
 <div class="bg-gray-50">
   <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-b from-blueGray-300 to-gray-50 shadow-lg mb-4">
