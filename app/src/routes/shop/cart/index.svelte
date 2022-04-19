@@ -27,15 +27,8 @@
 
       const res = await axios(url, { headers });
 
-      const aaa = pullAllBy(res.data, test, 'id');
-      l(aaa)
-
-
-
+      pullAllBy(res.data, test, 'id');
       productsInCart = [...test, ...res.data];
-      // l(productsInCart)
-      // productsInCart = res.data;
-
       arrayProductsInCart.update(() => productsInCart)
 
 
