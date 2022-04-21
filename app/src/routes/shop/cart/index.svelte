@@ -168,6 +168,88 @@
 
   <!--{quantity}-->
 
+
+
+
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div class="sm:flex sm:items-center">
+      <div class="sm:flex-auto">
+        <h1 class="text-xl font-semibold text-gray-900">Users</h1>
+        <p class="mt-2 text-sm text-gray-700">A list of all the users in your account including their name, title, email and role.</p>
+      </div>
+      <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+        <button type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Add user</button>
+      </div>
+    </div>
+    <div class="-mx-4 mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg">
+      <table class="min-w-full divide-y divide-gray-300">
+        <thead class="bg-gray-50">
+        <tr>
+          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Наименование</th>
+          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Цена</th>
+          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Количество</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Итого</th>
+          <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
+            <span class="sr-only">Edit</span>
+          </th>
+
+
+
+
+        </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 bg-white">
+
+
+
+        {#each test as { id, name, size, unit, quantity }, idx}
+
+        <tr>
+          <td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-6 lowercase first-letter:uppercase">
+            { name }
+            <dl class="font-normal lg:hidden">
+              <dt class="sr-only">Title</dt>
+              <dd class="mt-1 truncate text-gray-700">{ size[0].price.price } руб/{ unit }</dd>
+              <dt class="sr-only sm:hidden">Email</dt>
+              <dd class="mt-1 truncate text-gray-500 sm:hidden">lindsay.walton@example.com</dd>
+            </dl>
+          </td>
+          <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{ size[0].price.price } <span class="text-xs">р/{ unit }</span> </td>
+          <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">lindsay.walton@example.com</td>
+          <td class="px-3 py-4 text-sm text-gray-500">{ (size[0].price.price * quantity).toFixed(2) }</td>
+          <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
+          </td>
+        </tr>
+
+        {/each}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- This example requires Tailwind CSS v2.0+ -->
   {#if (productsInCart.length > 0)}
     <div class="m-8 flex flex-col">
@@ -201,7 +283,6 @@
               <tbody class="bg-white divide-y divide-gray-200">
 
 
-              {first_name}
               {#each test as { id, name, size, unit, quantity }, idx}
                 <tr>
                   <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -216,7 +297,12 @@
                       <div class="">
                         <div class="text-xs sm:text-sm font-medium text-gray-900 lowercase first-letter:uppercase">{ name }</div>
                         <div class="text-sm text-gray-500">
-                                                  jane.cooper@example.com
+                          <input
+                                  type="text"
+                                  class="focus:ring-red-800 focus:border-indigo-500 block w-full pr-8 sm:text-sm border-gray-300 rounded-md"
+                                  placeholder="Введите количество"
+                                  bind:value={quantity}
+                          >
                         </div>
                       </div>
                     </div>
@@ -290,6 +376,17 @@
         </div>
       </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
   {:else }
     <div class="m-8">
       <!-- This example requires Tailwind CSS v2.0+ -->
