@@ -276,7 +276,7 @@
           <div class="md:col-span-1">
             <h3 class="text-lg font-medium leading-6 text-gray-900">Дополнительная информация</h3>
             <p class="mt-1 text-sm text-gray-500">
-              Наш менеджер свяжется с вами после получения формы.
+              Укажите ваши данные.
             </p>
           </div>
           <div class="mt-5 md:mt-0 md:col-span-2">
