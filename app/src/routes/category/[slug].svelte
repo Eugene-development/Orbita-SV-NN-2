@@ -83,9 +83,9 @@
                         <!--                        stroke-width="2"/>-->
                         <!--                </svg>-->
 
-                        { name }
+                        &rarr; { name }
 
-                        <span class="bg-slate-100 group-hover:bg-slate-200 ml-auto inline-block py-0.5 px-2 text-xs font-medium rounded-full">
+                        <span class="bg-red-700 text-slate-50 ml-auto inline-block py-0.5 px-2 text-xs font-medium rounded-full">
                           { product.length }
                         </span>
                     </a>
@@ -100,7 +100,8 @@
 
 
             <!-- This example requires Tailwind CSS v2.0+ -->
-            <div class="py-1 relative shadow-lg shadow-slate-100/50 rounded-lg border-2 border-slate-100 ring-offset-1 ring-1 ring-slate-50">
+            <div class="py-1 relative ">
+<!--            <div class="py-1 relative shadow-lg shadow-slate-100/50 rounded-lg border-2 border-slate-100 ring-offset-1 ring-1 ring-slate-50">-->
                 <!--          <div class="py-1 relative bg-gradient-to-b from-slate-50 via-slate-800 to-slate-50 shadow-lg rounded-lg">-->
                 <div class="max-w-full mx-auto py-3 px-3 sm:px-6 lg:px-8">
                     {#if text}
@@ -130,19 +131,21 @@
                 <!--            </p>-->
                 <!--          </div>-->
                 <!--          <hr class="mt-8">-->
-                <div class="mt-8 max-w-lg mx-auto grid gap-5 lg:grid-cols-2 lg:max-w-none">
+                <div class="mt-8 max-w-lg mx-auto lg:max-w-none">
+<!--                <div class="mt-8 max-w-lg mx-auto grid gap-5 lg:grid-cols-2 lg:max-w-none">-->
 
                     {#each category as {id, name, slug, text}}
-                    <div class=" flex flex-col rounded-lg shadow-lg shadow-slate-100/50 overflow-hidden border-2 border-slate-50 ring-offset-1 ring-1 ring-slate-50">
+                    <div class=" flex flex-col">
+<!--                    <div class=" flex flex-col rounded-lg shadow-lg shadow-slate-100/50 overflow-hidden border-2 border-slate-50 ring-offset-1 ring-1 ring-slate-50">-->
                         <!--            <div class="flex-shrink-0">-->
                         <!--              <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=IrF17Golbw&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">-->
                         <!--            </div>-->
                         <div class="flex-1 p-6 flex flex-col justify-between">
                             <div class="flex-1">
                                 <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}'>
-                                    <p class="text-2xl font-semibold text-slate-800">
+                                    <h2 class="text-2xl md:text-3xl font-semibold text-slate-800">
                                         { name }
-                                    </p>
+                                    </h2>
                                     {#if (text)}
                                     <p class="mt-3 text-base text-slate-800">
                                         { text.descriptionText }
@@ -189,49 +192,49 @@
 </div>
 
 <div class="relative my-8 py-8 bg-white overflow-hidden">
-    <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
-        <div class="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
-            <svg class="absolute top-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
-                <defs>
-                    <pattern id="74b3fd99-0a6f-4271-bef2-e80eeafdf357" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <rect x="0" y="0" width="4" height="4" class="text-slate-200" fill="currentColor" />
-                    </pattern>
-                </defs>
-                <rect width="404" height="384" fill="url(#74b3fd99-0a6f-4271-bef2-e80eeafdf357)" />
-            </svg>
-            <svg class="absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
-                <defs>
-                    <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <rect x="0" y="0" width="4" height="4" class="text-slate-200" fill="currentColor" />
-                    </pattern>
-                </defs>
-                <rect width="404" height="384" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)" />
-            </svg>
-            <!--        <svg class="absolute bottom-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">-->
-            <!--          <defs>-->
-            <!--            <pattern id="d3eb07ae-5182-43e6-857d-35c643af9034" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">-->
-            <!--              <rect x="0" y="0" width="4" height="4" class="text-slate-200" fill="currentColor" />-->
-            <!--            </pattern>-->
-            <!--          </defs>-->
-            <!--          <rect width="404" height="384" fill="url(#d3eb07ae-5182-43e6-857d-35c643af9034)" />-->
-            <!--        </svg>-->
-        </div>
-    </div>
+<!--    <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">-->
+<!--        <div class="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">-->
+<!--            <svg class="absolute top-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">-->
+<!--                <defs>-->
+<!--                    <pattern id="74b3fd99-0a6f-4271-bef2-e80eeafdf357" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">-->
+<!--                        <rect x="0" y="0" width="4" height="4" class="text-slate-200" fill="currentColor" />-->
+<!--                    </pattern>-->
+<!--                </defs>-->
+<!--                <rect width="404" height="384" fill="url(#74b3fd99-0a6f-4271-bef2-e80eeafdf357)" />-->
+<!--            </svg>-->
+<!--            <svg class="absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">-->
+<!--                <defs>-->
+<!--                    <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">-->
+<!--                        <rect x="0" y="0" width="4" height="4" class="text-slate-200" fill="currentColor" />-->
+<!--                    </pattern>-->
+<!--                </defs>-->
+<!--                <rect width="404" height="384" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)" />-->
+<!--            </svg>-->
+<!--            &lt;!&ndash;        <svg class="absolute bottom-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">&ndash;&gt;-->
+<!--            &lt;!&ndash;          <defs>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <pattern id="d3eb07ae-5182-43e6-857d-35c643af9034" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">&ndash;&gt;-->
+<!--            &lt;!&ndash;              <rect x="0" y="0" width="4" height="4" class="text-slate-200" fill="currentColor" />&ndash;&gt;-->
+<!--            &lt;!&ndash;            </pattern>&ndash;&gt;-->
+<!--            &lt;!&ndash;          </defs>&ndash;&gt;-->
+<!--            &lt;!&ndash;          <rect width="404" height="384" fill="url(#d3eb07ae-5182-43e6-857d-35c643af9034)" />&ndash;&gt;-->
+<!--            &lt;!&ndash;        </svg>&ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
 
-    <div v-if="rubric.text" class="relative px-4 sm:px-6 lg:px-8">
-        <div class="max-w-prose mx-auto">
-            <h1>
-                <span class="mt-2 block text-2xl text-center leading-8 font-extrabold tracking-tight text-slate-800 sm:text-3xl" v-html="rubric.text.titleText"></span>
-            </h1>
-            <p class="mt-8 text-xl text-slate-500 leading-8"  v-html="rubric.text.text"></p>
-        </div>
-        <div class="mt-6 prose prose-indigo prose-lg text-slate-500 mx-auto">
-            <!--        <h3>Ждём вас!!!</h3>-->
-            <figure>
-                <!--          <img class="w-full rounded-lg" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&w=1310&h=873&q=80&facepad=3" alt="" width="1310" height="873">-->
-            </figure>
-            <!--        <p>Purus morbi dignissim senectus mattis <a href="#">adipiscing</a>. Amet, massa quam varius orci dapibus volutpat cras. In amet eu ridiculus leo sodales cursus tristique. Tincidunt sed tempus ut viverra ridiculus non molestie. Gravida quis fringilla amet eget dui tempor dignissim. Facilisis auctor venenatis varius nunc, congue erat ac. Cras fermentum convallis quam.</p>-->
-            <!--        <p>Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit.</p>-->
-        </div>
-    </div>
+<!--    <div v-if="rubric.text" class="relative px-4 sm:px-6 lg:px-8">-->
+<!--        <div class="max-w-prose mx-auto">-->
+<!--            <h1>-->
+<!--                <span class="mt-2 block text-2xl text-center leading-8 font-extrabold tracking-tight text-slate-800 sm:text-3xl" v-html="rubric.text.titleText"></span>-->
+<!--            </h1>-->
+<!--            <p class="mt-8 text-xl text-slate-500 leading-8"  v-html="rubric.text.text"></p>-->
+<!--        </div>-->
+<!--        <div class="mt-6 prose prose-indigo prose-lg text-slate-500 mx-auto">-->
+<!--            &lt;!&ndash;        <h3>Ждём вас!!!</h3>&ndash;&gt;-->
+<!--            <figure>-->
+<!--                &lt;!&ndash;          <img class="w-full rounded-lg" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&w=1310&h=873&q=80&facepad=3" alt="" width="1310" height="873">&ndash;&gt;-->
+<!--            </figure>-->
+<!--            &lt;!&ndash;        <p>Purus morbi dignissim senectus mattis <a href="#">adipiscing</a>. Amet, massa quam varius orci dapibus volutpat cras. In amet eu ridiculus leo sodales cursus tristique. Tincidunt sed tempus ut viverra ridiculus non molestie. Gravida quis fringilla amet eget dui tempor dignissim. Facilisis auctor venenatis varius nunc, congue erat ac. Cras fermentum convallis quam.</p>&ndash;&gt;-->
+<!--            &lt;!&ndash;        <p>Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit.</p>&ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
