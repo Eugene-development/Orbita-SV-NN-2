@@ -73,7 +73,7 @@
 
                     {#each category as {id, slug, name, product}}
                     <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}'
-                              class="text-slate-800 hover:bg-slate-100 hover:text-slate-900 hover:shadow-md hover:shadow-slate-100/50 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                              class="text-slate-800 hover:bg-slate-50 hover:text-slate-900 hover:shadow-md hover:shadow-slate-100/50 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Heroicon name: outline/folder -->
                         <!--                <svg aria-hidden="true" class="text-slate-400 group-hover:text-slate-500 mr-3 h-6 w-6"-->
                         <!--                     fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">-->
@@ -135,7 +135,7 @@
 <!--                <div class="mt-8 max-w-lg mx-auto grid gap-5 lg:grid-cols-2 lg:max-w-none">-->
 
                     {#each category as {id, name, slug, text}}
-                    <div class=" flex flex-col">
+                    <div class=" flex flex-col border-b-2">
 <!--                    <div class=" flex flex-col rounded-lg shadow-lg shadow-slate-100/50 overflow-hidden border-2 border-slate-50 ring-offset-1 ring-1 ring-slate-50">-->
                         <!--            <div class="flex-shrink-0">-->
                         <!--              <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=IrF17Golbw&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">-->
@@ -153,7 +153,7 @@
                                     {:else }
                                     <p class="mt-3 text-base text-slate-800">Уточняйте наличие</p>
                                     {/if}
-                                    <p class="mt-2 text-base font-medium text-red-600 place-items-end">Выбрать &rarr;</p>
+                                    <p class="mt-2 text-lg font-medium text-red-600 place-items-end">Выбрать товар &rarr;</p>
                                 </a>
                             </div>
                             <!--              <div class="mt-6 flex items-center">-->
@@ -184,6 +184,7 @@
                             <!--              </div>-->
                         </div>
                     </div>
+
                     {/each}
                 </div>
             </div>
