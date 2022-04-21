@@ -212,14 +212,26 @@
               <dt class="sr-only">Title</dt>
               <dd class="mt-1 truncate text-gray-700">{ size[0].price.price } руб/{ unit }</dd>
               <dt class="sr-only sm:hidden">Email</dt>
-              <dd class="mt-1 truncate text-gray-500 sm:hidden">lindsay.walton@example.com</dd>
+              <dd class="mt-2 truncate text-gray-500 sm:hidden mr-48">
+                 <input type="text" class="focus:ring-red-800 focus:border-indigo-800 block w-full pr-8 sm:text-sm border-gray-300 rounded-md" bind:value={quantity}>
+              </dd>
             </dl>
           </td>
           <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{ size[0].price.price } <span class="text-xs">р/{ unit }</span> </td>
-          <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">lindsay.walton@example.com</td>
+          <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">
+            <input type="text" class="-mr-24 focus:ring-red-800 focus:border-indigo-500 block w-full pr-8 sm:text-sm border-gray-300 rounded-md" bind:value={quantity}>
+          </td>
           <td class="px-3 py-4 text-sm text-gray-500">{ (size[0].price.price * quantity).toFixed(2) }</td>
           <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
+            <button on:click={deleteProductFromCart(id)}
+                    class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-red-800 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                    type="button">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" />
+              </svg>
+            </button>
           </td>
         </tr>
 
