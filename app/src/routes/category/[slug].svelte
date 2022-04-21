@@ -100,12 +100,12 @@
 
 
             <!-- This example requires Tailwind CSS v2.0+ -->
-            <div class="py-1 bg-slate-100 relative shadow-lg shadow-slate-100/50 rounded-lg border-2 border-slate-100 ring-offset-1 ring-1 ring-slate-50">
+            <div class="py-1 relative shadow-lg shadow-slate-100/50 rounded-lg border-2 border-slate-100 ring-offset-1 ring-1 ring-slate-50">
                 <!--          <div class="py-1 relative bg-gradient-to-b from-slate-50 via-slate-800 to-slate-50 shadow-lg rounded-lg">-->
                 <div class="max-w-full mx-auto py-3 px-3 sm:px-6 lg:px-8">
                     {#if text}
                     <div class="text-center px-8">
-                        <p class="font-medium text-slate-800 text-xl">
+                        <p class="font-medium text-slate-800 text-lg">
                             <span>{text.descriptionText}</span>
                         </p>
                     </div>
@@ -137,7 +137,7 @@
                         <!--            <div class="flex-shrink-0">-->
                         <!--              <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=IrF17Golbw&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">-->
                         <!--            </div>-->
-                        <div class="flex-1 bg-slate-100 p-6 flex flex-col justify-between">
+                        <div class="flex-1 p-6 flex flex-col justify-between">
                             <div class="flex-1">
                                 <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}'>
                                     <p class="text-2xl font-semibold text-slate-800">

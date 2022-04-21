@@ -50,7 +50,7 @@
     const newItemsCart = without(itemsCart, id);
     localStorage.setItem("inCart", JSON.stringify(newItemsCart));
 
-    const visibleLengthCart = productsInCart.length;
+    const visibleLengthCart = test.length;
     lengthCart.update(() => currentValue(visibleLengthCart));
 
     InCart.update(() => productsInCart);
@@ -87,7 +87,7 @@
 
     //TODO исправь на env
     const apiMail = {
-      // baseURL: "https://larux.ru:7721/",
+      baseURL: "https://larux.ru:7721/",
       headers: {
         Authorization: `Bearer 1`
       }
