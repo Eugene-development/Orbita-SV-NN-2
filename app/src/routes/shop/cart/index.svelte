@@ -12,9 +12,9 @@
   const l = console.log;
   let productsInCart = [];
 
+  //TODO Исправить нейминг test и productsInCart
   let test;
   arrayProductsInCart.subscribe(value => test = value);
-  // l(test)
 
 
     onMount(async () => {
@@ -30,11 +30,6 @@
       pullAllBy(res.data, test, 'id');
       productsInCart = [...test, ...res.data];
       arrayProductsInCart.update(() => productsInCart)
-
-
-      // $: arrayTest = test
-
-
     });
 
 
