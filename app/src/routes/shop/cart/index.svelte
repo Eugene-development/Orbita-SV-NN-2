@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { browser } from "$app/env";
   import axios from "axios";
-  import { reject, without, differenceBy, pullAllBy } from "lodash";
+  import { reject, without, pullAllBy } from "lodash";
   import {arrayProductsInCart, InCart, lengthCart} from "../../../stores";
   import { useReturn } from "$lib/use/functions/return";
 
