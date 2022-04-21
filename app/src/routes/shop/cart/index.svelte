@@ -38,7 +38,7 @@
     });
 
 
-  $: total = productsInCart.reduce((sum, product) => {
+  $: total = test.reduce((sum, product) => {
     let price = product.size[0].price.price;
     return sum + price * product.quantity;
   }, 0);
@@ -75,12 +75,6 @@
   $: address = "";
   $: comments = "";
 
-  // $: test = [];
-
-
-
-
-
   const sendOrder = async () => {
 
     const informationForm = {
@@ -96,7 +90,6 @@
       information: informationForm
     }
 
-    l(data)
     //TODO исправь на env
     const apiMail = {
       // baseURL: "https://larux.ru:7721/",
