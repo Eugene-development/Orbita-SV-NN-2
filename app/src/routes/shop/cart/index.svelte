@@ -159,10 +159,10 @@
 </svelte:head>
 
 
-<div class="bg-gray-50">
-  <div class="p-10 mx-auto sm:px-4 lg:px-8 bg-gradient-to-b from-blueGray-300 to-gray-50 shadow-lg mb-4">
+<div class="">
+  <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-md shadow-slate-200/50 mb-4">
     <div class="flex flex-col text-center w-full">
-      <h1 class=" text-5xl font-medium title-font text-gray-900">Корзина</h1>
+      <h1 class=" text-5xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">Корзина</h1>
     </div>
   </div>
 
@@ -178,34 +178,31 @@
 <!--      </div>-->
     </div>
     <div class="-mx-4 mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg">
-      <table class="min-w-full divide-y divide-gray-300">
-        <thead class="bg-gray-50">
+      <table class="min-w-full divide-y divide-gray-300 bg-gray-50">
+        <thead class="">
         <tr>
-          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Наименование</th>
-          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Цена</th>
-          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Количество</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Итого</th>
+          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Наименование:</th>
+          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Цена:</th>
+          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Количество:</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Итого:</th>
           <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-            <span class="sr-only">Edit</span>
+            <span class="sr-only">Удалить</span>
           </th>
-
-
-
-
         </tr>
         </thead>
-        <tbody class="divide-y divide-gray-200 bg-white">
-
-
+        <tbody class="divide-y divide-gray-200">
 
         {#each test as { id, name, size, unit, quantity }, idx}
-
         <tr>
           <td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-6 lowercase first-letter:uppercase">
             { name }
             <dl class="font-normal lg:hidden">
               <dt class="sr-only">Цена</dt>
-              <dd class="mt-1 truncate text-gray-700">{ size[0].price.price } руб/{ unit }</dd>
+              <dd class="mt-1 truncate">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-md bg-green-100 text-green-900">
+                  Цена: { size[0].price.price } руб/{ unit }
+                </span>
+              </dd>
               <dt class="sr-only sm:hidden">Количество</dt>
               <dd class="mt-2 truncate text-gray-500 sm:hidden mr-48">
                  <input type="text" class="focus:ring-red-800 focus:border-indigo-800 block w-full pr-8 sm:text-sm border-gray-300 rounded-md" bind:value={quantity}>
@@ -213,7 +210,7 @@
             </dl>
           </td>
           <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell ">
-                <span class="px-2 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-100 text-green-900">
+                <span class="px-2 inline-flex text-sm leading-5 font-semibold rounded-md bg-green-100 text-green-900">
                   { size[0].price.price } руб/{ unit }
                 </span>
           </td>
@@ -267,11 +264,11 @@
 
   {#if (productsInCart.length > 0)}
     <div class="m-8 text-right">
-      <span class="inline-flex  px-3.5 py-0.5 rounded-md text-base font-medium bg-green-100 text-green-800">ИТОГО (с учётом скидки 5%) : {totalSum}руб.</span>
+      <span class="inline-flex  px-3.5 py-1 rounded-md text-base font-medium bg-green-100 text-green-800">ИТОГО (с учётом скидки 5%): {totalSum} руб.</span>
     </div>
-    <div class="m-8 space-y-6">
+    <div class="m-8 space-y-6 bg-gray-50 border-2 border-slate-100 rounded-md">
 
-      <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+      <div class="shadow px-4 py-5 sm:rounded-lg sm:p-6">
         <div class="md:grid md:grid-cols-3 md:gap-6">
           <div class="md:col-span-1">
             <h3 class="text-lg font-medium leading-6 text-gray-900">Дополнительная информация</h3>
