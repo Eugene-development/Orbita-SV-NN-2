@@ -166,21 +166,16 @@
     </div>
   </div>
 
-  <!--{quantity}-->
-
-
-
-
-  <!-- This example requires Tailwind CSS v2.0+ -->
-  <div class="px-4 sm:px-6 lg:px-8">
+  {#if (productsInCart.length > 0)}
+    <div class="px-4 sm:px-6 lg:px-8">
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
-        <h1 class="text-xl font-semibold text-gray-900">Users</h1>
-        <p class="mt-2 text-sm text-gray-700">A list of all the users in your account including their name, title, email and role.</p>
+        <h1 class="text-xl font-semibold text-gray-900">Ваша корзина</h1>
+        <p class="mt-2 text-sm text-gray-700">После отправки заказа с вами свяжется менеджер</p>
       </div>
-      <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-        <button type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Add user</button>
-      </div>
+<!--      <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">-->
+<!--        <button type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Add user</button>-->
+<!--      </div>-->
     </div>
     <div class="-mx-4 mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg">
       <table class="min-w-full divide-y divide-gray-300">
@@ -209,15 +204,19 @@
           <td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-6 lowercase first-letter:uppercase">
             { name }
             <dl class="font-normal lg:hidden">
-              <dt class="sr-only">Title</dt>
+              <dt class="sr-only">Цена</dt>
               <dd class="mt-1 truncate text-gray-700">{ size[0].price.price } руб/{ unit }</dd>
-              <dt class="sr-only sm:hidden">Email</dt>
+              <dt class="sr-only sm:hidden">Количество</dt>
               <dd class="mt-2 truncate text-gray-500 sm:hidden mr-48">
                  <input type="text" class="focus:ring-red-800 focus:border-indigo-800 block w-full pr-8 sm:text-sm border-gray-300 rounded-md" bind:value={quantity}>
               </dd>
             </dl>
           </td>
-          <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{ size[0].price.price } <span class="text-xs">р/{ unit }</span> </td>
+          <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell ">
+                <span class="px-2 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-100 text-green-900">
+                  { size[0].price.price } руб/{ unit }
+                </span>
+          </td>
           <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">
             <input type="text" class="-mr-24 focus:ring-red-800 focus:border-indigo-500 block w-full pr-8 sm:text-sm border-gray-300 rounded-md" bind:value={quantity}>
           </td>
@@ -228,8 +227,7 @@
                     type="button">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                    xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2" />
+                <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
               </svg>
             </button>
           </td>
@@ -240,165 +238,6 @@
       </table>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- This example requires Tailwind CSS v2.0+ -->
-  {#if (productsInCart.length > 0)}
-    <div class="m-8 flex flex-col">
-      <!--  <div v-if="cartList.length > 0" class="m-8 flex flex-col">-->
-      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-4 lg:px-8">
-          <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-gray-50">
-              <tr>
-                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
-                  №
-                </th>
-                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
-                  Наименование
-                </th>
-                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
-                  Количество
-                </th>
-                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
-                  Цена
-                </th>
-                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">
-                  Итого
-                </th>
-                <th class="relative px-4 py-3" scope="col">
-                  <span class="sr-only">Удалить</span>
-                </th>
-              </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-
-
-              {#each test as { id, name, size, unit, quantity }, idx}
-                <tr>
-                  <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
-                    { idx + 1 }.
-                  </td>
-
-                  <td class="px-4 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <!--                                      <div class="flex-shrink-0 h-10 w-10">-->
-                      <!--                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" alt="">-->
-                      <!--                                      </div>-->
-                      <div class="">
-                        <div class="text-xs sm:text-sm font-medium text-gray-900 lowercase first-letter:uppercase">{ name }</div>
-                        <div class="text-sm text-gray-500">
-                          <input
-                                  type="text"
-                                  class="focus:ring-red-800 focus:border-indigo-500 block w-full pr-8 sm:text-sm border-gray-300 rounded-md"
-                                  placeholder="Введите количество"
-                                  bind:value={quantity}
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-4 py-4 whitespace-nowrap">
-
-                    <div>
-                      <div class="mt-1 ">
-
-                        <div class="flex">
-                          <div class="mr-2 relative rounded-md shadow-sm">
-                            <input
-                              type="text"
-                              class="focus:ring-red-800 focus:border-indigo-500 block w-full pr-8 sm:text-sm border-gray-300 rounded-md"
-                              placeholder="Введите количество"
-                              bind:value={quantity}
-                            >
-                          </div>
-                          <!--                      <button type="button" class="" on:click={handleClick(id)}>-->
-                          <!--                        <svg  xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">-->
-                          <!--                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />-->
-                          <!--                        </svg>-->
-                          <!--                      </button>-->
-
-                          <!--                      <button type="button">-->
-                          <!--                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">-->
-                          <!--                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />-->
-                          <!--                        </svg>-->
-                          <!--                      </button>-->
-
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-4 py-4 whitespace-nowrap">
-                <span class="px-2 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                  { size[0].price.price } руб/{ unit }
-                </span>
-                  </td>
-                  <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
-                    { (size[0].price.price * quantity).toFixed(2) } руб.
-                  </td>
-
-
-                  <td class="px-4 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <!--                <button-->
-                    <!--                  class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-red-800 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"-->
-                    <!--                  type="button"-->
-                    <!--                  @click.prevent.once="deleteProductFromCart (item.id)">-->
-                    <!--                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"-->
-                    <!--                       xmlns="http://www.w3.org/2000/svg">-->
-                    <!--                    <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>-->
-                    <!--                  </svg>-->
-                    <!--                </button>-->
-                    <button on:click={deleteProductFromCart(id)}
-                            class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-red-800 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                            type="button">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                           xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"
-                              stroke-width="2" />
-                      </svg>
-                    </button>
-                  </td>
-                </tr>
-              {/each}
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
   {:else }
     <div class="m-8">
       <!-- This example requires Tailwind CSS v2.0+ -->
