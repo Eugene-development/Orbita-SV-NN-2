@@ -1,4 +1,6 @@
 <script>
+    const l = console.log;
+
     import {clickOutside} from "$lib/use/functions/click_outside/index.js";
 
     import MobileMenu from "./mobile/index.svelte";
@@ -46,7 +48,7 @@
 
     import pkg from 'lodash';
     const { filter } = pkg;
-    const allProducts =[]
+    const allProducts = []
     const getAllProducts = async () => {
 
         const headers = {
@@ -57,7 +59,6 @@
 
         const urlProducts = `${domain}/get-all-product/`;
         const allProducts = await axios(urlProducts, { headers });
-
         // let result = allProducts.match(/Java(Script)/g);
         // let result = filter(allProducts.data.data, ['name', /'УТЕПЛИТЕЛЬ'/])
 
@@ -258,7 +259,6 @@
                                 <path clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" fill-rule="evenodd"/>
                             </svg>
                             Поиск товара
-
                         </button>
                     </div>
 
