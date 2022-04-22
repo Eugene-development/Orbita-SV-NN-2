@@ -29,6 +29,8 @@
 
       pullAllBy(res.data, arrayCart, 'id');
       productsInCart = [...arrayCart, ...res.data];
+
+      l(productsInCart)
       arrayProductsInCart.update(() => productsInCart)
     });
 
@@ -46,6 +48,8 @@
   const deleteProductFromCart = async (id) => {
     arrayCart = reject(arrayCart, item => item.id === id);
 
+    l(arrayCart)
+
     const itemsCart = JSON.parse(localStorage.getItem("inCart"));
     const newItemsCart = without(itemsCart, id);
     localStorage.setItem("inCart", JSON.stringify(newItemsCart));
@@ -53,7 +57,7 @@
     const visibleLengthCart = arrayCart.length;
     lengthCart.update(() => currentValue(visibleLengthCart));
 
-    InCart.update(() => arrayCart);
+    arrayProductsInCart.update(() => arrayCart);
     const domain = import.meta.env.VITE_API_CART;
     const apiCart = {
       baseURL: `${domain}`,
@@ -154,7 +158,7 @@
     </div>
   </div>
 
-  {#if (productsInCart.length > 0)}
+  {#if (arrayCart.length > 0)}
     <div class="px-4 sm:px-6 lg:px-8">
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
