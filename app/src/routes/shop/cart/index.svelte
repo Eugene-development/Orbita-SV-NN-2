@@ -12,9 +12,9 @@
   const l = console.log;
   let productsInCart = [];
 
-  //TODO Исправить нейминг test и productsInCart
-  let test;
-  arrayProductsInCart.subscribe(value => test = value);
+  //TODO Исправить нейминг productsInCart
+  let arrayCart;
+  arrayProductsInCart.subscribe(value => arrayCart = value);
 
 
     onMount(async () => {
@@ -27,13 +27,13 @@
 
       const res = await axios(url, { headers });
 
-      pullAllBy(res.data, test, 'id');
-      productsInCart = [...test, ...res.data];
+      pullAllBy(res.data, arrayCart, 'id');
+      productsInCart = [...arrayCart, ...res.data];
       arrayProductsInCart.update(() => productsInCart)
     });
 
 
-  $: total = test.reduce((sum, product) => {
+  $: total = arrayCart.reduce((sum, product) => {
     let price = product.size[0].price.price;
     return sum + price * product.quantity;
   }, 0);
@@ -44,16 +44,16 @@
 
 
   const deleteProductFromCart = async (id) => {
-    productsInCart = reject(productsInCart, item => item.id === id);
+    arrayCart = reject(arrayCart, item => item.id === id);
 
     const itemsCart = JSON.parse(localStorage.getItem("inCart"));
     const newItemsCart = without(itemsCart, id);
     localStorage.setItem("inCart", JSON.stringify(newItemsCart));
 
-    const visibleLengthCart = test.length;
+    const visibleLengthCart = arrayCart.length;
     lengthCart.update(() => currentValue(visibleLengthCart));
 
-    InCart.update(() => productsInCart);
+    InCart.update(() => arrayCart);
     const domain = import.meta.env.VITE_API_CART;
     const apiCart = {
       baseURL: `${domain}`,
@@ -180,7 +180,7 @@
         </thead>
         <tbody class="divide-y divide-gray-200">
 
-        {#each test as { id, name, size, unit, quantity }, idx}
+        {#each arrayCart as { id, name, size, unit, quantity }, idx}
         <tr>
           <td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-6 lowercase first-letter:uppercase">
             { name }
