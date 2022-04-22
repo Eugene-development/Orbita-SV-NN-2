@@ -196,7 +196,7 @@
                 </span>
               </dd>
               <dt class="sr-only sm:hidden">Количество</dt>
-              <dd class="mt-2 truncate text-gray-500 sm:hidden mr-48">
+              <dd class="mt-2 truncate text-gray-500 sm:hidden mr-20">
                  <input type="text" class="focus:ring-red-800 focus:border-indigo-800 block w-full pr-8 sm:text-sm border-gray-300 rounded-md" bind:value={quantity}>
               </dd>
             </dl>
@@ -256,7 +256,7 @@
 
   {#if (productsInCart.length > 0)}
     <div class="m-8 text-right">
-      <span class="inline-flex  px-3.5 py-1 rounded-md text-base font-medium bg-green-100 text-green-800">ИТОГО (с учётом скидки 5%): {totalSum} руб.</span>
+      <span class="inline-flex  px-3.5 py-1 rounded-md text-xs sm:text-base font-medium bg-green-100 text-green-800">ИТОГО (с учётом скидки 5%): {totalSum} руб.</span>
     </div>
     <div class="m-8 space-y-6 bg-gray-50 border-2 border-slate-100 rounded-md">
 
