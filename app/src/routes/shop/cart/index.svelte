@@ -30,7 +30,6 @@
       pullAllBy(res.data, arrayCart, 'id');
       productsInCart = [...arrayCart, ...res.data];
 
-      l(productsInCart)
       arrayProductsInCart.update(() => productsInCart)
     });
 
@@ -47,8 +46,6 @@
 
   const deleteProductFromCart = async (id) => {
     arrayCart = reject(arrayCart, item => item.id === id);
-
-    l(arrayCart)
 
     const itemsCart = JSON.parse(localStorage.getItem("inCart"));
     const newItemsCart = without(itemsCart, id);
@@ -115,10 +112,13 @@
 
     const visibleLengthCart = 0;
     lengthCart.update(() => currentValue(visibleLengthCart));
-    productsInCart = []
 
-    let idProductsInCart = [];
-    InCart.update(() => idProductsInCart);
+
+    productsInCart = []
+    arrayCart = []
+    InCart.update(() => []);
+    arrayProductsInCart.update(() => []);
+
   }
 
 
