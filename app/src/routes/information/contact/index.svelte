@@ -2,7 +2,6 @@
     import PageTransitions from "$lib/components/PageTransitions/index.svelte";
     import axios from "axios";
     import { buttonSendOffer } from "../../../stores.js";
-
     import { useVisible } from "$lib/use/functions/visible";
 
     const { invert } = useVisible;
@@ -11,12 +10,14 @@
     let visibleButtonSendOffer;
     buttonSendOffer.subscribe(value => visibleButtonSendOffer = value);
 
-
     let name = ''
     let position = ''
     let email = ''
     let phone = ''
     let comment = ''
+
+
+    console.log(name)
 
     const url = `/sendOffer`;
     const domain = import.meta.env.VITE_API_MAIL;
@@ -28,6 +29,7 @@
     };
 
     async function sendOffer() {
+        console.log('123')
         try {
             const data = {
                 name,
@@ -140,19 +142,19 @@
                             <div>
                                 <label for="first_name" class="block text-sm font-medium text-gray-900">Имя</label>
                                 <div class="mt-1">
-                                    <input type="text" name="first_name" id="first_name" autocomplete="given-name" class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md border border-gray-300">
+                                    <input bind:value={ name } type="text" name="first_name" id="first_name" autocomplete="given-name" class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md border border-gray-300">
                                 </div>
                             </div>
                             <div>
-                                <label for="last_name" class="block text-sm font-medium text-gray-900">Должность</label>
+                                <label for="position" class="block text-sm font-medium text-gray-900">Должность</label>
                                 <div class="mt-1">
-                                    <input type="text" name="last_name" id="last_name" autocomplete="family-name" class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md border border-gray-300">
+                                    <input bind:value={ position } type="text" name="position" id="position" autocomplete="family-name" class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md border border-gray-300">
                                 </div>
                             </div>
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-900">Почта</label>
                                 <div class="mt-1">
-                                    <input id="email" name="email" type="email" autocomplete="email" class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md border border-gray-300">
+                                    <input bind:value={ email } id="email" name="email" type="email" autocomplete="email" class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md border border-gray-300">
                                 </div>
                             </div>
                             <div>
@@ -160,7 +162,7 @@
                                     <label for="phone" class="block text-sm font-medium text-gray-900">Телефон</label>
                                 </div>
                                 <div class="mt-1">
-                                    <input type="text" name="phone" id="phone" autocomplete="tel" class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md border border-gray-300" aria-describedby="phone-optional">
+                                    <input bind:value={ phone } type="text" name="phone" id="phone" autocomplete="tel" class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md border border-gray-300" aria-describedby="phone-optional">
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
@@ -169,7 +171,7 @@
                                     <span id="message-max" class="text-sm text-gray-500">Максимум 500 символов</span>
                                 </div>
                                 <div class="mt-1">
-                                    <textarea id="message" name="message" rows="4" class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md" aria-describedby="message-max"></textarea>
+                                    <textarea bind:value={ comment } id="message" name="message" rows="4" class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md" aria-describedby="message-max"></textarea>
                                 </div>
                             </div>
 <!--                            <div class="sm:col-span-2">-->
@@ -198,10 +200,21 @@
 
 
 
+<!--                            <div class="sm:col-span-2 sm:flex sm:justify-end">-->
+<!--                                {#if visibleButtonSendOffer }-->
+<!--                                    <button on:click={ sendOffer } type="submit" class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto">-->
+<!--                                        Отправить-->
+<!--                                    </button>-->
+<!--                                {:else }-->
+<!--                                    <p class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto">-->
+<!--                                        Отправлено-->
+<!--                                    </p>-->
+<!--                                {/if}-->
+<!--                            </div>-->
                             <div class="sm:col-span-2 sm:flex sm:justify-end">
-                                <button on:click={ sendOffer } type="submit" class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto">
-                                    Отправить
-                                </button>
+                                    <button on:click={ sendOffer } type="button" class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto">
+                                        Отправить
+                                    </button>
                             </div>
                         </form>
                     </div>
