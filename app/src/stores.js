@@ -17,3 +17,5 @@ export const allProd = writable([])
 export const lengthCart = writable(0)
 export const InCart = writable([])
 export const arrayProductsInCart = writable([])
+
+export const buttonSendOffer = writable(false)
