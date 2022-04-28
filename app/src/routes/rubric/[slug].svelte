@@ -57,21 +57,21 @@
 
 <PageTransitions>
     <div class="bg-white">
-        <div class="pt-4 sm:pt-8 lg:pt-12">
-            <div class="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-                <div class="max-w-3xl mx-auto space-y-2 lg:max-w-none">
-                    <!--            <h2 class="text-lg leading-6 font-semibold text-slate-900 uppercase tracking-wider">-->
-                    <!--              Раздел-->
-                    <!--            </h2>-->
-                    <h1 class="text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl">
-                        {nameHead}
-                    </h1>
-                    <p class="text-xl text-slate-700">
-                        Выберите интересующую вас рубрику в этом разделе.
-                    </p>
-                </div>
-            </div>
-        </div>
+<!--        <div class="pt-4 sm:pt-8 lg:pt-12">-->
+<!--            <div class="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">-->
+<!--                <div class="max-w-3xl mx-auto space-y-2 lg:max-w-none">-->
+<!--                    &lt;!&ndash;            <h2 class="text-lg leading-6 font-semibold text-slate-900 uppercase tracking-wider">&ndash;&gt;-->
+<!--                    &lt;!&ndash;              Раздел&ndash;&gt;-->
+<!--                    &lt;!&ndash;            </h2>&ndash;&gt;-->
+<!--                    <h1 class="text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl">-->
+<!--                        {nameHead}-->
+<!--                    </h1>-->
+<!--                    <p class="text-xl text-slate-700">-->
+<!--                        Выберите интересующую вас рубрику в этом разделе.-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="mt-8 pb-12 sm:mt-12 sm:pb-16 lg:mt-16 lg:pb-24 bo">
             <div class="relative">
                 <div class="absolute inset-0 h-3/4"></div>
