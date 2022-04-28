@@ -1,7 +1,7 @@
 <script>
     import PageTransitions from "$lib/components/PageTransitions/index.svelte";
     import axios from "axios";
-    import { buttonSendOffer } from "../../../stores.js";
+    import {buttonSendOffer, pageTitle} from "../../../stores.js";
     import { useVisible } from "$lib/use/functions/visible";
 
     const { invert } = useVisible;
@@ -41,6 +41,8 @@
             console.error(error);
         }
     }
+
+    pageTitle.update(() => 'Контакты');
 
 </script>
 

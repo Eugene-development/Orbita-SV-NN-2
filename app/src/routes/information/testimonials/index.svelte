@@ -1,3 +1,8 @@
+<script>
+    import {pageTitle} from "../../../stores.js";
+
+    pageTitle.update(() => 'Отзывы');
+</script>
 <svelte:head>
     <title>Отзывы</title>
     <meta name="description" content="Отзывы о компании 'Орбита строй'">

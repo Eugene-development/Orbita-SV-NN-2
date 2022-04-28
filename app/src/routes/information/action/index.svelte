@@ -1,6 +1,8 @@
 <script>
     import {useActions} from "$lib/use/content/actions";
+    import {pageTitle} from "../../../stores.js";
     const {actions} = useActions
+    pageTitle.update(() => 'Наши акции');
 </script>
 
 <svelte:head>

@@ -1,3 +1,8 @@
+<script>
+    import {pageTitle} from "../../../stores.js";
+
+    pageTitle.update(() => 'Оплата');
+</script>
 <svelte:head>
     <title>Оплата</title>
     <meta name="description" content="Оплата продукции компании 'Орбита строй'">

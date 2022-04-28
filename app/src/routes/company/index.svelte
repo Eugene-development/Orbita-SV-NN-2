@@ -1,5 +1,7 @@
 <script>
   import PageTransitions from "$lib/components/PageTransitions/index.svelte";
+  import {pageTitle} from "../../stores.js";
+  pageTitle.update(() => 'Компания');
 </script>
 
 
