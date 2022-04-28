@@ -3,7 +3,7 @@
   import { browser } from "$app/env";
   import axios from "axios";
   import { reject, without, pullAllBy } from "lodash";
-  import {arrayProductsInCart, InCart, lengthCart} from "../../../stores";
+  import {arrayProductsInCart, InCart, lengthCart, pageTitle} from "../../../stores";
   import { useReturn } from "$lib/use/functions/return";
 
   const { currentValue } = useReturn;
@@ -120,15 +120,6 @@
     arrayProductsInCart.update(() => []);
 
   }
-
-
-
-
-
-
-
-
-
   //let count = 0;
   //$: quantity = count;
 
@@ -143,6 +134,10 @@
       return sum + price * product.quantity;
     }, 0);
   }
+
+
+  pageTitle.update(() => 'Корзина');
+
 </script>
 
 <svelte:head>
@@ -152,11 +147,11 @@
 
 
 <div class="">
-  <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-md shadow-slate-200/50 mb-4">
-    <div class="flex flex-col text-center w-full">
-      <h1 class=" text-5xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">Корзина</h1>
-    </div>
-  </div>
+<!--  <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-md shadow-slate-200/50 mb-4">-->
+<!--    <div class="flex flex-col text-center w-full">-->
+<!--      <h1 class=" text-5xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">Корзина</h1>-->
+<!--    </div>-->
+<!--  </div>-->
 
   {#if (arrayCart.length > 0)}
     <div class="px-4 sm:px-6 lg:px-8">
