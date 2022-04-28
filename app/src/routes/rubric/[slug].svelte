@@ -31,16 +31,21 @@
             }
         }
     }
+
+
 </script>
 
 <script>
     import PageTransitions from "$lib/components/PageTransitions/index.svelte";
+    import { pageTitle } from "../../stores.js";
 
     export let title
     export let description
     export let nameHead
     export let rubric
     export let text
+
+    pageTitle.update(() => nameHead);
 </script>
 
 
