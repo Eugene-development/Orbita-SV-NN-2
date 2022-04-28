@@ -31,11 +31,16 @@
 </script>
 
 <script>
+    import {pageTitle} from "../../stores.js";
+
     export let title
     export let description
     export let nameRubric
     export let category
     export let text
+
+    pageTitle.update(() => nameRubric);
+
 </script>
 
 <svelte:head>
@@ -45,11 +50,11 @@
 
 
 <div >
-    <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-md shadow-slate-200/50 mb-4">
-        <div class="flex flex-col text-center w-full">
-            <h1 class=" text-4xl font-medium title-font text-slate-900">{ nameRubric } в Нижнем Новгороде</h1>
-        </div>
-    </div>
+<!--    <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-md shadow-slate-200/50 mb-4">-->
+<!--        <div class="flex flex-col text-center w-full">-->
+<!--            <h1 class=" text-4xl font-medium title-font text-slate-900">{ nameRubric } в Нижнем Новгороде</h1>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <div class="mx-4 flex  ">
         <div class="flex w-1/3 max-w-sm flex-col flex-grow border-r border-slate-200 pt-8 pb-4 overflow-y-auto hidden xl:block">
@@ -103,6 +108,11 @@
             <div class="py-1 relative ">
 <!--            <div class="py-1 relative shadow-lg shadow-slate-100/50 rounded-lg border-2 border-slate-100 ring-offset-1 ring-1 ring-slate-50">-->
                 <!--          <div class="py-1 relative bg-gradient-to-b from-slate-50 via-slate-800 to-slate-50 shadow-lg rounded-lg">-->
+
+
+
+
+
                 <div class="max-w-full mx-auto py-3 px-3 sm:px-6 lg:px-8">
                     {#if text}
                     <div class="text-center px-8">
@@ -118,6 +128,10 @@
                         </div>
                     {/if}
                 </div>
+
+
+
+
             </div>
 
 
