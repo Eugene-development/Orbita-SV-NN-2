@@ -496,11 +496,12 @@
                     При заказе через каталог стройматериалов на сайте для вас скидка 5%
                 </p>
             </div>
-            <p class="mt-4 text-2xl sm:text-3xl text-center font-extrabold text-slate-900">Каталог стройматериалов:</p>
+<!--            <p class="mt-4 text-2xl sm:text-3xl text-center font-extrabold text-slate-900">Каталог стройматериалов:</p>-->
 
         </div>
 
 
+        {#if false}
         <div class="mt-8 pb-4 bg-white sm:pb-8">
             <div class="relative">
                 <div class="absolute inset-0 h-1/2 bg-gray-50 border-b border-slate-200"></div>
@@ -520,8 +521,30 @@
                     </div>
                 </div>
             </div>
-
         </div>
+            {/if}
+
+
+        {#if true}
+
+        <div class="mt-8 pb-4 bg-white sm:pb-8">
+            <div class="relative">
+                <div class="absolute inset-0 h-1/2 bg-gray-50 border-b border-slate-200"></div>
+<!--                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-200 via-slate-100 to-indigo-200 border-b border-slate-200"></div>-->
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="w-full mx-auto ">
+                        <div class="text-center rounded-lg bg-white shadow-md shadow-indigo-700/50 bg-gradient-to-r hover:bg-gradient-to-bl from-indigo-700 via-indigo-900 to-indigo-700">
+                            <button class=" p-4">
+                                    <span class=" text-2xl  font-medium text-slate-50 tracking-wider">
+                                        Каталог стройматериалов
+                                    </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            {/if}
     </div>
 
     <Search/>
