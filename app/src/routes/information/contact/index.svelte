@@ -17,8 +17,6 @@
     let comment = ''
 
 
-    console.log(name)
-
     const url = `/sendOffer`;
     const domain = import.meta.env.VITE_API_MAIL;
     const apiMAIL = {
@@ -29,7 +27,6 @@
     };
 
     async function sendOffer() {
-        console.log('123')
         try {
             const data = {
                 name,
@@ -200,22 +197,22 @@
 
 
 
-<!--                            <div class="sm:col-span-2 sm:flex sm:justify-end">-->
-<!--                                {#if visibleButtonSendOffer }-->
-<!--                                    <button on:click={ sendOffer } type="submit" class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto">-->
-<!--                                        Отправить-->
-<!--                                    </button>-->
-<!--                                {:else }-->
-<!--                                    <p class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto">-->
-<!--                                        Отправлено-->
-<!--                                    </p>-->
-<!--                                {/if}-->
-<!--                            </div>-->
                             <div class="sm:col-span-2 sm:flex sm:justify-end">
+                                {#if visibleButtonSendOffer }
                                     <button on:click={ sendOffer } type="button" class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto">
                                         Отправить
                                     </button>
+                                {:else }
+                                    <p class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto">
+                                        Отправлено
+                                    </p>
+                                {/if}
                             </div>
+<!--                            <div class="sm:col-span-2 sm:flex sm:justify-end">-->
+<!--                                    <button on:click={ sendOffer } type="button" class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto">-->
+<!--                                        Отправить-->
+<!--                                    </button>-->
+<!--                            </div>-->
                         </form>
                     </div>
                 </div>
