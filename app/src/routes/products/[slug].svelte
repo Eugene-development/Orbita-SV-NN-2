@@ -41,7 +41,7 @@
   import axios from "axios";
   import pkg from 'lodash';
   const { concat } = pkg;
-  import { lengthCart, InCart } from "../../stores";
+  import {lengthCart, InCart, pageTitle} from "../../stores";
   import { useReturn } from "$lib/use/functions/return";
   import { browser } from "$app/env";
   import { onMount } from "svelte";
@@ -92,6 +92,9 @@
   });
   InCart.subscribe(value => idProductsInCart = value);
 
+  pageTitle.update(() => nameCategory);
+
+
 </script>
 
 <svelte:head>
@@ -100,11 +103,11 @@
 </svelte:head>
 
 <div class="bg-blueGray-50">
-  <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-md shadow-slate-200/50 mb-4">
-    <div class="flex flex-col text-center w-full">
-      <h1 class=" text-5xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">{ nameCategory } в Нижнем Новгороде</h1>
-    </div>
-  </div>
+<!--  <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-md shadow-slate-200/50 mb-4">-->
+<!--    <div class="flex flex-col text-center w-full">-->
+<!--      <h1 class=" text-5xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">{ nameCategory } в Нижнем Новгороде</h1>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <div class="p-8">
     <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

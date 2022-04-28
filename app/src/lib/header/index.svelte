@@ -6,7 +6,7 @@
     import MobileMenu from "./mobile/index.svelte";
     import { useHead } from "$lib/use/content/header";
     import { useVisible } from "$lib/use/functions/visible";
-    import {informationMenu, lengthCart, mobileMenu, formSearch, allProd} from "../../stores.js";
+    import {informationMenu, lengthCart, mobileMenu, formSearch, allProd, pageTitle} from "../../stores.js";
     import { onMount } from "svelte";
     import { browser } from "$app/env";
 
@@ -92,6 +92,9 @@
         // console.log(test)
     };
 
+    let showPageTitle;
+    pageTitle.subscribe(value => showPageTitle = value)
+
 
 </script>
 
@@ -143,8 +146,6 @@
     <nav class="bg-indigo-900">
         <div class="max-w-7xl mx-auto px-2 sm:px-10 hidden lg:block">
             <div class="relative flex items-center justify-between h-12">
-
-
                 <div class="flex items-center px-1 lg:px-0">
                     <div class=" ">
                         <div class="flex space-x-2">
@@ -488,8 +489,8 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-extrabold text-slate-900 sm:text-5xl lg:text-6xl">
-                    Доставка стройматериалов
+                <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl lowercase first-letter:uppercase">
+                    { showPageTitle }
                 </h2>
                 <p class="mt-3 text-xl text-indigo-900 sm:mt-4">
                     При заказе через каталог стройматериалов на сайте для вас скидка 5%

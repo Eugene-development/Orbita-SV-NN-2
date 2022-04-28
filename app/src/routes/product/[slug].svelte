@@ -54,7 +54,7 @@
 
 <script>
     import { useVisible } from "$lib/use/functions/visible";
-    import { descriptionInfo, paymentInfo, deliveryInfo, lengthCart, InCart } from "../../stores.js";
+    import {descriptionInfo, paymentInfo, deliveryInfo, lengthCart, InCart, pageTitle} from "../../stores.js";
     import pkg from 'lodash';
     const { concat } = pkg;
     import axios from "axios";
@@ -130,6 +130,7 @@
     InCart.subscribe(value => idProductsInCart = value);
 
 
+
     export let title
     export let description
     export let id
@@ -143,6 +144,9 @@
     export let unit
     export let size
     // export let noindex
+
+
+    pageTitle.update(() => nameProduct);
 
 </script>
 
@@ -158,11 +162,11 @@
 </svelte:head>
 <div>
     <div>
-        <div id="start" class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-md shadow-slate-200/50 mb-4">
-            <div class="flex flex-col text-center w-full">
-                <h1 class=" text-4xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">{ nameProduct }</h1>
-            </div>
-        </div>
+<!--        <div id="start" class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-md shadow-slate-200/50 mb-4">-->
+<!--            <div class="flex flex-col text-center w-full">-->
+<!--                <h1 class=" text-4xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">{ nameProduct }</h1>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <section class="text-slate-600 body-font overflow-hidden">
             <div class="container px-8 py-24 mx-auto">
