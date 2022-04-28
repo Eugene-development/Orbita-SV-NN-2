@@ -19,5 +19,6 @@ export const InCart = writable([])
 export const arrayProductsInCart = writable([])
 
 export const buttonSendOffer = writable(true)
+export const buttonVisibleCatalog = writable(false)
 
 export const pageTitle = writable('База стройматериалов')

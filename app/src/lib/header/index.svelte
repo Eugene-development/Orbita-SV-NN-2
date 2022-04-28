@@ -1,19 +1,28 @@
 <script>
     const l = console.log;
 
-    import {clickOutside} from "$lib/use/functions/click_outside/index.js";
+    import { clickOutside } from "$lib/use/functions/click_outside/index.js";
 
     import MobileMenu from "./mobile/index.svelte";
     import { useHead } from "$lib/use/content/header";
     import { useVisible } from "$lib/use/functions/visible";
-    import {informationMenu, lengthCart, mobileMenu, formSearch, allProd, pageTitle} from "../../stores.js";
+    import {
+        informationMenu,
+        lengthCart,
+        mobileMenu,
+        formSearch,
+        allProd,
+        pageTitle,
+        buttonVisibleCatalog,
+        paymentInfo
+    } from "../../stores.js";
     import { onMount } from "svelte";
     import { browser } from "$app/env";
 
     const { head, information } = useHead;
     const { left: leftInfo, right: rightInfo } = information[0];
 
-    const { invert, invertToFalse } = useVisible;
+    const { invert, invertToFalse, invertToTrue } = useVisible;
 
     const changeVisibleInformationMenu = () => {
         informationMenu.update(invert);
@@ -96,6 +105,8 @@
     // pageTitle.subscribe(value => showPageTitle = value)
 
 
+
+    const changeButtonVisibleCatalog = () => buttonVisibleCatalog.update(invertToTrue)
 </script>
 
 
@@ -501,7 +512,7 @@
         </div>
 
 
-        {#if false}
+        {#if $buttonVisibleCatalog}
         <div class="mt-8 pb-4 bg-white sm:pb-8">
             <div class="relative">
                 <div class="absolute inset-0 h-1/2 bg-gray-50 border-b border-slate-200"></div>
@@ -522,20 +533,16 @@
                 </div>
             </div>
         </div>
-            {/if}
-
-
-        {#if true}
-
-        <div class="mt-8 pb-4 bg-white sm:pb-8">
+        {:else }
+        <div class="mt-8 pb-4 sm:pb-8">
             <div class="relative">
                 <div class="absolute inset-0 h-1/2 bg-gray-50 border-b border-slate-200"></div>
 <!--                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-200 via-slate-100 to-indigo-200 border-b border-slate-200"></div>-->
                 <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="w-full mx-auto ">
-                        <div class="text-center rounded-lg bg-white shadow-md shadow-indigo-700/50 bg-gradient-to-r hover:bg-gradient-to-bl from-indigo-700 via-indigo-900 to-indigo-700">
-                            <button class=" p-4">
-                                    <span class=" text-2xl  font-medium text-slate-50 tracking-wider">
+                        <div class="text-center shadow-md shadow-indigo-700/50 bg-gradient-to-r hover:bg-gradient-to-bl from-indigo-700 via-indigo-900 to-indigo-700 border border-indigo-200">
+                            <button on:click={changeButtonVisibleCatalog} class=" p-3">
+                                    <span class="text-2xl font-medium text-slate-50 tracking-wider">
                                         Каталог стройматериалов
                                     </span>
                             </button>
