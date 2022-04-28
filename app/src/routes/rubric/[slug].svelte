@@ -1,5 +1,7 @@
 <script context="module">
 
+    import {pageTitle} from "../../stores.js";
+
     const l = console.log
     export const load = async ({fetch, params, url}) => {
 
@@ -21,6 +23,9 @@
         const text = data.text
         const title = nameHead + ' в Нижнем Новгороде || База стройматериалов Орбита-Строй в Нижнем Новгороде'
         const description = nameHead + ' по отличным ценам в Нижнем Новгороде и области. Предлагаем доставку и скидки для товара ' + nameHead +'.'
+
+        pageTitle.update(() => nameHead);
+
         return {
             props: {
                 title,
@@ -33,11 +38,11 @@
     }
 
 
+
 </script>
 
 <script>
     import PageTransitions from "$lib/components/PageTransitions/index.svelte";
-    import { pageTitle } from "../../stores.js";
 
     export let title
     export let description
@@ -45,7 +50,6 @@
     export let rubric
     export let text
 
-    pageTitle.update(() => nameHead);
 </script>
 
 

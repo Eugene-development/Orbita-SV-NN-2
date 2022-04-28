@@ -1,4 +1,6 @@
 <script context="module">
+    import {pageTitle} from "../../stores.js";
+
     export const load = async ({fetch, params, url}) => {
         const idProduct = url.searchParams.get('id');
         const slugProduct = params.slug;
@@ -32,6 +34,8 @@
         const title = nameProduct + ' в Нижнем Новгороде || ' + seoTitle
         const description = nameProduct + ' в наличии с доставкой по Нижнему Новгороду. ' + seoDescription
 
+        pageTitle.update(() => nameProduct);
+
         return {
             props: {
                 id,
@@ -54,7 +58,7 @@
 
 <script>
     import { useVisible } from "$lib/use/functions/visible";
-    import {descriptionInfo, paymentInfo, deliveryInfo, lengthCart, InCart, pageTitle} from "../../stores.js";
+    import { descriptionInfo, paymentInfo, deliveryInfo, lengthCart, InCart } from "../../stores.js";
     import pkg from 'lodash';
     const { concat } = pkg;
     import axios from "axios";
@@ -144,10 +148,6 @@
     export let unit
     export let size
     // export let noindex
-
-
-    pageTitle.update(() => nameProduct);
-
 </script>
 
 <svelte:head>

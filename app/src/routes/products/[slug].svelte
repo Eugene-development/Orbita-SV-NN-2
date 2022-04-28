@@ -1,4 +1,6 @@
 <script context="module">
+  import {pageTitle} from "../../stores.js";
+
   export const load = async ({ fetch, params, url }) => {
     const idCategory = url.searchParams.get("id");
     const slugCategory = params.slug;
@@ -17,13 +19,12 @@
     const products = data.product;
     const pathAWS = resJSON.pathAWS;
 
-
-
-
     const seoTitle = data.seo ? data.seo.title : "Скидки и акции";
     const seoDescription = data.seo ? data.seo.description : "Продукция от компании 'Орбита-Строй'";
     const title = "Стройматериалы" + " || " + nameCategory + " в Нижнем Новгороде || " + seoTitle;
     const description = nameCategory + " в Нижнем Новгороде и области. " + seoDescription;
+
+    pageTitle.update(() => nameCategory);
 
     return {
       props: {
@@ -41,7 +42,7 @@
   import axios from "axios";
   import pkg from 'lodash';
   const { concat } = pkg;
-  import {lengthCart, InCart, pageTitle} from "../../stores";
+  import { lengthCart, InCart } from "../../stores";
   import { useReturn } from "$lib/use/functions/return";
   import { browser } from "$app/env";
   import { onMount } from "svelte";
@@ -92,7 +93,6 @@
   });
   InCart.subscribe(value => idProductsInCart = value);
 
-  pageTitle.update(() => nameCategory);
 
 
 </script>

@@ -1,4 +1,6 @@
 <script context="module">
+	import {pageTitle} from "../stores.js";
+
 	export const load = async ({fetch, params, url}) => {
 		let res;
 		res = await fetch(`/api/catalog/productID/446`)
@@ -20,6 +22,9 @@
 		const seoDescription = data.seo ? data.seo.description : "Строительные и отделочные материалы в Нижнем Новгороде"
 		const title = nameProduct + ' в Нижнем Новгороде || ' + seoTitle
 		const description = nameProduct + ' в наличии в Нижнем Новгороде. ' + seoDescription
+
+		pageTitle.update(() => 'База стройматериалов');
+
 
 		return {
 			props: {

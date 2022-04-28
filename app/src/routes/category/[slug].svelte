@@ -1,4 +1,6 @@
 <script context="module">
+    import {pageTitle} from "../../stores.js";
+
     export const load = async ({fetch, params, url}) => {
         const idRubric = url.searchParams.get('id');
         const slugRubric = params.slug;
@@ -18,6 +20,9 @@
         const text = data.text
         const title = 'Стройматериалы' + ' || ' + nameRubric + ' в Нижнем Новгороде'
         const description = nameRubric + ' в Нижнем Новгороде и области. ' + 'Приобретайте ' + nameRubric + ' по низким ценам.'
+
+        pageTitle.update(() => nameRubric);
+
         return {
             props: {
                 title,
@@ -27,11 +32,12 @@
                 text
             }
         }
+
+
     }
 </script>
 
 <script>
-    import {pageTitle} from "../../stores.js";
 
     export let title
     export let description
@@ -39,7 +45,6 @@
     export let category
     export let text
 
-    pageTitle.update(() => nameRubric);
 
 </script>
 
