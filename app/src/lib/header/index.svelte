@@ -534,18 +534,18 @@
             </div>
         </div>
         {:else }
-        <div class="mt-8 pb-4 sm:pb-8">
+        <div class="mt-8 pb-4 bg-white sm:pb-8">
             <div class="relative">
                 <div class="absolute inset-0 h-1/2 bg-gray-50 border-b border-slate-200"></div>
 <!--                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-200 via-slate-100 to-indigo-200 border-b border-slate-200"></div>-->
-                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 ">
                     <div class="w-full mx-auto ">
-                        <div class="text-center shadow-md shadow-indigo-700/50 bg-gradient-to-r hover:bg-gradient-to-bl from-indigo-700 via-indigo-900 to-indigo-700 border border-indigo-200">
-                            <button on:click={changeButtonVisibleCatalog} class=" p-3">
+                        <div on:click={changeButtonVisibleCatalog} class="text-center rounded-md shadow-md shadow-indigo-700/50 bg-gradient-to-r hover:bg-gradient-to-bl from-indigo-700 via-indigo-900 to-indigo-700 border border-indigo-200">
+                            <p class=" p-3">
                                     <span class="text-2xl font-medium text-slate-50 tracking-wider">
                                         Каталог стройматериалов
                                     </span>
-                            </button>
+                            </p>
                         </div>
                     </div>
                 </div>
