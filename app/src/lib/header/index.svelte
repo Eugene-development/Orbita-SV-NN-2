@@ -521,7 +521,7 @@
                     <div class="w-full mx-auto">
                         <div class="rounded-lg bg-white shadow-md shadow-indigo-700/50 lg:grid lg:grid-cols-7 ">
                             {#each head as {id, slug, name}}
-                                <a sveltekit:prefetch sveltekit:noscroll href='/rubric/{slug}'
+                                <a sveltekit:noscroll href='/rubric/{slug}'
                                    class="flex flex-col bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-600 via-indigo-900 to-indigo-700 border border-indigo-200 p-4 text-center sm:border-r sm:border-l">
                                     <span class="order-2 text-sm leading-6 font-medium text-slate-50 tracking-wider">
                                         { name }
