@@ -210,7 +210,7 @@
                                     </p>
                                     <div class="mt-6">
                                         <div class="rounded-md shadow">
-                                            <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}' class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900"> Выбрать </a>
+                                            <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}' class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-900 to-indigo-700"> Выбрать </a>
                                         </div>
                                     </div>
                                     <div class="mt-4 text-sm">
