@@ -152,7 +152,7 @@
                                         {/if}
                                     <div class="mt-8">
                                         <div class="flex items-center">
-                                            <h4 class="flex-shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-indigo-700">Общая информация</h4>
+                                            <h4 class="flex-shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-red-700">Общая информация</h4>
                                             <div class="flex-1 border-t-2 border-gray-200"></div>
                                         </div>
                                         <ul role="list" class="mt-8 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5">
