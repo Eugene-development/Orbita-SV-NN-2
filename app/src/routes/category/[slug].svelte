@@ -202,15 +202,19 @@
                                 <div class="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
                                     <p class="text-lg leading-6 font-medium text-gray-900">В этой товарной категории</p>
                                     <div class="mt-4 flex items-center justify-center text-5xl font-extrabold text-gray-900">
-                                        <span> {product.length} </span>
+                                        {#if (product.length < 10)}
+                                            <span> 0{product.length} </span>
+                                        {:else }
+                                            <span> {product.length} </span>
+                                        {/if}
                                         <span class="ml-3 text-xl font-medium text-gray-500"> поз. </span>
                                     </div>
                                     <p class="mt-4 text-sm">
-                                        <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}' class="font-medium text-gray-500 underline"> Выберите нужную позицию </a>
+                                        <a sveltekit:prefetch href='/products/{slug}' class="font-medium text-gray-500 underline"> Выберите нужную позицию </a>
                                     </p>
                                     <div class="mt-6">
                                         <div class="rounded-md shadow">
-                                            <a sveltekit:prefetch sveltekit:noscroll href='/products/{slug}' class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-900 to-indigo-700"> Выбрать </a>
+                                            <a sveltekit:prefetch href='/products/{slug}' class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-900 to-indigo-700"> Выбрать </a>
                                         </div>
                                     </div>
                                     <div class="mt-4 text-sm">
