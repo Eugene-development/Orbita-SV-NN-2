@@ -102,6 +102,8 @@
   <meta content="{description}" name="description">
 </svelte:head>
 
+
+
 <div class="bg-blueGray-50">
 <!--  <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-md shadow-slate-200/50 mb-4">-->
 <!--    <div class="flex flex-col text-center w-full">-->
@@ -109,7 +111,15 @@
 <!--    </div>-->
 <!--  </div>-->
 
+
+
   <div class="p-8">
+
+    <div class="mb-8 text-center">
+      <h3 class="text-2xl  leading-6 font-medium text-gray-900">{ nameCategory } в Нижнем Новгороде</h3>
+      <p class="mt-2  text-base text-gray-500">В данной категории вы можете купить { nameCategory } по низким ценам с доставкой или самовывозом</p>
+    </div>
+
     <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {#each products as { id, name, slug, size, unit, image }}
         <li class="col-span-1 flex flex-col text-center rounded-lg shadow-lg shadow-slate-200/50 divide-y divide-slate-200 border-2 border-slate-100 ring-offset-1 ring-1 ring-slate-100">

@@ -139,7 +139,7 @@
 			<!-- Product image -->
 			<div class="lg:row-end-1 lg:col-span-4">
 				<div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden">
-					<img src="https://uralmegaprom.ru/image/cache/catalog/Strojka/Stroitelniesmesi/SHpatlevki/VETONIT/SHpaklevka-polimernaya-Weber.Vetonit-LR+-20kg-1200x800.png" alt="action product" class="object-center object-cover">
+					<img src="https://uralmegaprom.ru/image/cache/catalog/Strojka/Stroitelniesmesi/SHpatlevki/VETONIT/SHpaklevka-polimernaya-Weber.Vetonit-LR+-20kg-1200x800.png" alt="акция" class="object-center object-cover">
 <!--					<img src="{pathAWS}{image[0].filename}" alt="action product" class="object-center object-cover">-->
 				</div>
 			</div>
@@ -354,7 +354,7 @@
 					<figure>
 						<div class="aspect-w-12 aspect-h-7 lg:aspect-none">
 							<img class="rounded-lg shadow-lg object-cover object-center"
-								 src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/pages/serv_4.jpg" alt="stroymat"
+								 src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/pages/serv_4.jpg" alt="Стройматериалы в нижнем новгороде"
 								 width="1184" height="1376">
 						</div>
 					</figure>
