@@ -272,7 +272,7 @@
 			<div class="bg-gradient-to-br from-indigo-500 via-sky-800 to-indigo-500 pt-12 sm:pt-16 rounded-lg">
 				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div class="max-w-4xl mx-auto text-center">
-						<h1 class="text-4xl font-extrabold text-slate-50 sm:text-5xl">Стройматериалы в Нижнем Новгороде</h1>
+						<h1 class="text-4xl font-extrabold text-slate-50">Стройматериалы в Нижнем Новгороде</h1>
 						<p class="mt-3 text-xl text-slate-50 sm:mt-4">Предлагаем стройматериалы в Нижнем Новгороде и области с доставкой до объекта</p>
 					</div>
 				</div>
