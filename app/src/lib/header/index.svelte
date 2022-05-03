@@ -15,8 +15,8 @@
         mobileMenu,
         pageTitle
     } from "../../stores.js";
-    import { onMount } from "svelte";
-    import { browser } from "$app/env";
+    import {onMount} from "svelte";
+    import {browser} from "$app/env";
     import Search from "$lib/components/forms/search/index.svelte";
     import axios from "axios";
     import pkg from 'lodash';
@@ -156,21 +156,24 @@
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                             <svg class="h-5 w-5 text-red-400" fill="none" stroke="currentColor"
                                  stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" stroke-linecap="round"
+                                <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
+                                      stroke-linecap="round"
                                       stroke-linejoin="round"/>
                             </svg>
                             <p class="text-gray-300 pr-3 rounded-md text-base font-medium">8 (800) 555-8-111</p>
 
                             <svg class="h-5 w-5 text-red-400" fill="none" stroke="currentColor"
                                  stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" stroke-linecap="round"
+                                <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
+                                      stroke-linecap="round"
                                       stroke-linejoin="round"/>
                             </svg>
                             <p class="text-gray-300 pr-3 rounded-md text-base font-medium">8 (930) 688-88-62</p>
 
                             <svg class="h-5 w-5 text-red-400" fill="none" stroke="currentColor"
                                  stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" stroke-linecap="round"
+                                <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
+                                      stroke-linecap="round"
                                       stroke-linejoin="round"/>
                             </svg>
                             <p class="text-gray-300 pr-3 rounded-md text-base font-medium">8 (902) 303-36-54</p>
@@ -196,7 +199,8 @@
                 <div class="hidden lg:block lg:ml-4">
                     <div class="flex items-center">
                         <div class="flex items-center md:ml-12 mr-8">
-                            <button class=" inline-flex items-center justify-center pl-2 pr-12  py-0.5 border border-transparent rounded-md text-base font-medium text-gray-500 bg-slate-100 hover:bg-slate-200  " on:click={ getAllProducts }
+                            <button class=" inline-flex items-center justify-center pl-2 pr-12  py-0.5 border border-transparent rounded-md text-base font-medium text-gray-500 bg-slate-100 hover:bg-slate-200  "
+                                    on:click={ getAllProducts }
                                     on:click={ changeVisibleFormSearch }>
                                 <svg aria-hidden="true" class="h-5 w-5 text-gray-500 mr-2" fill="currentColor"
                                      viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -214,7 +218,8 @@
                             <!-- Heroicon name: outline/bell -->
                             <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor"
                                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"
+                                <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                                      stroke-linecap="round" stroke-linejoin="round"
                                       stroke-width="2"/>
                             </svg>
                         </button>
@@ -272,7 +277,8 @@
                     </svg>
 
                     <div class="flex items-center mx-auto">
-                        <button class=" inline-flex items-center justify-center pl-2 pr-12  py-0.5 border border-transparent rounded-md text-base font-medium text-gray-500 bg-slate-100 hover:bg-slate-200  " on:click={ getAllProducts }
+                        <button class=" inline-flex items-center justify-center pl-2 pr-12  py-0.5 border border-transparent rounded-md text-base font-medium text-gray-500 bg-slate-100 hover:bg-slate-200  "
+                                on:click={ getAllProducts }
                                 on:click={ changeVisibleFormSearch }>
 
 
@@ -297,7 +303,8 @@
                         <!-- Heroicon name: outline/bell -->
                         <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor"
                              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"
+                            <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                                  stroke-linecap="round" stroke-linejoin="round"
                                   stroke-width="2"/>
                         </svg>
                     </button>
@@ -315,11 +322,14 @@
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                     <div class="flex">
                         <svg class="h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6 text-red-400" fill="none"
-                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" stroke-linecap="round"
+                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
+                                  stroke-linecap="round"
                                   stroke-linejoin="round"/>
                         </svg>
-                        <a class="text-gray-300 pl-1 rounded-md text-xs sm:text-base md:text-lg font-medium" href="tel:+78005558111"
+                        <a class="text-gray-300 pl-1 rounded-md text-xs sm:text-base md:text-lg font-medium"
+                           href="tel:+78005558111"
                            type="">8
                             800-555-8-111</a>
                     </div>
@@ -328,7 +338,8 @@
                         <svg class="hidden sm:block h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6 text-red-400"
                              fill="none" stroke="currentColor"
                              stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" stroke-linecap="round"
+                            <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
+                                  stroke-linecap="round"
                                   stroke-linejoin="round"/>
                         </svg>
                         <a class="text-gray-300 pl-1 rounded-md text-xs sm:text-base md:text-lg font-medium"
@@ -340,7 +351,8 @@
                         <svg class="hidden sm:block h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6 text-red-400"
                              fill="none" stroke="currentColor"
                              stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" stroke-linecap="round"
+                            <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
+                                  stroke-linecap="round"
                                   stroke-linejoin="round"/>
                         </svg>
                         <a class="text-gray-300 pl-1 rounded-md text-xs sm:text-base md:text-lg font-medium"
@@ -363,7 +375,8 @@
                     <a class="flex" href="/">
                         <span class="sr-only">Logo</span>
                         <img alt="Logo"
-                             class="h-8 w-auto sm:h-8" src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/logo/logo.png">
+                             class="h-8 w-auto sm:h-8"
+                             src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/logo/logo.png">
                     </a>
                 </div>
 
@@ -385,7 +398,8 @@
                 </div>
 
                 <div class="-mr-2 -my-2 lg:hidden">
-                    <button aria-expanded="false" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-slate-500 hover:text-slate-500 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    <button aria-expanded="false"
+                            class="bg-white rounded-md p-2 inline-flex items-center justify-center text-slate-500 hover:text-slate-500 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                             on:click={changeVisibleMobileMenu}
                             type="button">
                         <span class="sr-only">Open menu</span>
@@ -404,7 +418,8 @@
                         <a class="text-base text-slate-900 hover:text-red-800" href="/company">Компания</a>
                         <div on:outclick={closeVisibleInformationMenu} use:clickOutside>
                             <!-- Item active: "text-slate-900", Item inactive: "text-slate-500" -->
-                            <button aria-expanded="false" class="text-slate-900 hover:text-red-800 group bg-white rounded-md inline-flex items-center text-base focus:outline-none focus:text-red-700"
+                            <button aria-expanded="false"
+                                    class="text-slate-900 hover:text-red-800 group bg-white rounded-md inline-flex items-center text-base focus:outline-none focus:text-red-700"
                                     on:click={changeVisibleInformationMenu}
                                     type="button">
                                 <span class="font-semibold">Информация</span>
@@ -584,16 +599,30 @@
                     <!--                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-200 via-slate-100 to-indigo-200 border-b border-slate-200"></div>-->
                     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="w-full mx-auto">
-                            <div class="rounded-lg bg-white shadow-md shadow-indigo-700/50 lg:grid lg:grid-cols-7 ">
+
+                            <div class="lg:hidden rounded-lg bg-white shadow-md shadow-indigo-700/50">
                                 {#each head as {id, slug, name}}
-                                    <a sveltekit:noscroll href='/rubric/{slug}'
-                                       class="flex flex-col bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-900 to-indigo-700 border border-indigo-200 p-4 text-center sm:border-r sm:border-l">
-                                    <span class="order-2 text-sm leading-6 font-medium text-slate-50 tracking-wider">
-                                        { name }
-                                    </span>
+                                    <a sveltekit:noscroll href='/rubric/{slug}' on:click={() => buttonVisibleCatalog.update(invertToFalse)} class="flex flex-col bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-900 to-indigo-700 border border-indigo-200 p-4 text-center sm:border-r sm:border-l">
+                                        <span class="order-2 text-sm leading-6 font-medium text-slate-50 tracking-wider">
+                                            { name }
+                                        </span>
                                     </a>
                                 {/each}
                             </div>
+
+
+                            <div class="hidden lg:block rounded-lg bg-white shadow-md shadow-indigo-700/50 lg:grid lg:grid-cols-7">
+                                {#each head as {id, slug, name}}
+                                    <a sveltekit:noscroll href='/rubric/{slug}' class="flex flex-col bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-900 to-indigo-700 border border-indigo-200 p-4 text-center sm:border-r sm:border-l">
+                                        <span class="order-2 text-sm leading-6 font-medium text-slate-50 tracking-wider">
+                                            { name }
+                                        </span>
+                                    </a>
+                                {/each}
+                            </div>
+
+
+
                         </div>
                     </div>
                 </div>
