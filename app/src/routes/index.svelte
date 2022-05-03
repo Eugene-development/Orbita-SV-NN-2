@@ -268,16 +268,12 @@
 
 <div class="bg-gradient-to-b from-white to-gray-50">
 	<div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-16 lg:px-8 ">
-
 		<div class="mt-12">
 			<div class="bg-gradient-to-br from-indigo-500 via-sky-800 to-indigo-500 pt-12 sm:pt-16 rounded-lg">
-
 				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
 					<div class="max-w-4xl mx-auto text-center">
-
-						<h2 class="text-4xl font-extrabold text-slate-50 sm:text-5xl">Мы предлагаем</h2>
-						<p class="mt-3 text-xl text-slate-50 sm:mt-4">Стройматериалы в Нижнем Новгороде и области с доставкой до объекта</p>
+						<h1 class="text-4xl font-extrabold text-slate-50 sm:text-5xl">Стройматериалы в Нижнем Новгороде</h1>
+						<p class="mt-3 text-xl text-slate-50 sm:mt-4">Предлагаем стройматериалы в Нижнем Новгороде и области с доставкой до объекта</p>
 					</div>
 				</div>
 				<div class="mt-10 pb-12 sm:pb-16">
