@@ -1,20 +1,18 @@
 <script>
     import { useHead } from "$lib/use/content/header";
-
-    import {mobileMenu} from '../../../stores.js';
-
-    import {useVisible} from "$lib/use/functions/visible";
-
-    const {invert} = useVisible;
-
-    const changeVisibleMobileMenu = () => mobileMenu.update(invert);
-    let visibleMobileMenu;
-    mobileMenu.subscribe(value => visibleMobileMenu = value);
-
+    import {buttonVisibleCatalog, mobileMenu} from '../../../stores.js';
+    import { useVisible } from "$lib/use/functions/visible";
 
     const { head, information } = useHead;
     const { left: leftInfo, right: rightInfo } = information[0];
+    const { invert, invertToFalse } = useVisible;
+    const handleMenu = () => {
+        mobileMenu.update(invert);
+        buttonVisibleCatalog.update(invertToFalse);
+    }
 
+    let visibleMobileMenu;
+    mobileMenu.subscribe(value => visibleMobileMenu = value);
 </script>
 
 <!--
@@ -37,7 +35,7 @@
                          src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/logo/logo.png">
                 </div>
                 <div class="-mr-2">
-                    <button on:click={changeVisibleMobileMenu} type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <button on:click={ handleMenu }  type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <span class="sr-only">Close menu</span>
                         <!-- Heroicon name: outline/x -->
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -49,7 +47,7 @@
             <div class="mt-6 sm:mt-8">
                 <nav>
                     <div class="grid gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
-                        <a class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50" href="/">
+                        <a on:click="{ handleMenu }" class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50" href="/">
                             <div
                               class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
                                 <!-- Heroicon name: outline/chart-bar -->
@@ -62,7 +60,7 @@
                             <div class="ml-4 text-base font-medium text-gray-900">Главная</div>
                         </a>
 
-                        <a on:click={changeVisibleMobileMenu} class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50" href="/company">
+                        <a on:click={ handleMenu } class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50" href="/company">
                             <div
                               class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
                                 <!-- Heroicon name: outline/cursor-click -->
@@ -75,7 +73,7 @@
                             <div class="ml-4 text-base font-medium text-gray-900">Компания</div>
                         </a>
 
-                        <a on:click={changeVisibleMobileMenu} class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50" href="/information/contact">
+                        <a on:click={ handleMenu } class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50" href="/information/contact">
                             <div
                               class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
                                 <!-- Heroicon name: outline/shield-check -->
@@ -88,7 +86,7 @@
                             <div class="ml-4 text-base font-medium text-gray-900">Контакты</div>
                         </a>
 
-                        <a on:click={changeVisibleMobileMenu} class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50"
+                        <a on:click={ handleMenu } class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50"
                            href="https://vk.com/orbita_stroy">
                             <div
                               class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
@@ -102,24 +100,25 @@
                             <div class="ml-4 text-base font-medium text-gray-900">VK</div>
                         </a>
                     </div>
-                    <div class="mt-8 text-base">
-                        <button class="font-medium text-indigo-600 hover:text-indigo-500" href="#"> Информационные материалы
-                            <span aria-hidden="true">&rarr;</span></button>
-                    </div>
                 </nav>
             </div>
         </div>
-        <div class="py-6 px-5">
+
+        <div class="py-5 px-5">
+            <div class="mb-5 text-2xl">
+                <span class="font-medium text-indigo-600 hover:text-indigo-500">Информационные материалы:</span>
+            </div>
+
             <div class="grid grid-cols-2 gap-4">
                 {#each leftInfo as { href, displayName }}
-                    <a on:click={changeVisibleMobileMenu} href="{href}" class="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"> {displayName} </a>
+                    <a on:click={ handleMenu } href="{href}" class="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"> {displayName} </a>
                 {/each}
                 {#each rightInfo as { href, displayName }}
-                    <a on:click={changeVisibleMobileMenu} href="{href}" class="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"> {displayName} </a>
+                    <a on:click={ handleMenu } href="{href}" class="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"> {displayName} </a>
                 {/each}
             </div>
             <div class="mt-6">
-                <a on:click={changeVisibleMobileMenu} href="/blog" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"> Наш Блог </a>
+                <a on:click={ handleMenu } href="/blog" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"> Наш Блог </a>
             </div>
         </div>
     </div>
