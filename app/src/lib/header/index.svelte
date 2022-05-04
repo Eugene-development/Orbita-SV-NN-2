@@ -597,7 +597,7 @@
                 <div class="relative">
                     <div class="absolute inset-0 h-1/2 bg-gray-50 border-b border-slate-200"></div>
                     <!--                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-200 via-slate-100 to-indigo-200 border-b border-slate-200"></div>-->
-                    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="w-full mx-auto">
 
                             <div class="lg:hidden rounded-lg bg-white shadow-md shadow-indigo-700/50">
@@ -613,7 +613,7 @@
 
                             <div class="hidden lg:block rounded-lg bg-white shadow-md shadow-indigo-700/50 lg:grid lg:grid-cols-7">
                                 {#each head as {id, slug, name}}
-                                    <a sveltekit:noscroll href='/rubric/{slug}' class="flex flex-col bg-gradient-to-tr hover:bg-gradient-to-bl from-indigo-500 via-indigo-900 to-indigo-700 border border-indigo-200 p-4 text-center sm:border-r sm:border-l">
+                                    <a sveltekit:noscroll href='/rubric/{slug}' class="flex flex-col bg-gradient-to-r hover:bg-gradient-to-l from-indigo-900 via-indigo-800 to-indigo-900 hover:from-red-900 hover:via-red-800 hover:to-red-900 border border-indigo-200 hover:border-red-800 p-4 text-center sm:border-r sm:border-l">
                                         <span class="order-2 text-sm leading-6 font-medium text-slate-50 tracking-wider">
                                             { name }
                                         </span>
@@ -630,7 +630,7 @@
                 <div class="relative">
                     <div class="absolute inset-0 h-1/2 bg-gray-50 border-b border-slate-200"></div>
                     <!--                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-200 via-slate-100 to-indigo-200 border-b border-slate-200"></div>-->
-                    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
+                    <div class="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8 ">
                         <div class="w-full mx-auto ">
                             <div on:click={ changeButtonVisibleCatalog }
                                  class="text-center rounded-md shadow-md shadow-indigo-700/50 bg-gradient-to-r from-indigo-800 via-indigo-600 to-indigo-800 hover:from-indigo-600 hover:via-indigo-800 hover:to-indigo-600 border border-indigo-200">

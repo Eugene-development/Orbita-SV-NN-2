@@ -22,7 +22,7 @@
         const rubric = data.rubric
         const text = data.text
         const title = nameHead + ' в Нижнем Новгороде || База стройматериалов Орбита-Строй в Нижнем Новгороде'
-        const description = nameHead + ' по отличным ценам в Нижнем Новгороде и области. Предлагаем доставку и скидки для товара ' + nameHead +'.'
+        const description = nameHead + ' по низким ценам в Нижнем Новгороде и области. Предлагаем доставку и скидки для товара ' + nameHead +'.'
 
         pageTitle.update(() => nameHead);
 
@@ -36,8 +36,6 @@
             }
         }
     }
-
-
 
 </script>
 
@@ -81,8 +79,6 @@
                 <div class="absolute inset-0 h-3/4"></div>
                 <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
-
-
                         {#each rubric as {id, slug, name}}
                             <div
                              class="flex flex-col rounded-lg shadow-lg shadow-indigo-200/50 overflow-hidden border-2">
@@ -95,9 +91,9 @@
                                 <div class="mt-4  text-center items-baseline text-2xl font-extrabold">
                                     { name }
                                 </div>
-                                <!--                  <p class="mt-5 text-lg text-slate-500">-->
-                                <!--                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.-->
-                                <!--                  </p>-->
+                                                  <p class="mt-5 text-lg text-slate-500">
+                                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                                  </p>
                             </div>
                             <div class="flex-1 flex flex-col justify-between px-6  sm:p-10 sm:pt-6">
                                 <ul class="space-y-2">
@@ -133,9 +129,7 @@
                             { nameHead } со скидкой
                         </a>
                     </div>
-
                 </div>
-
             </div>
 
         </div>
