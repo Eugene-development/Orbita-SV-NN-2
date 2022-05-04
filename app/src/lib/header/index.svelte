@@ -633,7 +633,7 @@
                     <div class="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8 ">
                         <div class="w-full mx-auto ">
                             <div on:click={ changeButtonVisibleCatalog }
-                                 class="text-center rounded-md shadow-md shadow-indigo-700/50 bg-gradient-to-r from-indigo-900 via-indigo-700 to-indigo-900 hover:from-indigo-600 hover:via-indigo-800 hover:to-indigo-600 border border-indigo-200">
+                                 class="text-center rounded-md shadow-md shadow-indigo-700/50 bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-900 hover:from-indigo-600 hover:via-indigo-800 hover:to-indigo-600 border border-indigo-200">
                                 <p class="p-3">
                                     <span class="text-2xl font-medium text-slate-50 tracking-wider">
                                         Каталог стройматериалов
