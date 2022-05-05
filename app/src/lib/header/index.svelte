@@ -399,7 +399,7 @@
                             class="bg-white rounded-md p-2 inline-flex items-center justify-center text-slate-500 hover:text-slate-500 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                             on:click={changeVisibleMobileMenu}
                             type="button">
-                        <span class="sr-only">Open menu</span>
+                        <span class="sr-only">Открыть меню</span>
                         <span class="mx-2">Меню</span>
                         <!-- Heroicon name: outline/menu -->
                         <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor"
