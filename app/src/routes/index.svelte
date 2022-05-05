@@ -138,7 +138,7 @@
 				<div class="max-w-full mx-auto sm:px-6 lg:px-8">
 					<div class="relative shadow-xl sm:rounded-lg sm:overflow-hidden">
 						<div class="absolute inset-0">
-							<img class="h-full w-full object-cover" src="https://ap-vzlet.ru/wp-content/uploads/2020/07/stroitelnye-materialy1.jpg" alt="People working on laptops">
+							<img class="h-full w-full object-cover" src="https://storage.yandexcloud.net/brand-logo/orbita/brand/mainfoto.jpeg" alt="Стройматериалы в Нижнем Новгороде">
 							<div class="absolute inset-0 bg-slate-600 mix-blend-multiply"></div>
 						</div>
 						<div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
