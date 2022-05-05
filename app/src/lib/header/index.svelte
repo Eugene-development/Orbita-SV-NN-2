@@ -330,8 +330,7 @@
                         </svg>
                         <a class="text-gray-300 pl-1 rounded-md text-xs sm:text-base md:text-lg font-medium"
                            href="tel:+78005558111"
-                           type="">8
-                            800-555-8-111</a>
+                           type="">8 800-555-8-111</a>
                     </div>
 
                     <div class="flex">
@@ -343,8 +342,7 @@
                                   stroke-linejoin="round"/>
                         </svg>
                         <a class="text-gray-300 pl-1 rounded-md text-xs sm:text-base md:text-lg font-medium"
-                           href="tel:+79306888862">8
-                            930-688-88-62</a>
+                           href="tel:+79306888862">8 930-688-88-62</a>
                     </div>
 
                     <div class="flex">
@@ -356,8 +354,7 @@
                                   stroke-linejoin="round"/>
                         </svg>
                         <a class="text-gray-300 pl-1 rounded-md text-xs sm:text-base md:text-lg font-medium"
-                           href="tel:+79023033654">8
-                            902-303-36-54</a>
+                           href="tel:+79023033654">8 902-303-36-54</a>
                     </div>
                 </div>
 
@@ -550,11 +547,8 @@
                         <a class="ml-8 inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md text-base font-medium text-white bg-indigo-900 hover:bg-indigo-800 shadow-lg shadow-indigo-700/50"
                            href="/shop/cart"
                            sveltekit:noscroll>
-                            <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                                      stroke-linecap="round" stroke-linejoin="round"
-                                      stroke-width="2"/>
+                            <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                             </svg>
                             Корзина
                             (
@@ -574,7 +568,7 @@
     </div>
 
 
-    <div class="bg-gray-50 pt-6 sm:pt-8 ">
+    <div class="bg-gray-100 pt-6 sm:pt-8 ">
         <!--    <div class="bg-gradient-to-r from-indigo-200 via-slate-50 to-indigo-200 pt-6 sm:pt-8 ">-->
         <!--    <div class="bg-hero-pattern pt-6 sm:pt-8 ">-->
 
@@ -595,7 +589,7 @@
         {#if $buttonVisibleCatalog}
             <div class="mt-8 pb-4 bg-white sm:pb-8">
                 <div class="relative">
-                    <div class="absolute inset-0 h-1/2 bg-gray-50 border-b border-slate-200"></div>
+                    <div class="absolute inset-0 h-1/2 bg-gray-100 border-b border-slate-200"></div>
                     <!--                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-200 via-slate-100 to-indigo-200 border-b border-slate-200"></div>-->
                     <div class="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="w-full mx-auto">
@@ -628,7 +622,7 @@
         {:else }
             <div class="mt-8 pb-4 bg-white sm:pb-8">
                 <div class="relative">
-                    <div class="absolute inset-0 h-1/2 bg-gray-50 border-b border-slate-200"></div>
+                    <div class="absolute inset-0 h-1/2 bg-gray-100 border-b border-slate-200"></div>
                     <!--                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-200 via-slate-100 to-indigo-200 border-b border-slate-200"></div>-->
                     <div class="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8 ">
                         <div class="w-full mx-auto ">

@@ -54,11 +54,12 @@
 	import pkg from 'lodash';
 
 	const {concat} = pkg;
-	import {InCart, lengthCart} from "../stores";
+	import {buttonVisibleCatalog, InCart, lengthCart} from "../stores";
 	import axios from "axios";
 	import {onMount} from "svelte";
 	import {browser} from "$app/env";
 	import {useReturn} from "$lib/use/functions/return";
+	import {useVisible} from "$lib/use/functions/visible/index.js";
 
 	const { mainAction, seasonalGoods } = useActions;
 	const { currentValue } = useReturn;
@@ -113,6 +114,11 @@
 	export let unit
 	export let size
 
+	const {invert, invertToFalse, invertToTrue} = useVisible;
+
+
+	const changeButtonVisibleCatalog = () => buttonVisibleCatalog.update(invertToTrue)
+
 </script>
 
 <svelte:head>
@@ -137,14 +143,14 @@
 						</div>
 						<div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
 							<h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-								<span class="block text-white">Take control of your</span>
-								<span class="block text-indigo-200">customer support</span>
+								<span class="block text-white">Стройматериалы</span>
+								<span class="block text-indigo-200">в Нижнем Новгороде</span>
 							</h1>
-							<p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+							<p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">Если вы в поиске базы стройматериалов с низкими ценами и широким ассортиментом, то вы попали по адресу. Наша строительная база работает в Нижнем Новгороде через наш строительный интернет магазин и располагает широким выбором продукции.</p>
 							<div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
 								<div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
-									<a href="#" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"> Get started </a>
-									<a href="#" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 bg-opacity-60 hover:bg-opacity-70 sm:px-8"> Live demo </a>
+									<a href="#" on:click={ changeButtonVisibleCatalog } class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"> Каталог </a>
+									<a href="/blog" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-800 bg-opacity-80 hover:bg-opacity-70 sm:px-8"> Наш блог </a>
 								</div>
 							</div>
 						</div>
