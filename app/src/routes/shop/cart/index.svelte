@@ -3,10 +3,12 @@
   import { browser } from "$app/env";
   import axios from "axios";
   import { reject, without, pullAllBy } from "lodash";
-  import {arrayProductsInCart, InCart, lengthCart, pageTitle} from "../../../stores";
+  import { arrayProductsInCart, buttonVisibleCatalog, InCart, lengthCart, pageTitle } from "../../../stores";
   import { useReturn } from "$lib/use/functions/return";
+  import { useVisible } from "$lib/use/functions/visible/index.js";
 
   const { currentValue } = useReturn;
+  const { invert, invertToFalse } = useVisible;
 
 
   const l = console.log;
@@ -16,8 +18,7 @@
   let arrayCart;
   arrayProductsInCart.subscribe(value => arrayCart = value);
 
-
-    onMount(async () => {
+  onMount(async () => {
       const domain = import.meta.env.VITE_API_CART;
       const dataS = browser && localStorage.getItem("dataS");
       const url = `${domain}/get-cart/${dataS}`;
@@ -31,18 +32,14 @@
       productsInCart = [...arrayCart, ...res.data];
 
       arrayProductsInCart.update(() => productsInCart)
-    });
+  });
 
 
   $: total = arrayCart.reduce((sum, product) => {
     let price = product.size[0].price.price;
     return sum + price * product.quantity;
   }, 0);
-
   $: totalSum = (total - total * 0.05).toFixed(2);
-
-
-
 
   const deleteProductFromCart = async (id) => {
     arrayCart = reject(arrayCart, item => item.id === id);
@@ -64,7 +61,6 @@
     };
     await axios.delete("delete-cart-one/" + id + "/" + localStorage.getItem("dataS"), apiCart);
   };
-
 
   $: first_name = "";
   $: phone = "";
@@ -135,9 +131,8 @@
     }, 0);
   }
 
-
   pageTitle.update(() => 'Корзина');
-
+  buttonVisibleCatalog.update(invertToFalse)
 </script>
 
 <svelte:head>
