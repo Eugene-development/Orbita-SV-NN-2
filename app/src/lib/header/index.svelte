@@ -321,7 +321,7 @@
                 <div class="mx-auto flex justify-between items-center">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                     <div class="flex">
-                        <svg class="h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6 text-red-400" fill="none"
+                        <svg class="hidden sm:block h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6 text-red-400" fill="none"
                              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                              xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
@@ -329,8 +329,7 @@
                                   stroke-linejoin="round"/>
                         </svg>
                         <a class="text-gray-300 pl-1 rounded-md text-xs sm:text-base md:text-lg font-medium"
-                           href="tel:+78005558111"
-                           type="">8 800-555-8-111</a>
+                           href="tel:+78005558111">8 800-555-8-111</a>
                     </div>
 
                     <div class="flex">
@@ -367,18 +366,16 @@
     <div class="relative bg-white">
         <div aria-hidden="true" class="absolute inset-0 shadow z-30 pointer-events-none"></div>
         <div class="relative z-20">
-            <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4 sm:px-6 sm:py-3 lg:px-8 md:space-x-8">
+            <div class="max-w-7xl mx-auto flex justify-between items-center px-2 py-4 sm:px-6 sm:py-3 lg:px-8 md:space-x-8">
                 <div>
                     <a class="flex" href="/">
                         <span class="sr-only">Logo</span>
-                        <img alt="Logo"
-                             class="h-8 w-auto sm:h-8"
-                             src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/logo/logo.png">
+                        <img alt="Logo" class="h-8 w-auto sm:h-8" src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/logo/logo.png">
                     </a>
                 </div>
 
                 <div class="flex items-center md:ml-12 lg:hidden">
-                    <a class="ml-8 inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md text-base font-medium text-white bg-indigo-900 hover:bg-indigo-800 shadow-lg shadow-indigo-700/50"
+                    <a class="ml-8 inline-flex items-center justify-center px-3 py-1 border border-transparent rounded-md text-base font-medium text-white bg-indigo-900 hover:bg-indigo-800 shadow-lg shadow-indigo-700/50"
                        href="/shop/cart"
                        sveltekit:noscroll>
                         <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"

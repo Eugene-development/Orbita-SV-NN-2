@@ -91,9 +91,9 @@
                                 <div class="mt-4  text-center items-baseline text-2xl font-extrabold">
                                     { name }
                                 </div>
-                                                  <p class="mt-5 text-lg text-slate-500">
-                                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                                  </p>
+<!--                                                  <p class="mt-5 text-lg text-slate-500">-->
+<!--                                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.-->
+<!--                                                  </p>-->
                             </div>
                             <div class="flex-1 flex flex-col justify-between px-6  sm:p-10 sm:pt-6">
                                 <ul class="space-y-2">
