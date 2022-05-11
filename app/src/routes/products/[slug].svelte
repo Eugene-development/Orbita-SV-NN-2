@@ -104,7 +104,7 @@
 
 
 
-<div class="bg-blueGray-50">
+<div class="bg-gradient-to-b from-white  to-slate-50">
 <!--  <div class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-md shadow-slate-200/50 mb-4">-->
 <!--    <div class="flex flex-col text-center w-full">-->
 <!--      <h1 class=" text-5xl font-medium title-font text-slate-900 lowercase first-letter:uppercase">{ nameCategory } в Нижнем Новгороде</h1>-->
@@ -120,9 +120,9 @@
       <p class="mt-2  text-base text-gray-500 ">В данной категории вы можете купить <span class="lowercase">{ nameCategory }</span> по низким ценам с доставкой или самовывозом</p>
     </div>
 
-    <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
       {#each products as { id, name, slug, size, unit, image }}
-        <li class="col-span-1 flex flex-col text-center rounded-lg shadow-lg shadow-slate-200/50 divide-y divide-slate-200 border-2 border-slate-100 ring-offset-1 ring-1 ring-slate-100">
+        <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow-lg shadow-slate-200/50 divide-y divide-slate-200 border-2 border-slate-100 ring-offset-1 ring-1 ring-slate-100">
           <a sveltekit:prefetch sveltekit:noscroll href="/product/{slug}">
             <div class="flex-1 flex flex-col p-8">
 
@@ -134,7 +134,6 @@
               <h3 class="mt-6 text-slate-900 text-sm font-medium h-10 lowercase first-letter:uppercase">{ name }</h3>
               <dl class="mt-1 flex-grow flex flex-col justify-between">
                 <dt class="sr-only">Title</dt>
-                <hr class="mt-4">
                 <dt class="sr-only">Product</dt>
                 <dd class="mt-4">
                   <span

@@ -6,13 +6,6 @@
         const slugProduct = params.slug;
 
         let res;
-        // // let noindex;
-        // if (idProduct) {
-        //     res = await fetch(`/api/catalog/productID/${idProduct}`)
-        //     noindex = true;
-        // } else {
-        //     res = await fetch(`/api/catalog/productSLUG/${slugProduct}`)
-        // }
 
         res = await fetch(`/api/catalog/productSLUG/${slugProduct}`)
 
@@ -50,7 +43,6 @@
                 image,
                 unit,
                 size,
-                // noindex
             }
         }
     }
@@ -66,7 +58,6 @@
     import { onMount } from "svelte";
     import { browser } from "$app/env";
     const { currentValue } = useReturn;
-
 
     const { invertToTrue, invertToFalse } = useVisible;
 
@@ -147,17 +138,12 @@
     export let image
     export let unit
     export let size
-    // export let noindex
 </script>
 
 <svelte:head>
 
     <title>{title}</title>
     <meta name="description" content="{description}">
-
-    <!--{#if noindex}-->
-    <!--    <meta name="robots" content="noindex">-->
-    <!--{/if}-->
 
 </svelte:head>
 <div>
