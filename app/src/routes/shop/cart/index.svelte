@@ -132,8 +132,8 @@
       }
     };
 
-    const response = await axios.get('/yandex/789', apiCart);
-    console.log(response.data.id)
+    const response = await axios.get('/yandex/' + totalSum, apiCart);
+    window.location = 'https://yoomoney.ru/api-pages/v2/payment-confirm/epl?orderId=' + response.data.id
   }
   //let count = 0;
   //$: quantity = count;
@@ -143,13 +143,13 @@
   // }
 
 
-  function handleClick(id) {
-    const total = productsInCart.reduce((sum, product) => {
-      let price = 0;
-      price = product.size[0].price.price;
-      return sum + price * product.quantity;
-    }, 0);
-  }
+  // function handleClick(id) {
+  //   const total = productsInCart.reduce((sum, product) => {
+  //     let price = 0;
+  //     price = product.size[0].price.price;
+  //     return sum + price * product.quantity;
+  //   }, 0);
+  // }
 
   pageTitle.update(() => 'Корзина');
   buttonVisibleCatalog.update(invertToFalse)
