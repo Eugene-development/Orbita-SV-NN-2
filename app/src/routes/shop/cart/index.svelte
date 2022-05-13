@@ -67,6 +67,12 @@
   $: address = "";
   $: comments = "";
 
+
+
+
+
+
+
   const sendOrder = async () => {
 
     const informationForm = {
@@ -116,12 +122,26 @@
     arrayProductsInCart.update(() => []);
 
   }
+
+  const sendOrderViaYandex = async () => {
+
+    const apiCart = {
+      baseURL: "http://localhost:7711/",
+      headers: {
+        Authorization: `Bearer 1`
+      }
+    };
+
+    const response = await axios.get('/yandex/789', apiCart);
+    console.log(response.data.id)
+  }
   //let count = 0;
   //$: quantity = count;
 
   //function handleClick() {
   //   count += 1;
   // }
+
 
   function handleClick(id) {
     const total = productsInCart.reduce((sum, product) => {
@@ -247,7 +267,9 @@
     <div class="m-8 text-right">
       <span class="inline-flex  px-3.5 py-1 rounded-md text-xs sm:text-base font-medium bg-green-100 text-green-800">ИТОГО (с учётом скидки 5%): {totalSum} руб.</span>
     </div>
-    <div class="m-8 space-y-6 bg-gray-50 border-2 border-slate-100 rounded-md">
+
+
+    <form class="m-8 space-y-6 bg-gray-50 border-2 border-slate-100 rounded-md">
 
       <div class="shadow px-4 py-5 sm:rounded-lg sm:p-6">
         <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -383,7 +405,7 @@
           <button on:click={ sendOrder }
             class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
             type="submit">
-            Отправить менеджеру
+            Отправить менеджеру и оплатить позже
           </button>
           <!--  {:else }-->
           <!--<button-->
@@ -396,7 +418,14 @@
       </div>
 
 
-    </div>
+    </form>
+
+    <button on:click={ sendOrderViaYandex }
+            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
+    >
+      Отправить менеджеру и оплатить картой
+    </button>
+
   {/if}
 
 </div>
