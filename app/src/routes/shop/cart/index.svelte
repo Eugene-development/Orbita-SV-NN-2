@@ -72,6 +72,7 @@
 
 
 
+  let paymentCart = false;
 
   const sendOrder = async () => {
 
@@ -90,18 +91,18 @@
 
     //TODO исправь на env
     const apiMail = {
-      baseURL: "https://larux.ru:7721/",
+      baseURL: `${import.meta.env.VITE_API_MAIL}`,
       headers: {
-        Authorization: `Bearer 1`
+        Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
       }
     };
 
     await axios.post('/sendOrder', data, apiMail);
 
     const apiCart = {
-      baseURL: "https://larux.ru:7711/",
+      baseURL: `${import.meta.env.VITE_API_CART}`,
       headers: {
-        Authorization: `Bearer 1`
+        Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
       }
     };
 
@@ -120,21 +121,16 @@
     arrayCart = []
     InCart.update(() => []);
     arrayProductsInCart.update(() => []);
+    lengthCart.update(() => 0);
+
+
+    if (paymentCart === true) {
+      const response = await axios.get('/yandex/' + totalSum, apiCart);
+      window.location = 'https://yoomoney.ru/api-pages/v2/payment-confirm/epl?orderId=' + response.data.id
+    }
 
   }
 
-  const sendOrderViaYandex = async () => {
-
-    const apiCart = {
-      baseURL: "http://localhost:7711/",
-      headers: {
-        Authorization: `Bearer 1`
-      }
-    };
-
-    const response = await axios.get('/yandex/' + totalSum, apiCart);
-    window.location = 'https://yoomoney.ru/api-pages/v2/payment-confirm/epl?orderId=' + response.data.id
-  }
   //let count = 0;
   //$: quantity = count;
 
@@ -153,6 +149,7 @@
 
   pageTitle.update(() => 'Корзина');
   buttonVisibleCatalog.update(invertToFalse)
+
 </script>
 
 <svelte:head>
@@ -269,7 +266,7 @@
     </div>
 
 
-    <form class="m-8 space-y-6 bg-gray-50 border-2 border-slate-100 rounded-md">
+    <form class="m-8 space-y-6 bg-gray-50 border-2 border-slate-100 rounded-md" on:submit|preventDefault={sendOrder}>
 
       <div class="shadow px-4 py-5 sm:rounded-lg sm:p-6">
         <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -280,7 +277,7 @@
             </p>
           </div>
           <div class="mt-5 md:mt-0 md:col-span-2">
-            <div class="grid grid-cols-6 gap-6">
+            <div class="mb-8 grid grid-cols-6 gap-6">
               <div class="col-span-6 ">
                 <label class="block text-sm font-medium text-gray-700" for="first_name">Ваше имя:</label>
                 <input
@@ -324,7 +321,18 @@
                 </div>
               </div>
             </div>
+
+            <label>
+              <span class="text-red-700">Оплатить картой: </span>
+              <input class="text-red-800" type=checkbox bind:checked={paymentCart}>
+            </label>
+
+            {#if paymentCart}
+              <p>После отправки заказа вы будете направлены на страницу оплаты.</p>
+            {/if}
+
           </div>
+
         </div>
 
         <!--      <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">-->
@@ -402,11 +410,9 @@
 
         <div class="flex justify-end mt-8">
           <!--{#if (visibleSendOrder)}-->
-          <button on:click={ sendOrder }
-            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
-            type="submit">
-            Отправить менеджеру и оплатить позже
-          </button>
+          <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800">Отправить менеджеру</button>
+<!--          <span on:click={ sendOrderViaYandex } class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800">Отправить менеджеру и оплатить картой</span>-->
+
           <!--  {:else }-->
           <!--<button-->
           <!--  class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"-->
@@ -420,11 +426,6 @@
 
     </form>
 
-    <button on:click={ sendOrderViaYandex }
-            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800"
-    >
-      Отправить менеджеру и оплатить картой
-    </button>
 
   {/if}
 
