@@ -2,27 +2,25 @@
 	import {pageTitle} from "../stores.js";
 
 	export const load = async ({fetch, params, url}) => {
-		let res;
-		res = await fetch(`/api/catalog/productID/446`)
+		let res = await fetch(`/api/catalog/productID/446`)
 
 		const resJSON = await res.json();
+		const pathAWS = resJSON.pathAWS
+
 		const data = resJSON.product.data[0]
 		const id = data.id
 		const nameProduct = data.name
 		const descriptionProduct = data.description
-		const idCategory = data.category.id
-		const nameCategory = data.category.name
-		const slugCategory = data.category.slug
-		const pathAWS = resJSON.pathAWS
 		const image = data.image
 		const unit = data.unit
 		const size = data.size
+		const idCategory = data.category.id
+		const nameCategory = data.category.name
+		const slugCategory = data.category.slug
 
-		// const seoTitle =  data.seo ? data.seo.title : 'Строительные и отделочные материалы'
-		// const seoDescription = data.seo ? data.seo.description : "Строительные и отделочные материалы в Нижнем Новгороде"
-		// const title = nameProduct + ' в Нижнем Новгороде || ' + seoTitle
-		// const description = nameProduct + ' в наличии в Нижнем Новгороде. ' + seoDescription
-
+		const propsData = [
+			data, id, nameProduct, descriptionProduct, image, unit, size, idCategory, nameCategory, slugCategory
+		]
 		pageTitle.update(() => 'База стройматериалов');
 
 		return {
@@ -45,23 +43,21 @@
 </script>
 
 <script>
-	import {useMain} from "$lib/use/content/main";
-
-	const {Benefits} = useMain
-
-	import {useActions} from "$lib/use/content/actions";
 	import pkg from 'lodash';
-
-	const {concat} = pkg;
-	import {buttonVisibleCatalog, InCart, lengthCart} from "../stores";
 	import axios from "axios";
 	import {onMount} from "svelte";
 	import {browser} from "$app/env";
+	import {buttonVisibleCatalog, InCart, lengthCart} from "../stores";
+	import {useMain} from "$lib/use/content/main";
+	import {useActions} from "$lib/use/content/actions";
 	import {useReturn} from "$lib/use/functions/return";
 	import {useVisible} from "$lib/use/functions/visible/index.js";
 
-	const { mainAction, seasonalGoods } = useActions;
-	const { currentValue } = useReturn;
+	const {concat} = pkg;
+	const {Benefits} = useMain
+	const {mainAction, seasonalGoods} = useActions;
+	const {currentValue} = useReturn;
+	const {invert, invertToFalse, invertToTrue} = useVisible;
 
 	const sendToCart = async (id) => {
 		if (localStorage.getItem("inCart") === null) {
@@ -91,6 +87,7 @@
 		};
 		await axios.post(url, payloadCart, apiCart);
 	};
+	const changeButtonVisibleCatalog = () => buttonVisibleCatalog.update(invertToTrue)
 
 	let idProductsInCart;
 	onMount(async () => {
@@ -101,10 +98,6 @@
 	InCart.subscribe(value => idProductsInCart = value);
 
 
-	const page = "Главная";
-	const title = "База строительных и отделочных материалов \"Орбита-Строй\" || Наш интрнет строитеьный магазин предлагает стройматериалы с доставкой в Нижнем Новгороде";
-	const description = "Интернет-магазин строительных и отделочных материалов \"Орбита-строй\" | Строительная база с широким ассортиментом товаров и низкими ценами на стройматериалы.";
-
 	export let id
 	export let nameProduct
 	export let descriptionProduct
@@ -113,10 +106,9 @@
 	export let unit
 	export let size
 
-	const {invert, invertToFalse, invertToTrue} = useVisible;
-
-	const changeButtonVisibleCatalog = () => buttonVisibleCatalog.update(invertToTrue)
-
+	const page = "Главная";
+	const title = "База строительных и отделочных материалов \"Орбита-Строй\" || Наш интрнет строитеьный магазин предлагает стройматериалы с доставкой в Нижнем Новгороде";
+	const description = "Интернет-магазин строительных и отделочных материалов \"Орбита-строй\" | Строительная база с широким ассортиментом товаров и низкими ценами на стройматериалы.";
 </script>
 
 <svelte:head>
