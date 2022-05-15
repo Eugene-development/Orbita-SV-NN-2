@@ -162,7 +162,7 @@
                         <h1 class="text-slate-900 text-2xl title-font font-medium my-4 lowercase first-letter:uppercase">{ nameProduct }</h1>
                         <div class="flex mb-4">
                             <button on:click={changeVisibleDescriptionInfo}
-                                    class="focus:outline-none flex-grow  border-slate-300 py-2 text-lg px-1 {visibleDescription ? 'font-bold border-b-2' : 'font-normal '}"
+                                    class="focus:outline-none flex-grow  border-slate-300 py-2 text-lg px-1 {visibleDescription ? 'font-bold border-b-2' : 'font-normal'}"
                             >Описание</button>
                             <button on:click={changeVisiblePaymentInfo}
                                     class="focus:outline-none flex-grow border-slate-300 py-2 text-lg px-1 {visiblePayment ? 'font-bold border-b-2' : 'font-normal '}"

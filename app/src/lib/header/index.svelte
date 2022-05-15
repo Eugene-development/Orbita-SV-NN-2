@@ -1,6 +1,7 @@
 <script>
     const l = console.log;
 
+    import { page } from '$app/stores';
     import {clickOutside} from "$lib/use/functions/click_outside/index.js";
 
     import MobileMenu from "./mobile/index.svelte";
@@ -603,8 +604,11 @@
 
                             <div class="hidden lg:block rounded-lg bg-white shadow-md shadow-indigo-700/50 lg:grid lg:grid-cols-7">
                                 {#each head as {id, slug, name}}
-                                    <a sveltekit:noscroll href='/rubric/{slug}' class="flex flex-col bg-gradient-to-r hover:bg-gradient-to-l from-indigo-900 via-indigo-800 to-indigo-900 hover:from-red-900 hover:via-red-800 hover:to-red-900 border border-indigo-200 hover:border-red-800 p-4 text-center sm:border-r sm:border-l">
-                                        <span class="order-2 text-sm leading-6 font-medium text-slate-50 tracking-wider">
+                                    <a sveltekit:noscroll href='/rubric/{slug}'
+                                       class="flex flex-col bg-gradient-to-r hover:bg-gradient-to-l from-indigo-900 via-indigo-800 to-indigo-900 hover:from-red-900 hover:via-red-800 hover:to-red-900 border border-indigo-200 hover:border-red-800 p-4 text-center sm:border-r sm:border-l  "
+
+                                    >
+                                        <span class="order-2 text-sm leading-6 font-medium tracking-wider {'/rubric/' + slug === $page.url.pathname ? 'text-red-500' : 'text-white'}">
                                             { name }
                                         </span>
                                     </a>
