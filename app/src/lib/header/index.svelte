@@ -605,10 +605,10 @@
                             <div class="hidden lg:block rounded-lg bg-white shadow-md shadow-indigo-700/50 lg:grid lg:grid-cols-7">
                                 {#each head as {id, slug, name}}
                                     <a sveltekit:noscroll href='/rubric/{slug}'
-                                       class="flex flex-col bg-gradient-to-r hover:bg-gradient-to-l from-indigo-900 via-indigo-800 to-indigo-900 hover:from-red-900 hover:via-red-800 hover:to-red-900 border border-indigo-200 hover:border-red-800 p-4 text-center sm:border-r sm:border-l  "
+                                       class="flex flex-col  hover:bg-gradient-to-l hover:from-red-900 hover:via-red-800 hover:to-red-900 border border-indigo-200 hover:border-red-800 p-4 text-center sm:border-r sm:border-l {'/rubric/' + slug === $page.url.pathname ? 'bg-gradient-to-r from-red-900 via-red-800 to-red-900' : 'bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-900'} "
 
                                     >
-                                        <span class="order-2 text-sm leading-6 font-medium tracking-wider {'/rubric/' + slug === $page.url.pathname ? 'text-red-500' : 'text-white'}">
+                                        <span class="order-2 text-sm leading-6 font-medium tracking-wider text-slate-50">
                                             { name }
                                         </span>
                                     </a>
