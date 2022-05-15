@@ -8,36 +8,35 @@
 		const pathAWS = resJSON.pathAWS
 
 		const data = resJSON.product.data[0]
-		const id = data.id
-		const nameProduct = data.name
-		const descriptionProduct = data.description
-		const image = data.image
-		const unit = data.unit
-		const size = data.size
-		const idCategory = data.category.id
-		const nameCategory = data.category.name
-		const slugCategory = data.category.slug
 
-		const propsData = [
-			data, id, nameProduct, descriptionProduct, image, unit, size, idCategory, nameCategory, slugCategory
-		]
+		const {
+			id,
+			name: nameProduct,
+			description: descriptionProduct,
+			image,
+			unit,
+			size,
+			category: {id: idCategory, name: nameCategory, slug: slugCategory},
+		} = data
+
+		const propsData = {
+			pathAWS,
+			data,
+			id,
+			nameProduct,
+			descriptionProduct,
+			image,
+			unit,
+			size,
+			idCategory,
+			nameCategory,
+			slugCategory
+		}
+
 		pageTitle.update(() => 'База стройматериалов');
 
 		return {
-			props: {
-				id,
-				title,
-				description,
-				nameProduct,
-				descriptionProduct,
-				idCategory,
-				slugCategory,
-				nameCategory,
-				pathAWS,
-				image,
-				unit,
-				size
-			}
+			props: {...propsData}
 		}
 	}
 </script>
