@@ -6,9 +6,7 @@
 
 		const resJSON = await res.json();
 		const pathAWS = resJSON.pathAWS
-
 		const data = resJSON.product.data[0]
-
 		const {
 			id,
 			name: nameProduct,
@@ -21,7 +19,6 @@
 
 		const propsData = {
 			pathAWS,
-			data,
 			id,
 			nameProduct,
 			descriptionProduct,
