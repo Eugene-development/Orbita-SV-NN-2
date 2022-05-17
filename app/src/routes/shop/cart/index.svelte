@@ -62,10 +62,6 @@
     await axios.delete("delete-cart-one/" + id + "/" + localStorage.getItem("dataS"), apiCart);
   };
 
-  $: first_name = "";
-  $: phone = "";
-  $: address = "";
-  $: comments = "";
 
 
 
@@ -74,30 +70,34 @@
 
   let paymentCart = false;
 
-  const sendOrder = async () => {
+  $: first_name = "";
+  $: phone = "";
+  $: address = "";
+  $: comments = "";
 
+  const sendDataToServer = () => {
     const informationForm = {
       name: first_name,
       phone,
       address,
       comments
     }
-
     const data = {
       products: productsInCart,
       totalSum: totalSum,
       information: informationForm
     }
-
-    //TODO исправь на env
     const apiMail = {
       baseURL: `${import.meta.env.VITE_API_MAIL}`,
       headers: {
         Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
       }
     };
+    axios.post('/sendOrder', data, apiMail);
+  }
 
-    await axios.post('/sendOrder', data, apiMail);
+  const sendOrder = async () => {
+    await sendDataToServer();
 
     const apiCart = {
       baseURL: `${import.meta.env.VITE_API_CART}`,
