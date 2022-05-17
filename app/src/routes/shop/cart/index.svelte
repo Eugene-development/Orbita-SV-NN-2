@@ -1,4 +1,6 @@
 <script>
+  const l = console.log;
+
   import { onMount } from "svelte";
   import { browser } from "$app/env";
   import axios from "axios";
@@ -11,28 +13,13 @@
   const { invert, invertToFalse } = useVisible;
 
 
-  const l = console.log;
   let productsInCart = [];
-
-  //TODO Исправить нейминг productsInCart
+  let paymentCart = false;
   let arrayCart;
+
   arrayProductsInCart.subscribe(value => arrayCart = value);
-
-  onMount(async () => {
-      const domain = import.meta.env.VITE_API_CART;
-      const dataS = browser && localStorage.getItem("dataS");
-      const url = `${domain}/get-cart/${dataS}`;
-      const headers = {
-        Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
-      };
-
-      const res = await axios(url, { headers });
-
-      pullAllBy(res.data, arrayCart, 'id');
-      productsInCart = [...arrayCart, ...res.data];
-
-      arrayProductsInCart.update(() => productsInCart)
-  });
+  pageTitle.update(() => 'Корзина');
+  buttonVisibleCatalog.update(invertToFalse)
 
 
   $: total = arrayCart.reduce((sum, product) => {
@@ -40,6 +27,26 @@
     return sum + price * product.quantity;
   }, 0);
   $: totalSum = (total - total * 0.05).toFixed(2);
+  $: first_name = "";
+  $: phone = "";
+  $: address = "";
+  $: comments = "";
+
+  onMount(async () => {
+    const domain = import.meta.env.VITE_API_CART;
+    const dataS = browser && localStorage.getItem("dataS");
+    const url = `${domain}/get-cart/${dataS}`;
+    const headers = {
+      Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
+    };
+
+    const res = await axios(url, { headers });
+
+    pullAllBy(res.data, arrayCart, 'id');
+    productsInCart = [...arrayCart, ...res.data];
+
+    arrayProductsInCart.update(() => productsInCart)
+  });
 
   const deleteProductFromCart = async (id) => {
     arrayCart = reject(arrayCart, item => item.id === id);
@@ -62,19 +69,6 @@
     await axios.delete("delete-cart-one/" + id + "/" + localStorage.getItem("dataS"), apiCart);
   };
 
-
-
-
-
-
-
-  let paymentCart = false;
-
-  $: first_name = "";
-  $: phone = "";
-  $: address = "";
-  $: comments = "";
-
   const sendDataToServer = () => {
     const informationForm = {
       name: first_name,
@@ -95,60 +89,45 @@
     };
     axios.post('/sendOrder', data, apiMail);
   }
-
-  const sendOrder = async () => {
-    await sendDataToServer();
-
+  const deleteActualDataInCart = () => {
     const apiCart = {
       baseURL: `${import.meta.env.VITE_API_CART}`,
       headers: {
         Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
       }
     };
-
-    //Удаляем все значения из бд по значению 'data' при отправке заказа на почту
-    await axios.delete('delete-cart-all/' + localStorage.getItem('dataS'), apiCart);
-
-    //Удаляем все значения inCart из localStorage
-    await localStorage.removeItem('inCart');
-
-
+    axios.delete('delete-cart-all/' + localStorage.getItem('dataS'), apiCart);
+  }
+  const payYouKassa = async () => {
+    if (paymentCart === true) {
+      const apiCart = {
+        baseURL: `${import.meta.env.VITE_API_CART}`,
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
+        }
+      };
+      const response = await axios.get('/yandex/' + totalSum, apiCart);
+      window.location = 'https://yoomoney.ru/api-pages/v2/payment-confirm/epl?orderId=' + response.data.id
+    }
+  }
+  const cleanData = () => {
+    localStorage.removeItem('inCart');
     const visibleLengthCart = 0;
     lengthCart.update(() => currentValue(visibleLengthCart));
-
-
     productsInCart = []
     arrayCart = []
     InCart.update(() => []);
     arrayProductsInCart.update(() => []);
-    lengthCart.update(() => 0);
-
-
-    if (paymentCart === true) {
-      const response = await axios.get('/yandex/' + totalSum, apiCart);
-      window.location = 'https://yoomoney.ru/api-pages/v2/payment-confirm/epl?orderId=' + response.data.id
-    }
-
+    // lengthCart.update(() => 0);
   }
 
-  //let count = 0;
-  //$: quantity = count;
+  const sendOrder = async () => {
+    await sendDataToServer();
+    await deleteActualDataInCart();
+    await payYouKassa();
+    await cleanData();
+  }
 
-  //function handleClick() {
-  //   count += 1;
-  // }
-
-
-  // function handleClick(id) {
-  //   const total = productsInCart.reduce((sum, product) => {
-  //     let price = 0;
-  //     price = product.size[0].price.price;
-  //     return sum + price * product.quantity;
-  //   }, 0);
-  // }
-
-  pageTitle.update(() => 'Корзина');
-  buttonVisibleCatalog.update(invertToFalse)
 
 </script>
 
