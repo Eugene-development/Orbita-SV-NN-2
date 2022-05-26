@@ -327,42 +327,43 @@
 
             <div class="px-1 sm:px-4 md:px-8 pt-2 pb-3 space-y-1 ">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <div class="mx-auto flex justify-between items-center">
+                <div class="px-16 mx-auto flex justify-between items-center">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <div class="flex">
-                        <svg class="hidden sm:block h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6 text-red-400" fill="none"
-                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                        </svg>
-                        <a class="text-gray-300 pl-1 rounded-md text-xs sm:text-base md:text-lg font-medium"
-                           href="tel:+78005558111">8 800-555-8-111</a>
-                    </div>
+<!--                    <div class="flex">-->
+<!--                        <svg class="hidden sm:block h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6 text-red-400" fill="none"-->
+<!--                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"-->
+<!--                             xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"-->
+<!--                                  stroke-linecap="round"-->
+<!--                                  stroke-linejoin="round"/>-->
+<!--                        </svg>-->
+<!--                        <a class="text-gray-300 pl-1 rounded-md text-xs sm:text-base md:text-lg font-medium"-->
+<!--                           href="tel:+78005558111">8 800-555-8-111</a>-->
+<!--                    </div>-->
 
                     <div class="flex">
-                        <svg class="hidden sm:block h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6 text-red-400"
+                        <svg class="h-5 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6 text-red-400"
                              fill="none" stroke="currentColor"
                              stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
                                   stroke-linecap="round"
                                   stroke-linejoin="round"/>
                         </svg>
-                        <a class="text-gray-300 pl-1 rounded-md text-xs sm:text-base md:text-lg font-medium"
-                           href="tel:+79306888862">8 930-688-88-62</a>
-                    </div>
-
-                    <div class="flex">
-                        <svg class="hidden sm:block h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6 text-red-400"
-                             fill="none" stroke="currentColor"
-                             stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                        </svg>
-                        <a class="text-gray-300 pl-1 rounded-md text-xs sm:text-base md:text-lg font-medium"
+                        <a class="text-gray-200 pl-1 rounded-md text-sm sm:text-base md:text-lg font-medium"
                            href="tel:+79023033654">8 902-303-36-54</a>
+
+                    </div>
+
+                    <div class="flex">
+                        <svg class="h-5 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6 text-red-400"
+                             fill="none" stroke="currentColor"
+                             stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 3l-6 6m0 0V4m0 5h5M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                        <a class="text-gray-200 pl-1 rounded-md text-sm sm:text-base md:text-lg font-medium"
+                           href="tel:+79306888862">8 930-688-88-62</a>
                     </div>
                 </div>
 
