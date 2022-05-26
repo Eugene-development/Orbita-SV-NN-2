@@ -613,7 +613,7 @@
                             <div class="hidden lg:block rounded-lg bg-white shadow-md shadow-indigo-700/50 lg:grid lg:grid-cols-7">
                                 {#each head as {id, slug, name}}
                                     <a sveltekit:noscroll href='/rubric/{slug}'
-                                       class="flex flex-col  hover:bg-gradient-to-l hover:from-red-900 hover:via-red-800 hover:to-red-900 border border-indigo-200 hover:border-red-800 p-4 text-center sm:border-r sm:border-l {'/rubric/' + slug === $page.url.pathname ? 'bg-gradient-to-r from-red-900 via-red-800 to-red-900' : 'bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-900'} "
+                                       class="flex flex-col  hover:bg-gradient-to-l hover:from-red-900 hover:via-red-800 hover:to-red-900 border border-indigo-200 hover:border-red-800 p-4 text-center sm:border-r sm:border-l {'/rubric/' + slug === $page.url.pathname ? 'bg-gradient-to-r from-red-900 via-red-800 to-red-900' : 'bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-900'} transition ease-in-out delay-100 hover:scale-110 duration-500"
                                     >
                                         <span class="order-2 text-sm leading-6 font-medium tracking-wider text-slate-50">
                                             { name }
@@ -634,7 +634,7 @@
                     <div class="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8 ">
                         <div class="w-full mx-auto ">
                             <div on:click={ changeButtonVisibleCatalog }
-                                 class="text-center rounded-md shadow-md shadow-indigo-700/50 bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-900 hover:from-indigo-600 hover:via-indigo-800 hover:to-indigo-600 border border-indigo-200">
+                                 class="text-center rounded-md shadow-md shadow-indigo-700/50 bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-900 hover:from-indigo-600 hover:via-indigo-800 hover:to-indigo-600 border border-indigo-200 ">
                                 <p class="p-3">
                                     <span class="text-2xl font-medium text-slate-50 tracking-wider">
                                         Каталог стройматериалов
