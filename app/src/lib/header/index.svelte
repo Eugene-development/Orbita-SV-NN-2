@@ -327,7 +327,7 @@
 
             <div class="px-1 sm:px-4 md:px-8 pt-2 pb-3 space-y-1 ">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <div class="px-16 mx-auto flex justify-between items-center">
+                <div class="mx-auto flex justify-between items-center">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 <!--                    <div class="flex">-->
 <!--                        <svg class="hidden sm:block h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6 text-red-400" fill="none"-->
