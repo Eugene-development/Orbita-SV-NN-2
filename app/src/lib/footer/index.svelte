@@ -32,7 +32,7 @@
                     <div class="md:grid md:grid-cols-1">
                         <div>
                             <h3 class="text-lg font-semibold text-gray-50 tracking-wider uppercase">
-                                Контакты:
+                                Контакты магазина стройматериалов в Нижнем Новгороде:
                             </h3>
                             <div class="mt-4 space-y-4">
                                 <p class="text-xs text-gray-50">
@@ -243,7 +243,7 @@
                 </div>
                 <p class="mt-8 text-base text-gray-50 md:mt-0 md:order-1">
                     &copy; 2015-{year} Интернет магазин стройматериалов с каталогом. Отделочные материалы и пластиковые окна "Орбита-Строй".
-                    <br>Обслуживание сайта +7 (495) 147-55-50
+                    <br>Обслуживание сайта строительного магазина +7 (495) 147-55-50
                 </p>
             </div>
         </div>
