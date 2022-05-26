@@ -34,7 +34,7 @@ const seasonalGoods = [
     {
      id: 1,
      name: 'ГКЛ "Кнауф" 9,5 мм (1200*2500)',
-     price: '295',
+     price: '375',
      unit: 'шт',
      img: 'https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/images/%D0%BE%D0%BF%D1%82.webp',
      link: 'product/gkl-knauf-95-mm-12002500?id=257'

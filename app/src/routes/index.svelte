@@ -135,7 +135,7 @@
 							<p class="mt-6 by-16 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl bg-slate-800 opacity-60">Если вы в поиске базы стройматериалов с низкими ценами и широким ассортиментом, то вы попали по адресу. Наша строительная база работает в Нижнем Новгороде через наш строительный интернет магазин и располагает широким выбором продукции.</p>
 							<div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
 								<div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
-									<a href="#" on:click={ changeButtonVisibleCatalog } class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"> Каталог </a>
+									<button on:click={ changeButtonVisibleCatalog } class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"> Каталог </button>
 									<a href="/blog" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-800 bg-opacity-80 hover:bg-opacity-70 sm:px-8"> Наш блог </a>
 								</div>
 							</div>
