@@ -1,5 +1,4 @@
 <script>
-    const l = console.log;
 
     import { page } from '$app/stores';
     import {clickOutside} from "$lib/use/functions/click_outside/index.js";
@@ -33,6 +32,8 @@
     const closeVisibleInformationMenu = () => {
         informationMenu.update(invertToFalse);
     };
+
+
     let visibleInformationMenu;
     informationMenu.subscribe(value => visibleInformationMenu = value);
 
