@@ -1,42 +1,7 @@
 <script context="module">
 	import {pageTitle} from "../stores.js";
+	pageTitle.update(() => 'База стройматериалов');
 
-	export const load = async ({fetch, params, url}) => {
-		let res = await fetch(`/api/catalog/productID/446`)
-
-		const resJSON = await res.json();
-		const pathAWS = resJSON.pathAWS
-		const data = resJSON.product.data[0]
-		const {
-			id,
-			name: nameProduct,
-			description: descriptionProduct,
-			image,
-			unit,
-			size,
-			category: {id: idCategory, name: nameCategory, slug: slugCategory},
-		} = data
-
-		const propsData = {
-			pathAWS,
-			id,
-			nameProduct,
-			descriptionProduct,
-			image,
-			unit,
-			size,
-			idCategory,
-			nameCategory,
-			slugCategory
-		}
-
-		pageTitle.update(() => 'База стройматериалов');
-
-		return {
-			props: {...propsData}
-		}
-
-	}
 </script>
 
 <script>
