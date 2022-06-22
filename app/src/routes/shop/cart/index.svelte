@@ -1,6 +1,4 @@
 <script>
-  const l = console.log;
-
   import { onMount } from "svelte";
   import { browser } from "$app/env";
   import axios from "axios";

@@ -2,7 +2,6 @@
 
     import {pageTitle} from "../../stores.js";
 
-    const l = console.log
     export const load = async ({fetch, params, url}) => {
 
         const idHead = url.searchParams.get('id');

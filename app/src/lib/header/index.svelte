@@ -4,7 +4,6 @@
     import {clickOutside} from "$lib/use/functions/click_outside/index.js";
 
     import MobileMenu from "./mobile/index.svelte";
-    import {useHead} from "$lib/use/content/header";
     import {useVisible} from "$lib/use/functions/visible";
     import {
         allProd,
@@ -21,6 +20,7 @@
     import axios from "axios";
     import pkg from 'lodash';
 
+    import {useHead} from "$lib/use/content/header";
     const {head, information} = useHead;
     const {left: leftInfo, right: rightInfo} = information[0];
 

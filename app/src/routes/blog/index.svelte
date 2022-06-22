@@ -4,6 +4,16 @@
   pageTitle.update(() => 'Блог');
 </script>
 
+<svelte:head>
+  <title
+  >Блог компании на тематику строительных и отделочных материалов компании 'Орбита строй'</title
+  >
+  <meta
+          name="description"
+          content="Информационный посты от нашей компании по строительной теме"
+  />
+</svelte:head>
+
 <PageTransitions>
   <div class="py-8 sm:py-12">
     <div class="relative sm:py-16">

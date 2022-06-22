@@ -1,7 +1,42 @@
 <script context="module">
 	import {pageTitle} from "../stores.js";
-	pageTitle.update(() => 'База стройматериалов');
 
+	export const load = async ({fetch, params, url}) => {
+		let res = await fetch(`/api/catalog/productID/446`)
+
+		const resJSON = await res.json();
+		const pathAWS = resJSON.pathAWS
+		const data = resJSON.product.data[0]
+		const {
+			id,
+			name: nameProduct,
+			description: descriptionProduct,
+			image,
+			unit,
+			size,
+			category: {id: idCategory, name: nameCategory, slug: slugCategory},
+		} = data
+
+		const propsData = {
+			pathAWS,
+			id,
+			nameProduct,
+			descriptionProduct,
+			image,
+			unit,
+			size,
+			idCategory,
+			nameCategory,
+			slugCategory
+		}
+
+		pageTitle.update(() => 'База стройматериалов');
+
+		return {
+			props: {...propsData}
+		}
+
+	}
 </script>
 
 <script>
@@ -98,7 +133,7 @@
 								<span class="block text-white">Стройматериалы</span>
 								<span class="block text-indigo-200">в Нижнем Новгороде</span>
 							</h1>
-							<p class="mt-6 by-16 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl bg-slate-800 opacity-60">Если вы в поиске базы стройматериалов с низкими ценами и широким ассортиментом, то вы попали по адресу. Наша строительная база работает в Нижнем Новгороде через наш строительный интернет магазин и располагает широким выбором продукции.</p>
+							<p class="mt-6 p-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl bg-gray-800 bg-opacity-30">Если вы в поиске базы стройматериалов с низкими ценами и широким ассортиментом, то вы попали по адресу. Наша строительная база работает в Нижнем Новгороде через наш строительный интернет магазин и располагает широким выбором продукции.</p>
 							<div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
 								<div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
 									<button on:click={ changeButtonVisibleCatalog } class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"> Каталог </button>
@@ -143,116 +178,116 @@
 
 
 
-<!--<div class="mt-24 max-w-7xl mx-auto px-6 lg:px-8">-->
-<!--	<div class="lg:text-center">-->
-<!--		<p class="text-base leading-6 text-red-800 font-semibold tracking-wide uppercase">спецпредложение</p>-->
-<!--		<h2 class=" mt-2 text-4xl leading-12 font-extrabold tracking-tight text-gray-800 sm:text-5xl sm:leading-10">-->
-<!--			Акции в этом месяце-->
-<!--		</h2>-->
-<!--		<p class="mt-4 max-w-5xl text-xl leading-7 text-gray-500 lg:mx-auto">-->
-<!--			Акционное ограниченное предложение. Актуальное наличие уточняйте у наших менеджеров по рабочим телефонам нашего интернет магазина стройматериалов в Нижнем Новгороде.-->
-<!--		</p>-->
-<!--	</div>-->
-<!--</div>-->
+<div class="mt-24 max-w-7xl mx-auto px-6 lg:px-8">
+	<div class="lg:text-center">
+		<p class="text-base leading-6 text-red-800 font-semibold tracking-wide uppercase">спецпредложение</p>
+		<h2 class=" mt-2 text-4xl leading-12 font-extrabold tracking-tight text-gray-800 sm:text-5xl sm:leading-10">
+			Акции в этом месяце
+		</h2>
+		<p class="mt-4 max-w-5xl text-xl leading-7 text-gray-500 lg:mx-auto">
+			Акционное ограниченное предложение. Актуальное наличие уточняйте у наших менеджеров по рабочим телефонам нашего интернет магазина стройматериалов в Нижнем Новгороде.
+		</p>
+	</div>
+</div>
 
-<!--<div class="bg-white">-->
-<!--	<div class="mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">-->
-<!--		&lt;!&ndash; Product &ndash;&gt;-->
-<!--		<div class="lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">-->
-<!--			&lt;!&ndash; Product image &ndash;&gt;-->
-<!--			<div class="lg:row-end-1 lg:col-span-4">-->
-<!--				<div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden">-->
-<!--					<img src="https://uralmegaprom.ru/image/cache/catalog/Strojka/Stroitelniesmesi/SHpatlevki/VETONIT/SHpaklevka-polimernaya-Weber.Vetonit-LR+-20kg-1200x800.png" alt="акция" class="object-center object-cover">-->
-<!--&lt;!&ndash;					<img src="{pathAWS}{image[0].filename}" alt="action product" class="object-center object-cover">&ndash;&gt;-->
-<!--				</div>-->
-<!--			</div>-->
+<div class="bg-white">
+	<div class="mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+		<!-- Product -->
+		<div class="lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
+			<!-- Product image -->
+			<div class="lg:row-end-1 lg:col-span-4">
+				<div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden">
+					<img src="https://uralmegaprom.ru/image/cache/catalog/Strojka/Stroitelniesmesi/SHpatlevki/VETONIT/SHpaklevka-polimernaya-Weber.Vetonit-LR+-20kg-1200x800.png" alt="акция" class="object-center object-cover">
+<!--					<img src="{pathAWS}{image[0].filename}" alt="action product" class="object-center object-cover">-->
+				</div>
+			</div>
 
-<!--			&lt;!&ndash; Product details &ndash;&gt;-->
-<!--			<div class="max-w-2xl mx-auto mt-14 sm:mt-16 lg:max-w-none lg:mt-0 lg:row-end-2 lg:row-span-2 lg:col-span-3">-->
-<!--				<div class="flex flex-col-reverse">-->
-<!--					<div class="mt-4">-->
-<!--						<h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">{nameProduct}</h1>-->
+			<!-- Product details -->
+			<div class="max-w-2xl mx-auto mt-14 sm:mt-16 lg:max-w-none lg:mt-0 lg:row-end-2 lg:row-span-2 lg:col-span-3">
+				<div class="flex flex-col-reverse">
+					<div class="mt-4">
+						<h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">{nameProduct}</h1>
 
-<!--						<h2 id="information-heading" class="sr-only">Информация по акции</h2>-->
-<!--						<p class="text-sm text-gray-500 mt-2">Акция действует с {mainAction[0].startDate} 2022 года</p>-->
-<!--					</div>-->
+						<h2 id="information-heading" class="sr-only">Информация по акции</h2>
+						<p class="text-sm text-gray-500 mt-2">Акция действует с {mainAction[0].startDate} 2022 года</p>
+					</div>
 
-<!--					<div>-->
-<!--						<h3 class="sr-only">Reviews</h3>-->
-<!--						<div class="flex items-center">-->
-<!--							&lt;!&ndash;-->
-<!--                              Heroicon name: solid/star-->
+					<div>
+						<h3 class="sr-only">Reviews</h3>
+						<div class="flex items-center">
+							<!--
+                              Heroicon name: solid/star
 
-<!--                              Active: "text-yellow-400", Default: "text-gray-300"-->
-<!--                            &ndash;&gt;-->
-<!--							<svg class="text-red-500 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">-->
-<!--								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />-->
-<!--							</svg>-->
+                              Active: "text-yellow-400", Default: "text-gray-300"
+                            -->
+							<svg class="text-red-500 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+							</svg>
 
-<!--							&lt;!&ndash; Heroicon name: solid/star &ndash;&gt;-->
-<!--							<svg class="text-red-500 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">-->
-<!--								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />-->
-<!--							</svg>-->
+							<!-- Heroicon name: solid/star -->
+							<svg class="text-red-500 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+							</svg>
 
-<!--							&lt;!&ndash; Heroicon name: solid/star &ndash;&gt;-->
-<!--							<svg class="text-red-500 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">-->
-<!--								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />-->
-<!--							</svg>-->
+							<!-- Heroicon name: solid/star -->
+							<svg class="text-red-500 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+							</svg>
 
-<!--							&lt;!&ndash; Heroicon name: solid/star &ndash;&gt;-->
-<!--							<svg class="text-red-500 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">-->
-<!--								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />-->
-<!--							</svg>-->
+							<!-- Heroicon name: solid/star -->
+							<svg class="text-red-500 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+							</svg>
 
-<!--							&lt;!&ndash; Heroicon name: solid/star &ndash;&gt;-->
-<!--							<svg class="text-gray-300 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">-->
-<!--								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />-->
-<!--							</svg>-->
-<!--						</div>-->
-<!--						<p class="sr-only">3 out of 5 stars</p>-->
-<!--						<p class="text-base text-gray-500 mt-2">Наличие на складе</p>-->
-<!--					</div>-->
-<!--				</div>-->
+							<!-- Heroicon name: solid/star -->
+							<svg class="text-gray-300 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+							</svg>
+						</div>
+						<p class="sr-only">3 out of 5 stars</p>
+						<p class="text-base text-gray-500 mt-2">Наличие на складе</p>
+					</div>
+				</div>
 
-<!--				<p class="text-gray-500 mt-6">{@html descriptionProduct}</p>-->
+				<p class="text-gray-500 mt-6">{@html descriptionProduct}</p>
 
-<!--				<div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">-->
-<!--					<div class="w-full bg-indigo-800 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">-->
-<!--						Цена: {size[0].price.price} р/{unit}-->
-<!--					</div>-->
+				<div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+					<div class="w-full bg-indigo-800 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
+						Цена: {size[0].price.price} р/{unit}
+					</div>
 
-<!--					{#if !(idProductsInCart).some(arrVal => id === arrVal)}-->
-<!--						<button-->
-<!--							on:click|once={sendToCart(id)}-->
-<!--							type="button"-->
-<!--							class="w-full bg-indigo-100 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 transition ease-in-out delay-100 hover:scale-110 duration-500">-->
-<!--							В корзину-->
-<!--						</button>-->
-<!--					{:else }-->
-<!--						<button-->
-<!--							type="button"-->
-<!--							class="w-full bg-red-700 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">-->
-<!--							В корзине-->
-<!--						</button>-->
-<!--					{/if}-->
-<!--				</div>-->
+					{#if !(idProductsInCart).some(arrVal => id === arrVal)}
+						<button
+							on:click|once={sendToCart(id)}
+							type="button"
+							class="w-full bg-indigo-100 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 transition ease-in-out delay-100 hover:scale-110 duration-500">
+							В корзину
+						</button>
+					{:else }
+						<button
+							type="button"
+							class="w-full bg-red-700 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
+							В корзине
+						</button>
+					{/if}
+				</div>
 
-<!--				<div class="border-t border-gray-200 mt-10 pt-10">-->
-<!--					<h3 class="text-sm font-medium text-gray-900">Характеристики:</h3>-->
-<!--					<div class="mt-4 prose prose-sm text-gray-500">-->
-<!--						<ul>-->
-<!--							<li>Мешки по 20 кг</li>-->
-<!--							<li>Сыпучий материал</li>-->
-<!--						</ul>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
+				<div class="border-t border-gray-200 mt-10 pt-10">
+					<h3 class="text-sm font-medium text-gray-900">Характеристики:</h3>
+					<div class="mt-4 prose prose-sm text-gray-500">
+						<ul>
+							<li>Мешки по 20 кг</li>
+							<li>Сыпучий материал</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 
-<!--		</div>-->
+		</div>
 
-<!--	</div>-->
+	</div>
 
-<!--</div>-->
+</div>
 <!--<hr class="max-w-7xl mx-auto">-->
 
 
