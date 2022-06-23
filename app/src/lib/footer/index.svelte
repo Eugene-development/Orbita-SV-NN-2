@@ -31,7 +31,7 @@
                 <div class="grid grid-cols-2 gap-8 xl:col-span-2">
                     <div class="md:grid md:grid-cols-1">
                         <div>
-                            <h3 class="text-lg font-semibold text-gray-50 tracking-wider uppercase">
+                            <h3 class="text-base md:text-lg font-semibold text-gray-50 tracking-wider uppercase">
                                 Контакты магазина стройматериалов в Нижнем Новгороде:
                             </h3>
                             <div class="mt-4 space-y-4">
@@ -67,7 +67,7 @@
 
                     <div class="md:grid md:grid-cols-2 md:gap-8 ">
                         <div>
-                            <h3 class="text-lg font-semibold text-gray-50 tracking-wider uppercase">
+                            <h3 class="text-base md:text-lg font-semibold text-gray-50 tracking-wider uppercase">
                                 Клиентам:
                             </h3>
                             <div class="mt-4 space-y-4 ">
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                         <div class="mt-12 md:mt-0">
-                            <h3 class="text-lg font-semibold text-gray-50 tracking-wider uppercase">
+                            <h3 class="text-base md:text-lg font-semibold text-gray-50 tracking-wider uppercase">
                                 Информация:
                             </h3>
 
