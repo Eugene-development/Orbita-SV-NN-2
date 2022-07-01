@@ -1,10 +1,14 @@
 <script>
-
+    import axios from "axios";
+    import {onMount} from "svelte";
+    import {browser} from "$app/env";
+    import Search from "$lib/components/forms/search/index.svelte";
+    import pkg from 'lodash';
     import { page } from '$app/stores';
     import {clickOutside} from "$lib/use/functions/click_outside/index.js";
-
     import MobileMenu from "./mobile/index.svelte";
     import {useVisible} from "$lib/use/functions/visible";
+    import {useHead} from "$lib/use/content/header";
     import {
         allProd,
         buttonVisibleCatalog,
@@ -12,99 +16,60 @@
         informationMenu,
         lengthCart,
         mobileMenu,
-        pageTitle
+        pageTitle,
+        infoPanel
     } from "../../stores.js";
-    import {onMount} from "svelte";
-    import {browser} from "$app/env";
-    import Search from "$lib/components/forms/search/index.svelte";
-    import axios from "axios";
-    import pkg from 'lodash';
 
-    import {useHead} from "$lib/use/content/header";
+    const {filter} = pkg;
     const {head, information} = useHead;
     const {left: leftInfo, right: rightInfo} = information[0];
-
     const {invert, invertToFalse, invertToTrue} = useVisible;
 
-    const changeVisibleInformationMenu = () => {
-        informationMenu.update(invert);
-    };
-    const closeVisibleInformationMenu = () => {
-        informationMenu.update(invertToFalse);
-    };
+    const changeVisibleInformationMenu = () => informationMenu.update(invert);
+    const closeVisibleInformationMenu = () => informationMenu.update(invertToFalse);
+    const changeButtonVisibleCatalog = () => buttonVisibleCatalog.update(invertToTrue)
+    const changeVisibleInfoPanel = () => infoPanel.update(invertToFalse)
+    const changeVisibleMobileMenu = () => mobileMenu.update(invert);
+    const changeVisibleFormSearch = () => formSearch.update(invert)
 
 
-    let visibleInformationMenu;
-    informationMenu.subscribe(value => visibleInformationMenu = value);
 
-    let countLengthCart;
     onMount(async () => {
         if (browser && localStorage.getItem("inCart") !== null) {
             countLengthCart = JSON.parse(browser && localStorage.getItem("inCart")).length;
         }
     });
-    lengthCart.subscribe(value => countLengthCart = value)
-
-    const changeVisibleMobileMenu = () => mobileMenu.update(invert);
-    let visibleMobileMenu;
-    mobileMenu.subscribe(value => visibleMobileMenu = value);
 
 
-    const changeVisibleFormSearch = () => formSearch.update(invert)
-    let visibleFormSearch;
-    formSearch.subscribe(value => visibleFormSearch = value);
 
-
-    const {filter} = pkg;
-    const allProducts = []
     const getAllProducts = async () => {
-
         const headers = {
             Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
         };
         const domain = import.meta.env.VITE_API_CRUD;
-        const pathAWS = import.meta.env.VITE_IMAGE_PRODUCTS
-
         const urlProducts = `${domain}/get-all-product/`;
         const allProducts = await axios(urlProducts, {headers});
-        // let result = allProducts.match(/Java(Script)/g);
-        // let result = filter(allProducts.data.data, ['name', /'УТЕПЛИТЕЛЬ'/])
-
-        // const filterItems = (arr, query) => {
-        //     return arr.filter(el => el.toLowerCase().indexOf(query.toLowerCase()) !== -1)
-        // }
-        // const query = 'УТЕПЛИТЕЛЬ'
-        // const result = filterItems(allProducts.data.data, query)
-
-        // const text = 'УТЕП'
-        // const search = allProducts.data.data.filter(({name}) => name.includes(text));
-        // console.log(search)
-
-        // const search = ( query ) => allProducts.data.data.filter(({ name }) => name.toLowerCase().includes( query ));
-        // const query = 'УТЕП'.toLowerCase();
-        // const result = search( query );
-        // console.log(result);
-
-
-        // const result = filterItems(allProducts.data.data.name, 'УТЕПЛИТЕЛЬ')
-        // console.log(result)
-
-
         allProd.update(() => allProducts.data.data)
-
-        // let test;
-        // allProd.subscribe( value => test = value );
-        //
-        // console.log(test)
     };
 
-    //let showPageTitle;
-    // pageTitle.subscribe(value => showPageTitle = value)
 
 
-    const changeButtonVisibleCatalog = () => buttonVisibleCatalog.update(invertToTrue)
+    //TODO Убрать
+    let visibleInformationMenu;
+    informationMenu.subscribe(value => visibleInformationMenu = value);
+
+    let countLengthCart;
+    lengthCart.subscribe(value => countLengthCart = value)
+
+    let visibleMobileMenu;
+    mobileMenu.subscribe(value => visibleMobileMenu = value);
+
+    let visibleFormSearch;
+    formSearch.subscribe(value => visibleFormSearch = value);
+
 </script>
 
+{#if $infoPanel}
 <div class="relative bg-black">
     <div class="max-w-7xl mx-auto py-2 px-3 sm:px-6 lg:px-8">
         <div class="pr-16 sm:text-center sm:px-16">
@@ -117,7 +82,7 @@
             </p>
         </div>
         <div class="absolute inset-y-0 right-0 pt-1 pr-1 flex items-start sm:pt-1 sm:pr-2 sm:items-start">
-            <button type="button" class="flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white">
+            <button type="button" on:click={changeVisibleInfoPanel} class="flex p-2 rounded-md hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-white">
                 <span class="sr-only">Dismiss</span>
                 <!-- Heroicon name: outline/x -->
                 <svg class="h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -127,6 +92,8 @@
         </div>
     </div>
 </div>
+    {/if}
+
 
 <header>
     <!-- This example requires Tailwind CSS v2.0+ -->
