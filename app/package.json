@@ -27,7 +27,8 @@
     "@lukeed/uuid": "^2.0.0",
     "axios": "^0.24.0",
     "cookie": "^0.4.1",
+    "gsap": "^3.10.4",
     "lodash": "^4.17.21",
-    "gsap": "^3.10.4"
+    "symax": "latest"
   }
 }
