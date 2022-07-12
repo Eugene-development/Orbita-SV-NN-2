@@ -29,6 +29,35 @@
 
         pageTitle.update(() => nameProduct);
 
+
+
+
+
+/*
+        const url2 = 'http://127.0.0.1:8000/graphql'
+        const query = `
+                    query AllProducts {
+                          product {
+                          id
+                            value
+                          }
+                        }
+                    `
+            const res2 = await fetch(url2, {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json",
+                    },
+                    mode: 'no-cors',
+                    body: JSON.stringify({query})
+                }
+            )
+            const resJSON2 = await res2.json();
+            console.log(resJSON2.data.product[0])
+            const test = resJSON2.data.product[0]
+
+        */
+
         return {
             props: {
                 id,
@@ -43,6 +72,8 @@
                 image,
                 unit,
                 size,
+
+                // test
             }
         }
     }
@@ -170,14 +201,19 @@
         }
     `).then(console.log)
 */
+
+
+  //  export let test
 </script>
 
 <svelte:head>
-
     <title>{title}</title>
     <meta name="description" content="{description}">
-
 </svelte:head>
+
+
+<!--{test.id}-->
+<!--{test.value}-->
 <div>
     <div>
 <!--        <div id="start" class="p-10 mx-auto sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-md shadow-slate-200/50 mb-4">-->
