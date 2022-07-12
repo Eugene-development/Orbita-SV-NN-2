@@ -138,6 +138,38 @@
     export let image
     export let unit
     export let size
+
+/*
+    const url = 'https://graphqlzero.almansi.me/api'
+    const makeRequest = (query) => {
+        return fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({query})
+            }
+        ).then((res) => res.json())
+    }
+
+    makeRequest(`
+    query Todos {
+          todos{
+            data{
+              id
+              title
+              completed
+              user {
+                name
+                address{
+                  city
+                }
+              }
+            }
+          }
+        }
+    `).then(console.log)
+*/
 </script>
 
 <svelte:head>
