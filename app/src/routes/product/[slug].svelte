@@ -145,6 +145,37 @@
             }
         };
         await axios.post(url, payloadCart, apiCart);
+
+
+
+/*
+        const endpoint = "http://127.0.0.1:8000/graphql";
+        const headers = {
+            "content-type": "application/json",
+        };
+        const graphqlQuery = {
+            "operationName": "AllProducts",
+            "query": ` query AllProducts {
+                          product {
+                          id
+                           value
+                          }
+                        }`,
+            "variables": {}
+        };
+
+        const response = axios({
+            url: endpoint,
+            method: 'post',
+            mode: 'no-cors',
+            headers: headers,
+            data: graphqlQuery
+        });
+
+        console.log(response); // data
+*/
+
+
     };
 
     let idProductsInCart;
