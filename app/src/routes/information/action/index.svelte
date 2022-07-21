@@ -44,7 +44,7 @@
 
 
 
-    {#each actions as {action, price, description}}
+    {#each actions as {action, price, description, link}}
         <div class="py-8 sm:py-12">
             <div class="relative sm:py-16">
                 <div aria-hidden="true" class="hidden sm:block">
@@ -67,7 +67,7 @@
                             </svg>
                         </div>
                         <div class="relative">
-                            <div class="sm:text-center">
+                            <a href="{link}" class="sm:text-center">
                                 <h2 class="text-2xl font-extrabold text-white tracking-tight md:text-5xl">
                                     {action}
                                     <br>
@@ -76,7 +76,7 @@
                                 <p class="mt-6 mx-auto max-w-2xl text-lg text-indigo-50">
                                     {description}
                                 </p>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
