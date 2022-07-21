@@ -255,7 +255,7 @@
 
         <section class="text-slate-600 body-font overflow-hidden">
             <div class="container px-8 py-12 mx-auto">
-                <div class="lg:w-4/5 mx-auto flex flex-wrap">
+                <div class=" mx-auto flex flex-wrap">
                     <div class="lg:w-1/2 w-full lg:pr-12 lg:py-6 mb-6 lg:mb-0">
                         <h2 class="text-base title-font text-red-500 tracking-widest">НАИМЕНОВАНИЕ</h2>
                         <h1 class="text-slate-900 text-2xl title-font font-medium my-4 lowercase first-letter:uppercase">{ nameProduct }</h1>
