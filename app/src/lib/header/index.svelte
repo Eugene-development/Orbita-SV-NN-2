@@ -564,7 +564,7 @@
                            target="_blank"> VK </a>
                     </nav>
                     <div class="flex items-center md:ml-12">
-                        <a class="ml-8 inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md text-base font-medium text-white bg-indigo-900 hover:bg-indigo-800 shadow-lg shadow-indigo-700/50"
+                        <a class="ml-8 inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md text-base font-medium text-white bg-gray-800 hover:bg-gray-800 shadow-lg shadow-gray-700/50"
                            href="/shop/cart"
                            sveltekit:noscroll>
                             <svg class="mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
