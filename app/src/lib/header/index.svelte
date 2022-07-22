@@ -162,7 +162,7 @@
   ```
 -->
     <nav class="bg-indigo-900">
-        <div class="max-w-7xl mx-auto px-2 sm:px-10 hidden lg:block">
+        <div class="mx-auto hidden max-w-full px-2 sm:px-8 lg:px-10 lg:block">
             <div class="relative flex items-center justify-between h-12">
                 <div class="flex items-center px-1 lg:px-0">
                     <div class=" ">
@@ -389,7 +389,7 @@
     <div class="relative bg-white">
         <div aria-hidden="true" class="absolute inset-0 shadow z-30 pointer-events-none"></div>
         <div class="relative z-20">
-            <div class="max-w-7xl mx-auto flex justify-between items-center px-2 py-4 sm:px-6 sm:py-3 lg:px-8 md:space-x-8">
+            <div class="max-w-full mx-auto flex justify-between items-center px-2 py-4 sm:px-6 sm:py-3 lg:px-10 md:space-x-8">
                 <div>
                     <a class="flex" href="/">
                         <span class="sr-only">Logo</span>
