@@ -1,6 +1,11 @@
 <script context="module">
 	import {pageTitle} from "../stores.js";
 
+	import {Swiper_v2} from "symax/ui/broker"
+	import {content} from "./index.js";
+	const {content_Swiper_v2} = content
+
+
 	export const load = async ({fetch, params, url}) => {
 		let res = await fetch(`/api/catalog/productID/446`)
 
@@ -118,32 +123,35 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="bg-white">
 	<main>
+
+		<Swiper_v2 {content_Swiper_v2}/>
+
 		<div>
 			<!-- Hero card -->
-			<div class="relative">
-				<div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
-				<div class="max-w-full mx-auto sm:px-6 lg:px-8">
-					<div class="relative shadow-xl sm:rounded-lg sm:overflow-hidden">
-						<div class="absolute inset-0">
-							<img class="h-full w-full object-cover" src="https://storage.yandexcloud.net/brand-logo/orbita/brand/mainfoto.jpeg" alt="Стройматериалы в Нижнем Новгороде">
-							<div class="absolute inset-0 bg-slate-600 mix-blend-multiply"></div>
-						</div>
-						<div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-							<h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-								<span class="block text-white">Стройматериалы</span>
-								<span class="block text-indigo-200">в Нижнем Новгороде</span>
-							</h1>
-							<p class="mt-6 p-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl bg-gray-800 bg-opacity-30">Если вы в поиске базы стройматериалов с низкими ценами и широким ассортиментом, то вы попали по адресу. Наша строительная база работает в Нижнем Новгороде через наш строительный интернет магазин и располагает широким выбором продукции.</p>
-							<div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-								<div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
-									<button on:click={ changeButtonVisibleCatalog } class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"> Каталог </button>
-									<a href="/blog" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-800 bg-opacity-80 hover:bg-opacity-70 sm:px-8"> Наш блог </a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+<!--			<div class="relative">-->
+<!--				<div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>-->
+<!--				<div class="max-w-full mx-auto sm:px-6 lg:px-8">-->
+<!--					<div class="relative shadow-xl sm:rounded-lg sm:overflow-hidden">-->
+<!--						<div class="absolute inset-0">-->
+<!--							<img class="h-full w-full object-cover" src="https://storage.yandexcloud.net/brand-logo/orbita/brand/mainfoto.jpeg" alt="Стройматериалы в Нижнем Новгороде">-->
+<!--							<div class="absolute inset-0 bg-slate-600 mix-blend-multiply"></div>-->
+<!--						</div>-->
+<!--						<div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">-->
+<!--							<h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">-->
+<!--								<span class="block text-white">Стройматериалы</span>-->
+<!--								<span class="block text-indigo-200">в Нижнем Новгороде</span>-->
+<!--							</h1>-->
+<!--							<p class="mt-6 p-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl bg-gray-800 bg-opacity-30">Если вы в поиске базы стройматериалов с низкими ценами и широким ассортиментом, то вы попали по адресу. Наша строительная база работает в Нижнем Новгороде через наш строительный интернет магазин и располагает широким выбором продукции.</p>-->
+<!--							<div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">-->
+<!--								<div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">-->
+<!--									<button on:click={ changeButtonVisibleCatalog } class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"> Каталог </button>-->
+<!--									<a href="/blog" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-800 bg-opacity-80 hover:bg-opacity-70 sm:px-8"> Наш блог </a>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
 
 			<!-- Logo cloud -->
 <!--			<div class="bg-gray-100">-->
