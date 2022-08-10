@@ -1,16 +1,28 @@
 const actions = [
     {
-        action: 'Утеплитель Техноблок 1200х600х100',
-        price: '1290 рублей',
-        description: 'Только в эти выходные',
-        link: '/product/uteplitel-texnoblok-standart-1200600100mm-0288-m3'
+        action: 'Утеплитель изобокс 50 мм',
+        price: '905 рублей',
+        description: 'Предложение ограничено',
+        link: '/product/uteplitel-izoboks-50-mm'
     },
     {
-        action: 'Утеплитель Техноблок 1200х600х50',
-        price: '1290 рублей',
-        description: 'Только в эти выходные',
-        link: '/product/uteplitel-texnoblok-standart-120060050-mm-0288-m3'
+        action: 'Утеплитель изобокс 100 мм',
+        price: '945 рублей',
+        description: 'Предложение ограничено',
+        link: '/product/uteplitel-izoboks-100mm'
     },
+    // {
+    //     action: 'Утеплитель Техноблок 1200х600х100',
+    //     price: '1290 рублей',
+    //     description: 'Только в эти выходные',
+    //     link: '/product/uteplitel-texnoblok-standart-1200600100mm-0288-m3'
+    // },
+    // {
+    //     action: 'Утеплитель Техноблок 1200х600х50',
+    //     price: '1290 рублей',
+    //     description: 'Только в эти выходные',
+    //     link: '/product/uteplitel-texnoblok-standart-120060050-mm-0288-m3'
+    // },
     // {
     //     action: 'Утеплитель роклайт 50 мм',
     //     price: '704 рубля',
@@ -31,7 +43,7 @@ const actions = [
     // },
     {
         action: 'Плита ОСБ 9мм',
-        price: '530 рублей',
+        price: '520 рублей',
         description: 'Предложение ограничено',
         link: '/product/plita-osb-3-250012509mm-kronospan-gost-vlagostoikaya'
     },
@@ -58,6 +70,12 @@ const actions = [
         price: '410 рублей',
         description: 'Предложение ограничено',
         link: '/product/pena-pistoletnaya-kudo-home-65-vsesezonnaya'
+    },
+    {
+        action: 'Пена монтажная kudo',
+        price: '330 рублей',
+        description: 'Предложение ограничено',
+        link: '/product/pena-montaznaya-kudo'
     },
     // {
     //     action: 'Доска',
