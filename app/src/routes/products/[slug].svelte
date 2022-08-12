@@ -116,7 +116,7 @@
   <div class="p-8">
 
     <div class="mb-8 text-center">
-      <h3 class="text-2xl  leading-6 font-medium text-gray-900">{ nameCategory } в Нижнем Новгороде</h3>
+      <h2 class="text-2xl  leading-6 font-medium text-gray-900">{ nameCategory } в Нижнем Новгороде</h2>
       <p class="mt-2  text-base text-gray-500 ">В данной категории вы можете купить <span class="lowercase">{ nameCategory }</span> по низким ценам с доставкой или самовывозом</p>
     </div>
 
