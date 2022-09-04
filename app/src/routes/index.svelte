@@ -1,6 +1,5 @@
 <script context="module">
 	import {pageTitle} from "../stores.js";
-
 	import {Swiper_v2} from "symax/ui/broker"
 	import {content} from "./index.js";
 	const {content_Swiper_v2} = content
@@ -124,10 +123,16 @@
 <div class="bg-white">
 	<main>
 
+
+
+
+
+
+		
 		<Swiper_v2 {content_Swiper_v2}/>
 
 		<div>
-			<!-- Hero card -->
+			<!-- Hero card2 -->
 <!--			<div class="relative">-->
 <!--				<div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>-->
 <!--				<div class="max-w-full mx-auto sm:px-6 lg:px-8">-->
