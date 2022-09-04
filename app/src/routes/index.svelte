@@ -123,11 +123,6 @@
 	<main>
 
 
-
-
-
-
-
 		<Swiper_v2 {content_Swiper_v2}/>
 
 		<div>
