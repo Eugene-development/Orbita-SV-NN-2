@@ -582,18 +582,18 @@
           class="hidden lg:flex-1 lg:flex sm:items-center sm:justify-between"
         >
           <nav class="flex space-x-8 font-semibold">
-            <a class="text-base text-slate-900 hover:text-red-800 " href="/"
+            <a class="text-base text-indigo-900 hover:text-red-800 " href="/"
               >Главная</a
             >
             <a
-              class="text-base text-slate-900 hover:text-red-800"
+              class="text-base text-indigo-900 hover:text-red-800"
               href="/company">Компания</a
             >
             <div on:outclick={closeVisibleInformationMenu} use:clickOutside>
               <!-- Item active: "text-slate-900", Item inactive: "text-slate-500" -->
               <button
                 aria-expanded="false"
-                class="text-slate-900 hover:text-red-800 group bg-white rounded-md inline-flex items-center text-base focus:outline-none focus:text-red-700"
+                class="text-indigo-900 hover:text-red-800 group bg-white rounded-md inline-flex items-center text-base focus:outline-none focus:text-red-700"
                 on:click={changeVisibleInformationMenu}
                 type="button"
               >
@@ -765,19 +765,19 @@
               Блог
             </a>
             <a
-              class="text-base text-slate-900 hover:text-red-800"
+              class="text-base text-indigo-900 hover:text-red-800"
               href="/information/action"
             >
               Акции
             </a>
             <a
-              class="text-base text-slate-900 hover:text-red-800"
+              class="text-base text-indigo-900 hover:text-red-800"
               href="/information/contact"
             >
               Контакты
             </a>
             <a
-              class="text-base text-slate-900 hover:text-red-800"
+              class="text-base text-indigo-900 hover:text-red-800"
               href="https://vk.com/orbita_stroy"
               target="_blank"
             >
@@ -786,7 +786,7 @@
           </nav>
           <div class="flex items-center md:ml-12">
             <a
-              class="ml-8 inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md text-base font-medium text-white bg-gray-800 hover:bg-gray-800 shadow-lg shadow-gray-700/50"
+              class="ml-8 inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md text-base font-medium text-white bg-indigo-900 hover:bg-indigo-800 shadow-lg shadow-gray-900/50"
               href="/shop/cart"
               sveltekit:noscroll
             >
