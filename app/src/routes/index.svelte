@@ -326,32 +326,117 @@
     </p>
   </div>
 </div>
-<div class="bg-white lg:ml-24">
-  <div
-    class="max-w-2xl mx-auto py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8"
-  >
-    <h2 class="sr-only">Products</h2>
 
+<div class="bg-white">
+  <div class="mx-auto max-w-full py-4 px-4 sm:py-6 sm:px-6 lg:px-8">
     <div
-      class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+      class="mt-6 grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-12"
     >
-      {#each seasonalGoods as { id, name, price, unit, img, link }}
-        <a sveltekit:prefetch href="/{link}" class="group">
-          <div
-            class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
-          >
-            <img
-              src={img}
-              alt="{name}."
-              class="w-full h-full object-contain object-center group-hover:opacity-75"
-            />
+      <div class="group relative ">
+        <div
+          class="min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gradient-to-br from-indigo-800 to-indigo-700 shadow-lg shadow-indigo-900 group-hover:opacity-75 lg:h-80"
+        >
+          <img
+            src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/images/%D1%84%D0%BB%D0%B8%D0%B7%D0%B5%D0%BD.webp"
+            alt="клей для плитки"
+            class="h-full w-full object-contain object-center lg:h-full lg:w-full"
+          />
+        </div>
+        <div class="mt-4 flex justify-between">
+          <div>
+            <h3 class="text-base text-indigo-800">
+              <a href="/shop/products/kley-dlya-plitki">
+                <span aria-hidden="true" class="absolute inset-0" />
+                Клей для плитки
+              </a>
+            </h3>
+            <p class="mt-1 text-sm text-gray-500">
+              Клей для плитки "кнауф" флизенклебер (25 кг)
+            </p>
           </div>
-          <h3 class="mt-4 text-sm text-gray-700">{name}</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">
-            {price} руб/{unit}
-          </p>
-        </a>
-      {/each}
+          <p class="text-xl font-medium text-gray-900">465₽</p>
+        </div>
+      </div>
+
+      <div class="group relative ">
+        <div
+          class="min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gradient-to-br from-indigo-800 to-indigo-700 shadow-lg shadow-indigo-900 group-hover:opacity-75 lg:h-80"
+        >
+          <img
+            src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/images/EK-TG40.png"
+            alt=""
+            class="h-full w-full object-contain object-center lg:h-full lg:w-full"
+          />
+        </div>
+        <div class="mt-4 flex justify-between">
+          <div>
+            <h3 class="text-base text-indigo-800">
+              <a
+                href="/shop/product/stukaturnaya-smes-ek-tt-30-fasadnaya-25-kg"
+              >
+                <span aria-hidden="true" class="absolute inset-0" />
+                Штукатурка
+              </a>
+            </h3>
+            <p class="mt-1 text-sm text-gray-500">
+              Штукатурная смесь "ек" tg 40 (30 кг)
+            </p>
+          </div>
+          <p class="text-xl font-medium text-gray-900">451₽</p>
+        </div>
+      </div>
+
+      <div class="group relative ">
+        <div
+          class="min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gradient-to-br from-indigo-800 to-indigo-700 shadow-lg shadow-indigo-900 group-hover:opacity-75 lg:h-80"
+        >
+          <img
+            src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/images/38526.jpg"
+            alt=""
+            class="h-full w-full object-contain object-center lg:h-full lg:w-full"
+          />
+        </div>
+        <div class="mt-4 flex justify-between">
+          <div>
+            <h3 class="text-base text-indigo-800">
+              <a href="/shop/products/germetik">
+                <span aria-hidden="true" class="absolute inset-0" />
+                Герметик
+              </a>
+            </h3>
+            <p class="mt-1 text-sm text-gray-500">
+              Герметик санитарный белый "церезит" cs15
+            </p>
+          </div>
+          <p class="text-xl font-medium text-gray-900">245₽</p>
+        </div>
+      </div>
+
+      <div class="group relative ">
+        <div
+          class="min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gradient-to-br from-indigo-800 to-indigo-700 shadow-lg shadow-indigo-900 group-hover:opacity-75 lg:h-80"
+        >
+          <img
+            src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/images/%D0%B2%D0%B5%D1%82.jpg"
+            alt=""
+            class="h-full w-full object-contain object-center lg:h-full lg:w-full"
+          />
+        </div>
+        <div class="mt-4 flex justify-between">
+          <div>
+            <h3 class="text-base text-indigo-800">
+              <a href="/shop/products/shpaklevka">
+                <span aria-hidden="true" class="absolute inset-0" />
+                Шпаклевка
+              </a>
+            </h3>
+            <p class="mt-1 text-sm text-gray-500">
+              Шпаклевка финишная "ветонит lr+" (20 кг)
+            </p>
+          </div>
+          <p class="text-xl font-medium text-gray-900">920₽</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -457,6 +542,31 @@
         </div>
       {/each}
     </dl>
+  </div>
+</div>
+
+<div class="bg-gray-800">
+  <div
+    class="mx-auto py-12 px-8 sm:px-6 lg:flex lg:items-center lg:py-16 lg:px-12"
+  >
+    <div class="text-center lg:w-0 lg:flex-auto">
+      <h2
+        id="newsletter-headline"
+        class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
+      >
+        <span class="mb-6 block text-5xl text-indigo-200">"Орбита-Строй"</span>
+        <span class="block text-white"
+          >это база строительных и отделочных материалов</span
+        >
+        <span class="block text-gray-100">Нижнем Новгороде</span>
+      </h2>
+      <p class="mt-3 text-lg text-gray-300">
+        Осуществляем оптовую и розничную продажу строительных и отделочных
+        материалов со складов в Нижнем Новгороде и Дзержинске. Широкий
+        ассортимент и доступные цены приятно вас удивят. При необходимости есть
+        услуга доставки стройматериалов до вашего объекта.
+      </p>
+    </div>
   </div>
 </div>
 
