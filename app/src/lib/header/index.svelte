@@ -71,19 +71,19 @@
     <div class="max-w-7xl mx-auto py-2 px-3 sm:px-6 lg:px-8">
       <div class="pr-16 sm:text-center sm:px-16">
         <p class="font-medium text-white antialiased">
-          <span class="md:hidden">Специальные цены на утеплитель 704р.</span>
+          <span class="md:hidden">Организуем доставку до объекта</span>
           <span class="hidden md:inline">
-            Спецпредложение. Только в эти дни! Специальные цены на утеплитель
-            704р.</span
+            Доставка стройматериалов по Нижнему Новгороду до объекта в удобное
+            время.</span
           >
-          <span class="block sm:ml-2 sm:inline-block">
+          <!-- <span class="block sm:ml-2 sm:inline-block">
             <a
               href="/information/action"
               class="text-white font-bold underline"
             >
               Подробнее <span aria-hidden="true">&rarr;</span></a
             >
-          </span>
+          </span> -->
         </p>
       </div>
       <div
@@ -758,7 +758,10 @@
                 </div>
               {/if}
             </div>
-            <a class="text-base text-slate-900 hover:text-red-800" href="/blog">
+            <a
+              class="text-base text-indigo-900 hover:text-red-800"
+              href="/blog"
+            >
               Блог
             </a>
             <a
