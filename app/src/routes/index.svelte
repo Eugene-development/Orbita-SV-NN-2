@@ -1,189 +1,195 @@
 <script context="module">
-	import {pageTitle} from "../stores.js";
-	import {Swiper_v2} from "symax/ui/broker"
-	import {content} from "./index.js";
-	const {content_Swiper_v2} = content
+  import { pageTitle } from "../stores.js";
+  import { Swiper_v2 } from "symax/ui/broker";
+  import { content } from "./index.js";
+  const { content_Swiper_v2 } = content;
 
+  export const load = async ({ fetch, params, url }) => {
+    let res = await fetch(`/api/catalog/productID/446`);
 
-	export const load = async ({fetch, params, url}) => {
-		let res = await fetch(`/api/catalog/productID/446`)
+    const resJSON = await res.json();
+    const pathAWS = resJSON.pathAWS;
+    const data = resJSON.product.data[0];
+    const {
+      id,
+      name: nameProduct,
+      description: descriptionProduct,
+      image,
+      unit,
+      size,
+      category: { id: idCategory, name: nameCategory, slug: slugCategory },
+    } = data;
 
-		const resJSON = await res.json();
-		const pathAWS = resJSON.pathAWS
-		const data = resJSON.product.data[0]
-		const {
-			id,
-			name: nameProduct,
-			description: descriptionProduct,
-			image,
-			unit,
-			size,
-			category: {id: idCategory, name: nameCategory, slug: slugCategory},
-		} = data
+    const propsData = {
+      pathAWS,
+      id,
+      nameProduct,
+      descriptionProduct,
+      image,
+      unit,
+      size,
+      idCategory,
+      nameCategory,
+      slugCategory,
+    };
 
-		const propsData = {
-			pathAWS,
-			id,
-			nameProduct,
-			descriptionProduct,
-			image,
-			unit,
-			size,
-			idCategory,
-			nameCategory,
-			slugCategory
-		}
+    pageTitle.update(() => "База стройматериалов");
 
-		pageTitle.update(() => 'База стройматериалов');
-
-		return {
-			props: {...propsData}
-		}
-
-	}
+    return {
+      props: { ...propsData },
+    };
+  };
 </script>
 
 <script>
-	import pkg from 'lodash';
-	import axios from "axios";
-	import {onMount} from "svelte";
-	import {browser} from "$app/env";
-	import {buttonVisibleCatalog, InCart, lengthCart} from "../stores";
-	import {useMain} from "$lib/use/content/main";
-	import {useActions} from "$lib/use/content/actions";
-	import {useReturn} from "$lib/use/functions/return";
-	import {useVisible} from "$lib/use/functions/visible/index.js";
+  import pkg from "lodash";
+  import axios from "axios";
+  import { onMount } from "svelte";
+  import { browser } from "$app/env";
+  import { buttonVisibleCatalog, InCart, lengthCart } from "../stores";
+  import { useMain } from "$lib/use/content/main";
+  import { useActions } from "$lib/use/content/actions";
+  import { useReturn } from "$lib/use/functions/return";
+  import { useVisible } from "$lib/use/functions/visible/index.js";
 
-	const {concat} = pkg;
-	const {Benefits} = useMain
-	const {mainAction, seasonalGoods} = useActions;
-	const {currentValue} = useReturn;
-	const {invert, invertToFalse, invertToTrue} = useVisible;
+  const { concat } = pkg;
+  const { Benefits } = useMain;
+  const { mainAction, seasonalGoods } = useActions;
+  const { currentValue } = useReturn;
+  const { invert, invertToFalse, invertToTrue } = useVisible;
 
-	const sendToCart = async (id) => {
-		if (localStorage.getItem("inCart") === null) {
-			localStorage.setItem("inCart", JSON.stringify([id]));
-		} else {
-			const itemsCart = JSON.parse(localStorage.getItem("inCart"));
-			const newItemsCart = concat(itemsCart, id);
-			localStorage.setItem("inCart", JSON.stringify(newItemsCart));
-		}
-		const productsInCart = JSON.parse(localStorage.getItem("inCart"));
-		const visibleLengthCart = productsInCart.length;
-		lengthCart.update(() => currentValue(visibleLengthCart));
-		InCart.update(() => productsInCart);
+  const sendToCart = async (id) => {
+    if (localStorage.getItem("inCart") === null) {
+      localStorage.setItem("inCart", JSON.stringify([id]));
+    } else {
+      const itemsCart = JSON.parse(localStorage.getItem("inCart"));
+      const newItemsCart = concat(itemsCart, id);
+      localStorage.setItem("inCart", JSON.stringify(newItemsCart));
+    }
+    const productsInCart = JSON.parse(localStorage.getItem("inCart"));
+    const visibleLengthCart = productsInCart.length;
+    lengthCart.update(() => currentValue(visibleLengthCart));
+    InCart.update(() => productsInCart);
 
+    const url = `/store-cart`;
+    const payloadCart = {
+      product_id: id,
+      sessionUser: localStorage.getItem("dataS"),
+    };
+    const domain = import.meta.env.VITE_API_CART;
+    const apiCart = {
+      baseURL: `${domain}`,
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`,
+      },
+    };
+    await axios.post(url, payloadCart, apiCart);
+  };
+  const changeButtonVisibleCatalog = () =>
+    buttonVisibleCatalog.update(invertToTrue);
 
-		const url = `/store-cart`;
-		const payloadCart = {
-			product_id: id,
-			sessionUser: localStorage.getItem("dataS")
-		};
-		const domain = import.meta.env.VITE_API_CART;
-		const apiCart = {
-			baseURL: `${domain}`,
-			headers: {
-				Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
-			}
-		};
-		await axios.post(url, payloadCart, apiCart);
-	};
-	const changeButtonVisibleCatalog = () => buttonVisibleCatalog.update(invertToTrue)
+  let idProductsInCart;
+  onMount(async () => {
+    if (browser && localStorage.getItem("inCart") !== null) {
+      idProductsInCart = JSON.parse(browser && localStorage.getItem("inCart"));
+    }
+  });
+  InCart.subscribe((value) => (idProductsInCart = value));
 
-	let idProductsInCart;
-	onMount(async () => {
-		if (browser && localStorage.getItem("inCart") !== null) {
-			idProductsInCart = JSON.parse(browser && localStorage.getItem("inCart"));
-		}
-	});
-	InCart.subscribe(value => idProductsInCart = value);
+  export let id;
+  export let nameProduct;
+  export let descriptionProduct;
+  export let pathAWS;
+  export let image;
+  export let unit;
+  export let size;
 
-
-	export let id
-	export let nameProduct
-	export let descriptionProduct
-	export let pathAWS
-	export let image
-	export let unit
-	export let size
-
-	const page = "Главная";
-	const title = "База строительных и отделочных материалов \"Орбита-Строй\" || Наш интрнет строитеьный магазин предлагает стройматериалы с доставкой в Нижнем Новгороде";
-	const description = "Интернет-магазин строительных и отделочных материалов \"Орбита-строй\" | Строительная база с широким ассортиментом товаров и низкими ценами на стройматериалы.";
+  const page = "Главная";
+  const title =
+    'База строительных и отделочных материалов "Орбита-Строй" || Наш интрнет строитеьный магазин предлагает стройматериалы с доставкой в Нижнем Новгороде';
+  const description =
+    'Интернет-магазин строительных и отделочных материалов "Орбита-строй" | Строительная база с широким ассортиментом товаров и низкими ценами на стройматериалы.';
 </script>
 
 <svelte:head>
-	<title>{title}</title>
-	<meta name="description" content="{description}">
+  <title>{title}</title>
+  <meta name="description" content={description} />
 </svelte:head>
 
-
-
 <div class="bg-white">
-	<main>
+  <main>
+    <div class="my-16 ml-8 text-center text-base">
+      <div>
+        <h2
+          class="text-base font-semibold uppercase tracking-wide text-indigo-600"
+        >
+          Наши распродажи
+        </h2>
+        <h3
+          class="mt-2 text-4xl font-extrabold leading-8 tracking-tight text-indigo-900 sm:text-5xl"
+        >
+          Топовые акции
+        </h3>
+      </div>
+    </div>
 
+    <Swiper_v2 {content_Swiper_v2} />
 
-		<Swiper_v2 {content_Swiper_v2}/>
+    <div>
+      <!-- Hero card3 -->
+      <!--			<div class="relative">-->
+      <!--				<div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>-->
+      <!--				<div class="max-w-full mx-auto sm:px-6 lg:px-8">-->
+      <!--					<div class="relative shadow-xl sm:rounded-lg sm:overflow-hidden">-->
+      <!--						<div class="absolute inset-0">-->
+      <!--							<img class="h-full w-full object-cover" src="https://storage.yandexcloud.net/brand-logo/orbita/brand/mainfoto.jpeg" alt="Стройматериалы в Нижнем Новгороде">-->
+      <!--							<div class="absolute inset-0 bg-slate-600 mix-blend-multiply"></div>-->
+      <!--						</div>-->
+      <!--						<div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">-->
+      <!--							<h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">-->
+      <!--								<span class="block text-white">Стройматериалы</span>-->
+      <!--								<span class="block text-indigo-200">в Нижнем Новгороде</span>-->
+      <!--							</h1>-->
+      <!--							<p class="mt-6 p-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl bg-gray-800 bg-opacity-30">Если вы в поиске базы стройматериалов с низкими ценами и широким ассортиментом, то вы попали по адресу. Наша строительная база работает в Нижнем Новгороде через наш строительный интернет магазин и располагает широким выбором продукции.</p>-->
+      <!--							<div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">-->
+      <!--								<div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">-->
+      <!--									<button on:click={ changeButtonVisibleCatalog } class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"> Каталог </button>-->
+      <!--									<a href="/blog" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-800 bg-opacity-80 hover:bg-opacity-70 sm:px-8"> Наш блог </a>-->
+      <!--								</div>-->
+      <!--							</div>-->
+      <!--						</div>-->
+      <!--					</div>-->
+      <!--				</div>-->
+      <!--			</div>-->
 
-		<div>
-			<!-- Hero card3 -->
-<!--			<div class="relative">-->
-<!--				<div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>-->
-<!--				<div class="max-w-full mx-auto sm:px-6 lg:px-8">-->
-<!--					<div class="relative shadow-xl sm:rounded-lg sm:overflow-hidden">-->
-<!--						<div class="absolute inset-0">-->
-<!--							<img class="h-full w-full object-cover" src="https://storage.yandexcloud.net/brand-logo/orbita/brand/mainfoto.jpeg" alt="Стройматериалы в Нижнем Новгороде">-->
-<!--							<div class="absolute inset-0 bg-slate-600 mix-blend-multiply"></div>-->
-<!--						</div>-->
-<!--						<div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">-->
-<!--							<h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">-->
-<!--								<span class="block text-white">Стройматериалы</span>-->
-<!--								<span class="block text-indigo-200">в Нижнем Новгороде</span>-->
-<!--							</h1>-->
-<!--							<p class="mt-6 p-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl bg-gray-800 bg-opacity-30">Если вы в поиске базы стройматериалов с низкими ценами и широким ассортиментом, то вы попали по адресу. Наша строительная база работает в Нижнем Новгороде через наш строительный интернет магазин и располагает широким выбором продукции.</p>-->
-<!--							<div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">-->
-<!--								<div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">-->
-<!--									<button on:click={ changeButtonVisibleCatalog } class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"> Каталог </button>-->
-<!--									<a href="/blog" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-800 bg-opacity-80 hover:bg-opacity-70 sm:px-8"> Наш блог </a>-->
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
+      <!-- Logo cloud -->
+      <!--			<div class="bg-gray-100">-->
+      <!--				<div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">-->
+      <!--					<p class="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide">Trusted by over 5 very average small businesses</p>-->
+      <!--					<div class="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">-->
+      <!--						<div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">-->
+      <!--							<img class="h-12" src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg" alt="Tuple">-->
+      <!--						</div>-->
+      <!--						<div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">-->
+      <!--							<img class="h-12" src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg" alt="Mirage">-->
+      <!--						</div>-->
+      <!--						<div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">-->
+      <!--							<img class="h-12" src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg" alt="StaticKit">-->
+      <!--						</div>-->
+      <!--						<div class="col-span-1 flex justify-center md:col-span-2 md:col-start-2 lg:col-span-1">-->
+      <!--							<img class="h-12" src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg" alt="Transistor">-->
+      <!--						</div>-->
+      <!--						<div class="col-span-2 flex justify-center md:col-span-2 md:col-start-4 lg:col-span-1">-->
+      <!--							<img class="h-12" src="https://tailwindui.com/img/logos/workcation-logo-gray-400.svg" alt="Workcation">-->
+      <!--						</div>-->
+      <!--					</div>-->
+      <!--				</div>-->
+      <!--			</div>-->
+    </div>
 
-			<!-- Logo cloud -->
-<!--			<div class="bg-gray-100">-->
-<!--				<div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">-->
-<!--					<p class="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide">Trusted by over 5 very average small businesses</p>-->
-<!--					<div class="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">-->
-<!--						<div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">-->
-<!--							<img class="h-12" src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg" alt="Tuple">-->
-<!--						</div>-->
-<!--						<div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">-->
-<!--							<img class="h-12" src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg" alt="Mirage">-->
-<!--						</div>-->
-<!--						<div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">-->
-<!--							<img class="h-12" src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg" alt="StaticKit">-->
-<!--						</div>-->
-<!--						<div class="col-span-1 flex justify-center md:col-span-2 md:col-start-2 lg:col-span-1">-->
-<!--							<img class="h-12" src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg" alt="Transistor">-->
-<!--						</div>-->
-<!--						<div class="col-span-2 flex justify-center md:col-span-2 md:col-start-4 lg:col-span-1">-->
-<!--							<img class="h-12" src="https://tailwindui.com/img/logos/workcation-logo-gray-400.svg" alt="Workcation">-->
-<!--						</div>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
-		</div>
-
-		<!-- More main page content here... -->
-	</main>
+    <!-- More main page content here... -->
+  </main>
 </div>
-
-
-
-
 
 <!--<div class="mt-24 max-w-7xl mx-auto px-6 lg:px-8">-->
 <!--	<div class="lg:text-center">-->
@@ -297,152 +303,270 @@
 <!--</div>-->
 <!--<hr class="max-w-7xl mx-auto">-->
 
+<div class="ml-8 mt-16 text-center text-base">
+  <div>
+    <h2 class="text-base font-semibold uppercase tracking-wide text-indigo-600">
+      обратите внимание
+    </h2>
+    <h3
+      class="mt-2 text-4xl font-extrabold leading-8 tracking-tight text-indigo-900 sm:text-5xl"
+    >
+      Сезонные товары
+    </h3>
+  </div>
+</div>
+<div class="mt-12 max-w-7xl mx-auto px-6 lg:px-8 ">
+  <div class="lg:text-center">
+    <p class="mt-4 max-w-7xl text-xl leading-7 text-gray-500 lg:mx-auto">
+      Обратите внимание на наши топовые позиции с самыми привлекательными
+      ценами, если вы хотите строительные материалы купить со скидкой. Наш
+      строительный интеренет магазин предлагает комфортную ценовую политику для
+      своих клиентов, поэтому это одна из лучших баз стройматериалов в Нижнем
+      Новгороде.
+    </p>
+  </div>
+</div>
+<div class="bg-white lg:ml-24">
+  <div
+    class="max-w-2xl mx-auto py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8"
+  >
+    <h2 class="sr-only">Products</h2>
 
-	<div class="mt-12 max-w-7xl mx-auto px-6 lg:px-8 ">
-		<div class="lg:text-center">
-			<p class="text-base leading-6 text-red-800 font-semibold tracking-wide uppercase">обратите внимание</p>
-			<h2 class=" mt-2 text-4xl leading-12 font-extrabold tracking-tight text-gray-800 sm:text-4xl sm:leading-10">
-				Сезонные товары
-			</h2>
-			<p class="mt-4 max-w-7xl text-xl leading-7 text-gray-500 lg:mx-auto">
-				Обратите внимание на наши топовые позиции с самыми привлекательными ценами, если вы хотите строительные материалы купить со скидкой. Наш строительный интеренет магазин предлагает комфортную ценовую политику для своих клиентов, поэтому это одна из лучших баз стройматериалов в Нижнем Новгороде.
-			</p>
-		</div>
-	</div>
-	<div class="bg-white lg:ml-24">
-		<div class="max-w-2xl mx-auto py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
-			<h2 class="sr-only">Products</h2>
-
-			<div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-
-				{#each seasonalGoods as {id, name, price, unit, img, link}}
-					<a sveltekit:prefetch href="/{link}" class="group">
-						<div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-							<img src="{img}" alt="{name}." class="w-full h-full object-contain object-center group-hover:opacity-75">
-						</div>
-						<h3 class="mt-4 text-sm text-gray-700">{name}</h3>
-						<p class="mt-1 text-lg font-medium text-gray-900">{price} руб/{unit}</p>
-					</a>
-				{/each}
-
-			</div>
-		</div>
-	</div>
-
-
+    <div
+      class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+    >
+      {#each seasonalGoods as { id, name, price, unit, img, link }}
+        <a sveltekit:prefetch href="/{link}" class="group">
+          <div
+            class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
+          >
+            <img
+              src={img}
+              alt="{name}."
+              class="w-full h-full object-contain object-center group-hover:opacity-75"
+            />
+          </div>
+          <h3 class="mt-4 text-sm text-gray-700">{name}</h3>
+          <p class="mt-1 text-lg font-medium text-gray-900">
+            {price} руб/{unit}
+          </p>
+        </a>
+      {/each}
+    </div>
+  </div>
+</div>
 
 <div class="bg-gradient-to-b from-white to-gray-50">
-	<div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-16 lg:px-8 ">
-		<div class="mt-12">
-			<div class="bg-gradient-to-br from-indigo-500 via-sky-800 to-indigo-500 pt-12 sm:pt-16 rounded-lg">
-				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div class="max-w-4xl mx-auto text-center">
-						<h1 class="text-4xl font-extrabold text-slate-50">Стройматериалы в Нижнем Новгороде</h1>
-						<p class="mt-3 text-xl text-slate-50 sm:mt-4">Предлагаем стройматериалы в Нижнем Новгороде и области с доставкой до объекта</p>
-					</div>
-				</div>
-				<div class="mt-10 pb-12 sm:pb-16">
-					<div class="relative">
-						<!--						<div class="absolute inset-0 h-1/2 bg-gradient-to-r from-sky-500 via-sky-800 to-sky-500 pt-12 ro rounded-b-lg"></div>-->
-						<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-							<div class="max-w-4xl mx-auto">
-								<dl class="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3">
-									<div class="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
-										<dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">доставка
-										</dt>
-										<dd class="order-1 text-5xl font-extrabold text-sky-600">100%</dd>
-									</div>
-									<div class="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
-										<dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">на связи
-										</dt>
-										<dd class="order-1 text-5xl font-extrabold text-sky-600">24/7</dd>
-									</div>
-									<div class="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
-										<dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">товаров
-										</dt>
-										<dd class="order-1 text-5xl font-extrabold text-sky-600">3000+</dd>
-									</div>
-								</dl>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-		<dl class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8">
-			{#each Benefits as {title, text, slug}}
-				<div class="relative">
-					<dt>
-						<!-- Heroicon name: outline/check -->
-						<svg aria-hidden="true" class="absolute h-6 w-6 text-sky-600" fill="none"
-							 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-							<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-						</svg>
-						<a sveltekit:prefetch href='/rubric/{slug}' class="ml-9 text-lg leading-6 font-medium text-gray-900">{title}</a>
-					</dt>
-					<dd class="mt-2 ml-9 text-base text-gray-500">{text}</dd>
-				</div>
-			{/each}
-
-		</dl>
-	</div>
+  <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-16 lg:px-8 ">
+    <div class="mt-12">
+      <div
+        class="bg-gradient-to-br from-indigo-500 via-sky-800 to-indigo-500 pt-12 sm:pt-16 rounded-lg"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl font-extrabold text-slate-50">
+              Стройматериалы в Нижнем Новгороде
+            </h1>
+            <p class="mt-3 text-xl text-slate-50 sm:mt-4">
+              Предлагаем стройматериалы в Нижнем Новгороде и области с доставкой
+              до объекта
+            </p>
+          </div>
+        </div>
+        <div class="mt-10 pb-12 sm:pb-16">
+          <div class="relative">
+            <!--						<div class="absolute inset-0 h-1/2 bg-gradient-to-r from-sky-500 via-sky-800 to-sky-500 pt-12 ro rounded-b-lg"></div>-->
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="max-w-4xl mx-auto">
+                <dl
+                  class="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3"
+                >
+                  <div
+                    class="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r"
+                  >
+                    <dt
+                      class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500"
+                    >
+                      доставка
+                    </dt>
+                    <dd class="order-1 text-5xl font-extrabold text-sky-600">
+                      100%
+                    </dd>
+                  </div>
+                  <div
+                    class="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r"
+                  >
+                    <dt
+                      class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500"
+                    >
+                      на связи
+                    </dt>
+                    <dd class="order-1 text-5xl font-extrabold text-sky-600">
+                      24/7
+                    </dd>
+                  </div>
+                  <div
+                    class="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l"
+                  >
+                    <dt
+                      class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500"
+                    >
+                      товаров
+                    </dt>
+                    <dd class="order-1 text-5xl font-extrabold text-sky-600">
+                      3000+
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <dl
+      class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
+    >
+      {#each Benefits as { title, text, slug }}
+        <div class="relative">
+          <dt>
+            <!-- Heroicon name: outline/check -->
+            <svg
+              aria-hidden="true"
+              class="absolute h-6 w-6 text-sky-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 13l4 4L19 7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+            <a
+              sveltekit:prefetch
+              href="/rubric/{slug}"
+              class="ml-9 text-lg leading-6 font-medium text-gray-900"
+              >{title}</a
+            >
+          </dt>
+          <dd class="mt-2 ml-9 text-base text-gray-500">{text}</dd>
+        </div>
+      {/each}
+    </dl>
+  </div>
 </div>
 
 <div class="bg-white overflow-hidden">
-	<div class="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-		<div class="hidden lg:block  absolute top-0 bottom-0 left-3/4 w-screen"></div>
-		<div class="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
-			<div>
-				<h2 class="text-base text-red-800 font-semibold tracking-wide uppercase">Строительная база в Нижнем Новгороде</h2>
-				<h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-					Орбита-строй</h3>
-			</div>
-		</div>
-		<div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
-			<div class="relative lg:row-start-1 lg:col-start-2">
-				<svg class="hidden lg:block absolute top-0 right-0 -mt-20 -mr-20" width="404" height="384" fill="none"
-					 viewBox="0 0 404 384" aria-hidden="true">
-					<defs>
-						<pattern id="de316486-4a29-4312-bdfc-fbce2132a2c1" x="0" y="0" width="20" height="20"
-								 patternUnits="userSpaceOnUse">
-							<rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor"/>
-						</pattern>
-					</defs>
-					<rect width="404" height="384" fill="url(#de316486-4a29-4312-bdfc-fbce2132a2c1)"/>
-				</svg>
-				<div class="relative text-base mx-auto max-w-prose lg:max-w-none">
-					<figure>
-						<div class="aspect-w-12 aspect-h-7 lg:aspect-none">
-							<img class="rounded-lg shadow-lg object-cover object-center"
-								 src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/pages/serv_4.jpg" alt="Стройматериалы в нижнем новгороде"
-								 width="1184" height="1376">
-						</div>
-					</figure>
-				</div>
-			</div>
-			<div class="mt-8 lg:mt-0">
-				<div class="mt-1 prose prose-indigo text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
-					<p>Приобрести стройматериалы в Нижнем Новгороде высокого качества по конкурентным ценам можно в течение
-						нескольких минут. База строительных и отделочных материалов «Орбита-Строй» занимает площадь более, чем 1
-						км2 и предлагает продукцию от таких производителей, как:</p>
-					<ul>
-						<li>Tarkett;</li>
-						<li>EK;</li>
-						<li>Ceresit;</li>
-						<li>Makroflex;</li>
-					</ul>
-					<p>Строительная база имеет удобный подъезд автотранспорта, развитую инфраструктуру и просторные
-						выставочные павильоны. Строительные магазины в Нижнем Новгороде предоставляют услуги по погрузке при оптовой покупке на
-						бесплатных условиях, также возможно вывезти стройматериалы с доставкой собственным автотранспортом компании.</p>
-					<p>Строительный интернет-магазин подойдёт тем, кто ценит время и качество. Выбрать товар заблаговременно
-						оплатить покупку стройматериалов в Нижнем Новгороде и заказать их доставку по указанному адресу – дело
-						нескольких минут. Наша стройбаза идёт навстречу постоянным клиентам и предоставляет гибкие дисконтные
-						скидки на строительные материалы ы Нижнем Новгороде.</p>
-					<p>«Орбита-Строй» - строительный интернет магазин в Нижнем Новгороде для тех, кто уважает качество материалов и
-						труд. «Орбита-Строй» - правильный выбор на пути к комфорту и надёжности.</p>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+    <div class="hidden lg:block  absolute top-0 bottom-0 left-3/4 w-screen" />
+    <div
+      class="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none"
+    >
+      <div>
+        <h2
+          class="text-base text-indigo-600 font-semibold tracking-wide uppercase"
+        >
+          Строительная база в Нижнем Новгороде
+        </h2>
+        <h3
+          class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-indigo-900 sm:text-4xl"
+        >
+          Орбита-строй
+        </h3>
+      </div>
+    </div>
+    <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
+      <div class="relative lg:row-start-1 lg:col-start-2">
+        <svg
+          class="hidden lg:block absolute top-0 right-0 -mt-20 -mr-20"
+          width="404"
+          height="384"
+          fill="none"
+          viewBox="0 0 404 384"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern
+              id="de316486-4a29-4312-bdfc-fbce2132a2c1"
+              x="0"
+              y="0"
+              width="20"
+              height="20"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect
+                x="0"
+                y="0"
+                width="4"
+                height="4"
+                class="text-gray-200"
+                fill="currentColor"
+              />
+            </pattern>
+          </defs>
+          <rect
+            width="404"
+            height="384"
+            fill="url(#de316486-4a29-4312-bdfc-fbce2132a2c1)"
+          />
+        </svg>
+        <div class="relative text-base mx-auto max-w-prose lg:max-w-none">
+          <figure>
+            <div class="aspect-w-12 aspect-h-7 lg:aspect-none">
+              <img
+                class="rounded-lg shadow-lg object-cover object-center"
+                src="https://lumen-image-bucket.s3.eu-central-1.amazonaws.com/pages/serv_4.jpg"
+                alt="Стройматериалы в нижнем новгороде"
+                width="1184"
+                height="1376"
+              />
+            </div>
+          </figure>
+        </div>
+      </div>
+      <div class="mt-8 lg:mt-0">
+        <div
+          class="mt-1 prose prose-indigo text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1"
+        >
+          <p>
+            Приобрести стройматериалы в Нижнем Новгороде высокого качества по
+            конкурентным ценам можно в течение нескольких минут. База
+            строительных и отделочных материалов «Орбита-Строй» занимает площадь
+            более, чем 1 км2 и предлагает продукцию от таких производителей,
+            как:
+          </p>
+          <ul>
+            <li>Tarkett;</li>
+            <li>EK;</li>
+            <li>Ceresit;</li>
+            <li>Makroflex;</li>
+          </ul>
+          <p>
+            Строительная база имеет удобный подъезд автотранспорта, развитую
+            инфраструктуру и просторные выставочные павильоны. Строительные
+            магазины в Нижнем Новгороде предоставляют услуги по погрузке при
+            оптовой покупке на бесплатных условиях, также возможно вывезти
+            стройматериалы с доставкой собственным автотранспортом компании.
+          </p>
+          <p>
+            Строительный интернет-магазин подойдёт тем, кто ценит время и
+            качество. Выбрать товар заблаговременно оплатить покупку
+            стройматериалов в Нижнем Новгороде и заказать их доставку по
+            указанному адресу – дело нескольких минут. Наша стройбаза идёт
+            навстречу постоянным клиентам и предоставляет гибкие дисконтные
+            скидки на строительные материалы ы Нижнем Новгороде.
+          </p>
+          <p>
+            «Орбита-Строй» - строительный интернет магазин в Нижнем Новгороде
+            для тех, кто уважает качество материалов и труд. «Орбита-Строй» -
+            правильный выбор на пути к комфорту и надёжности.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

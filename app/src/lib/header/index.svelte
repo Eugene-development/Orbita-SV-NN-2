@@ -818,7 +818,7 @@
     <MobileMenu />
   </div>
 
-  <div class="bg-gray-50 pt-6 sm:pt-8 ">
+  <div class=" pt-6 sm:pt-8 ">
     <!--    <div class="bg-gradient-to-r from-indigo-200 via-slate-50 to-indigo-200 pt-6 sm:pt-8 ">-->
     <!--    <div class="bg-hero-pattern pt-6 sm:pt-8 ">-->
 
@@ -845,14 +845,12 @@
     {#if $buttonVisibleCatalog}
       <div class="mt-8 pb-4 bg-white sm:pb-8">
         <div class="relative">
-          <div
-            class="absolute inset-0 h-1/2 bg-gray-50 border-b border-slate-200"
-          />
+          <div class="absolute inset-0 h-1/2 border-b border-slate-200" />
           <!--                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-200 via-slate-100 to-indigo-200 border-b border-slate-200"></div>-->
           <div class="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8">
             <div class="w-full mx-auto">
               <div
-                class="lg:hidden rounded-lg bg-white shadow-md shadow-indigo-700/50"
+                class="lg:hidden rounded-lg bg-white shadow-md shadow-indigo-900/50"
               >
                 {#each head as { id, slug, name }}
                   <a
@@ -898,15 +896,13 @@
     {:else}
       <div class="mt-8 pb-4 bg-white sm:pb-8">
         <div class="relative">
-          <div
-            class="absolute inset-0 h-1/2 bg-gray-50 border-b border-slate-200"
-          />
+          <div class="absolute inset-0 h-1/2 border-b border-slate-200" />
           <!--                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-200 via-slate-100 to-indigo-200 border-b border-slate-200"></div>-->
           <div class="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8 ">
             <div class="w-full mx-auto ">
               <div
                 on:click={changeButtonVisibleCatalog}
-                class="text-center rounded-md shadow-md shadow-indigo-700/50 bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-900 hover:from-indigo-600 hover:via-indigo-800 hover:to-indigo-600 border border-indigo-200 "
+                class="text-center rounded-md shadow-md shadow-indigo-900/50 bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-900 hover:from-indigo-600 hover:via-indigo-800 hover:to-indigo-600 border border-indigo-200 "
               >
                 <p class="p-3">
                   <span
