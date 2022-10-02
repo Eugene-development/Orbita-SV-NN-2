@@ -558,7 +558,7 @@
         <span class="block text-white"
           >это база строительных и отделочных материалов</span
         >
-        <span class="block text-gray-100">Нижнем Новгороде</span>
+        <span class="block text-gray-100">в Нижнем Новгороде</span>
       </h2>
       <p class="mt-3 text-lg text-gray-300">
         Осуществляем оптовую и розничную продажу строительных и отделочных
