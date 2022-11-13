@@ -824,11 +824,11 @@
 
     <div class="max-w-9xl mx-auto  px-4 sm:px-6 lg:px-8">
       <div class="mx-auto  text-center">
-        <h2
+        <h1
           class="py-6 text-4xl font-extrabold lowercase text-indigo-900 antialiased first-letter:uppercase sm:text-5xl lg:text-6xl"
         >
           {$pageTitle}
-        </h2>
+        </h1>
         <img
           class="inset-0 mt-2 h-64 w-full  object-cover"
           src="https://storage.yandexcloud.net/brand-logo/orbita/main-bg.jpeg"
