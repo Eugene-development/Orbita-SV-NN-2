@@ -843,7 +843,7 @@
     </div>
 
     {#if $buttonVisibleCatalog}
-      <div class="mt-8 pb-4 bg-white sm:pb-8">
+      <div class="mt-4 pb-4 bg-white sm:pb-8">
         <div class="relative">
           <div class="absolute inset-0 h-1/2 border-b border-slate-200" />
           <!--                <div class="absolute inset-0 h-1/2 bg-gradient-to-r from-indigo-200 via-slate-100 to-indigo-200 border-b border-slate-200"></div>-->
