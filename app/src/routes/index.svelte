@@ -342,7 +342,7 @@
             class="h-full w-full object-contain object-center lg:h-full lg:w-full"
           />
         </div>
-        <div class="mt-4 flex justify-between">
+        <div class="mt-5 flex justify-between">
           <div>
             <h3 class="text-base text-indigo-800">
               <a href="/shop/products/kley-dlya-plitki">
@@ -368,7 +368,7 @@
             class="h-full w-full object-contain object-center lg:h-full lg:w-full"
           />
         </div>
-        <div class="mt-4 flex justify-between">
+        <div class="mt-5 flex justify-between">
           <div>
             <h3 class="text-base text-indigo-800">
               <a
@@ -396,7 +396,7 @@
             class="h-full w-full object-contain object-center lg:h-full lg:w-full"
           />
         </div>
-        <div class="mt-4 flex justify-between">
+        <div class="mt-5 flex justify-between">
           <div>
             <h3 class="text-base text-indigo-800">
               <a href="/shop/products/germetik">
@@ -422,7 +422,7 @@
             class="h-full w-full object-contain object-center lg:h-full lg:w-full"
           />
         </div>
-        <div class="mt-4 flex justify-between">
+        <div class="mt-5 flex justify-between">
           <div>
             <h3 class="text-base text-indigo-800">
               <a href="/shop/products/shpaklevka">
