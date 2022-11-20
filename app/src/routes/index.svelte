@@ -117,6 +117,80 @@
 </svelte:head>
 
 <div class="bg-white">
+  <div class="my-12 ml-8 text-center text-base">
+    <div>
+      <h2 class="text-base font-semibold uppercase tracking-wide text-cyan-600">
+        Товар месяца
+      </h2>
+      <h3
+        class="mt-2 text-4xl font-extrabold leading-8 tracking-tight text-gray-800 sm:text-5xl"
+      >
+        Ноябрь-Декабрь
+      </h3>
+    </div>
+  </div>
+  <div class="mx-8 my-12 bg-gray-50">
+    <main class="lg:relative">
+      <div
+        class="mx-auto w-full max-w-7xl py-16 text-center lg:py-32 lg:text-left"
+      >
+        <div class="px-4 sm:px-8 lg:w-1/2 xl:pr-16">
+          <h1 class="text-3xl font-bold tracking-tight text-gray-900 ">
+            <span
+              class="block sm:text-4xl md:text-5xl lg:text-4xl xl:inline xl:text-5xl"
+              >Штукатурная смесь</span
+            >
+            <br />
+            <br />
+            <span
+              class="block text-cyan-900 md:text-5xl lg:text-4xl xl:inline xl:text-5xl"
+              >"KNAUF ROTBAND"</span
+            >
+          </h1>
+          <p
+            class="mx-auto mt-3 max-w-md text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl"
+          >
+            Цвет - белый
+          </p>
+          <p
+            class="mx-auto mt-3 max-w-md text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl"
+          >
+            Вес - 30 кг
+          </p>
+          <p
+            class="mx-auto mt-3 max-w-md text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl"
+          >
+            Цена - 460 рублей <br />
+          </p>
+          <p
+            class="mx-auto mt-3 max-w-md text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl"
+          >
+            Количество - уточняйте <br />
+          </p>
+          <p
+            class="mx-auto mt-3 max-w-md text-lg font-semibold text-gray-500 sm:text-2xl md:mt-5 md:max-w-3xl"
+          >
+            8 (902) 303-36-54 (Эля)
+          </p>
+          <p
+            class="mx-auto mt-3 max-w-md text-lg font-semibold text-gray-500 sm:text-2xl md:mt-5 md:max-w-3xl"
+          >
+            8 (930) 688-88-62 (Юля)
+          </p>
+        </div>
+      </div>
+      <div
+        class="relative h-64 w-full sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2"
+      >
+        <img
+          class="absolute inset-0 h-full w-full object-cover"
+          src="https://www.astmnsk.ru/image/cache/data/band2-600x315.jpg"
+          alt="работа у нас"
+        />
+      </div>
+    </main>
+  </div>
+
   <main>
     <div class="my-16 ml-8 text-center text-base">
       <div>
